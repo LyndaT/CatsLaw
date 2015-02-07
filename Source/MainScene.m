@@ -2,4 +2,20 @@
 
 @implementation MainScene
 
+- (id)init {
+    if (self = [super init]) {
+        //init stuff
+    }
+    return self;
+}
+
+- (void)didLoadFromCCB {
+    
+}
+
+- (void)play {
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"GamePlay"];
+    [[CCDirector sharedDirector] replaceScene:gameplayScene];
+}
+
 @end
