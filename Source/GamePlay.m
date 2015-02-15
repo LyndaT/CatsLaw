@@ -40,8 +40,8 @@ CGFloat gravitystrength = 2000;
  * Called when this file is loaded from CCB.
  */
 - (void)didLoadFromCCB {
-    currentLevel = [CCBReader load:@"Levels/TestLevel"];
-    cat = [CCBReader load:@"Sprites/Cat"];
+    currentLevel = [CCBReader load:@"levels/TestLevel"];
+    cat = [CCBReader load:@"sprites/Cat"];
     cat.scaleX=0.3;
     cat.scaleY=0.3;
     
