@@ -126,5 +126,23 @@ CGFloat gravitystrength = 2000;
 }
 
 
+/*
+ * onEnter and onExit call to start and stop the accelerometer on the phone
+ */
+- (void)onEnter
+{
+    [super onEnter];
+    
+    [_motionManager startAccelerometerUpdates];
+}
+
+- (void)onExit
+{
+    [super onExit];
+    
+    [_motionManager stopAccelerometerUpdates];
+}
+
+
 
 @end
