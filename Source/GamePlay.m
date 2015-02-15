@@ -9,6 +9,10 @@
 #import "GamePlay.h"
 
 @implementation GamePlay{
+    CCNode *currentLevel;
+    CCNode *cat;
+    
+    //from SpriteBuilder
     CCPhysicsNode *_physNode;
     CCNode *_levelNode;
 }
@@ -21,9 +25,13 @@
 }
 
 - (void)didLoadFromCCB {
-    CCNode *currentLevel = [CCBReader load:@"Levels/Level1"];
+    currentLevel = [CCBReader load:@"Levels/TestLevel"];
+    cat = [CCBReader load:@"Sprites/Cat"];
+    cat.scaleX=0.3;
+    cat.scaleY=0.3;
     
     [_levelNode addChild:currentLevel];
+    [_physNode addChild:cat];
 }
 
 @end
