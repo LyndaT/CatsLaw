@@ -41,12 +41,15 @@ CGFloat gravitystrength = 2000;
  */
 - (void)didLoadFromCCB {
     currentLevel = [CCBReader load:@"levels/TestLevel"];
-    cat = [CCBReader load:@"sprites/Cat"];
-    cat.scaleX=0.3;
-    cat.scaleY=0.3;
+    //cat = [CCBReader load:@"sprites/Cat"];
+    //cat.scaleX=0.3;
+    //cat.scaleY=0.3;
+    //cat.position = ccp(200,200);
+    //_levelNode.position = ccp(200,200);
+
     
     [_levelNode addChild:currentLevel];
-    [_physNode addChild:cat];
+    //[_physNode addChild:cat];
 }
 
 /*
@@ -58,6 +61,7 @@ CGFloat gravitystrength = 2000;
     CMAcceleration acceleration = accelerometerData.acceleration;
     
     [self changeGravity:acceleration.x :acceleration.y];
+    [self moveCat:delta];
     
 }
 
@@ -97,7 +101,8 @@ CGFloat gravitystrength = 2000;
     
         [self updateGravity:rotation];
         if (prevRotation!= rotation) {
-            cat.physicsBody.velocity = ccp(0,0);
+            //cat.physicsBody.velocity = ccp(0,0);
+            CCLOG(@"gravity changed");
         }
     //}
     
@@ -125,6 +130,10 @@ CGFloat gravitystrength = 2000;
     }
 }
 
+- (void)moveCat: (CCTime)delta{
+    cat.position = ccp(cat.position.x+10*delta, cat.position.y);
+    //CCLOG(@"cat moved");
+}
 
 /*
  * onEnter and onExit call to start and stop the accelerometer on the phone
