@@ -17,13 +17,13 @@ CGFloat gravitystrength = 2000;
     CCNode *cat;
     
     //from SpriteBuilder
-    CCPhysicsNode *_physNode;
-    CCNode *_levelNode;
+    CCPhysicsNode *physNode;
+    CCNode *levelNode;
     
     
     //for accelerometer
     //Please only create one motion manager.
-    CMMotionManager *_motionManager;
+    CMMotionManager *motionManager;
 }
 
 /*
@@ -31,7 +31,7 @@ CGFloat gravitystrength = 2000;
  */
 - (id)init {
     if (self = [super init]) {
-        _motionManager = [[CMMotionManager alloc] init];        //initiates the MotionManager
+        motionManager = [[CMMotionManager alloc] init];        //initiates the MotionManager
     }
     return self;
 }
@@ -40,16 +40,15 @@ CGFloat gravitystrength = 2000;
  * Called when this file is loaded from CCB.
  */
 - (void)didLoadFromCCB {
-    currentLevel = [CCBReader load:@"levels/TestLevel"];
-    //cat = [CCBReader load:@"sprites/Cat"];
-    //cat.scaleX=0.3;
-    //cat.scaleY=0.3;
-    //cat.position = ccp(200,200);
-    //_levelNode.position = ccp(200,200);
+    currentLevel = [CCBReader load:@"Levels/TestLevel"];
+    cat = [CCBReader load:@"Sprites/Cat"];
+    cat.scaleX=0.3;
+    cat.scaleY=0.3;
+    cat.position = ccp(200,200);
 
     
-    [_levelNode addChild:currentLevel];
-    //[_physNode addChild:cat];
+    [levelNode addChild:currentLevel];
+    [physNode addChild:cat];
 }
 
 /*
@@ -57,12 +56,12 @@ CGFloat gravitystrength = 2000;
  */
 - (void)update:(CCTime)delta {
     
-    CMAccelerometerData *accelerometerData = _motionManager.accelerometerData;
+    CMAccelerometerData *accelerometerData = motionManager.accelerometerData;
     CMAcceleration acceleration = accelerometerData.acceleration;
     
-    [self changeGravity:acceleration.x :acceleration.y];
     [self moveCat:delta];
-    
+
+    [self changeGravity:acceleration.x :acceleration.y];
 }
 
 
@@ -116,23 +115,23 @@ CGFloat gravitystrength = 2000;
  */
 - (void)updateGravity:(int)rotation {
     if (rotation == 270) {                                      //gravity right
-        _physNode.gravity= ccp(1*gravitystrength,0);
+        physNode.gravity= ccp(1*gravitystrength,0);
     }
     else if (rotation == 180) {                                 //gravity up
-        _physNode.gravity= ccp(0,1*gravitystrength);
+        physNode.gravity= ccp(0,1*gravitystrength);
     }
     else if (rotation == 90) {                                  //gravity left
-        _physNode.gravity= ccp(-1*gravitystrength,0);
+        physNode.gravity= ccp(-1*gravitystrength,0);
     }
     else {                                                      //gravity down
         rotation = 0;
-        _physNode.gravity= ccp(0,-1*gravitystrength);
+        physNode.gravity= ccp(0,-1*gravitystrength);
     }
 }
 
 - (void)moveCat: (CCTime)delta{
     cat.position = ccp(cat.position.x+10*delta, cat.position.y);
-    //CCLOG(@"cat moved");
+    CCLOG(@"cat moved");
 }
 
 /*
@@ -142,14 +141,14 @@ CGFloat gravitystrength = 2000;
 {
     [super onEnter];
     
-    [_motionManager startAccelerometerUpdates];
+    [motionManager startAccelerometerUpdates];
 }
 
 - (void)onExit
 {
     [super onExit];
     
-    [_motionManager stopAccelerometerUpdates];
+    [motionManager stopAccelerometerUpdates];
 }
 
 
