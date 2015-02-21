@@ -255,14 +255,15 @@ CGFloat gravitystrength = 2000;
         
     }
     
+    else {
+        [cat tryToCling];
+    }
 }
-- (void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
-{
-    
+- (void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+    [cat endCling];
 }
-- (void)touchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
-{
-    
+- (void)touchCancelled:(UITouch *)touch withEvent:(UIEvent *)event {
+    [self pause];
 }
 
 

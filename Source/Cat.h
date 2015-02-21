@@ -13,6 +13,8 @@
 @property (nonatomic, assign) BOOL isClinging;
 
 - (void) moveCat: (CCTime) delta directionOfGravity: (int) orientation;
+- (void) tryToCling;
+- (void) endCling;
 - (BOOL) isNyooming;
 
 @end
