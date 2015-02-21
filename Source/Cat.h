@@ -11,5 +11,6 @@
 @interface Cat : CCSprite
 
 - (void) moveCat: (CCTime) delta directionOfGravity: (int) orientation;
+- (BOOL) isNyooming;
 
 @end
