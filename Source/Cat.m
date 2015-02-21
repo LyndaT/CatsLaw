@@ -10,11 +10,15 @@
 
 @implementation Cat {
     int speed;
+    BOOL canCling;
 }
+
+@synthesize isClinging;
 
 - (id) init {
     if (self = [super init]) {
         speed = 30;
+        canCling = YES;
     }
     return self;
 }
@@ -23,19 +27,39 @@
  * Called when this file is loaded from CCB.
  */
 - (void)didLoadFromCCB {
-    self.scaleX=0.3;
-    self.scaleY=0.3;
+    self.scaleX = 0.3;
+    self.scaleY = 0.3;
+    isClinging = NO;
 }
 
-
+/*
+ * Checks cat velocity to see if it's nyooming
+ * Threshold dependent on current movement
+ */
 - (BOOL) isNyooming {
     return (sqrt(pow(self.physicsBody.velocity.x,2) + pow(self.physicsBody.velocity.y,2)) > speed + 10);
 }
 
+//Tries to make the cat cling
+- (void) tryToCling {
+    if (canCling) {
+        isClinging = YES;
+        //cling animation here
+    }
+}
+
+//Stop the cat from clinging
+- (void) endCling {
+    isClinging = NO;
+    //walk animation here
+}
 
 //A method to move the cat, requires an orientation to determine right way to move
 //Operates under assumption that orientation is always 0, 90, 180 or 270
 - (void) moveCat:(CCTime)delta directionOfGravity:(int)orientation {
+    if (isClinging) {
+        return;
+    }
     self.rotation = orientation;
     if (orientation == 0) {
         self.position = ccp(self.position.x + delta*speed, self.position.y);
