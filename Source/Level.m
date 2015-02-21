@@ -47,6 +47,10 @@
     [door unlock];
 }
 
+- (BOOL)isDoorUnlocked{
+    return door.isUnlocked;
+}
+
 /*
  * Returns a CGPoint that gives the cat's starting position
  */

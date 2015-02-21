@@ -12,6 +12,7 @@
 @interface Level : CCNode
 
 - (void)incrementCakeCount;
+- (BOOL)isDoorUnlocked;
 - (CGPoint)getCatStartPosition;
 - (float)getCatStartRotation;
 - (float)getLevelRotation;
