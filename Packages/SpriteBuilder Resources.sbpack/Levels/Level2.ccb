@@ -71,11 +71,11 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
-							<real>0.5</real>
+							<real>319</real>
+							<real>193</real>
 							<integer>0</integer>
-							<integer>2</integer>
-							<integer>2</integer>
+							<integer>0</integer>
+							<integer>0</integer>
 						</array>
 					</dict>
 					<dict>
@@ -109,7 +109,8 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>this is a level</string>
+							<string>lvl2
+</string>
 							<false/>
 						</array>
 					</dict>
@@ -254,7 +255,50 @@
 				<key>children</key>
 				<array/>
 				<key>customClass</key>
-				<string></string>
+				<string>Level</string>
+				<key>customProperties</key>
+				<array>
+					<dict>
+						<key>name</key>
+						<string>levelRotation</string>
+						<key>optimized</key>
+						<false/>
+						<key>type</key>
+						<integer>0</integer>
+						<key>value</key>
+						<string>0</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>numCakes</string>
+						<key>optimized</key>
+						<false/>
+						<key>type</key>
+						<integer>0</integer>
+						<key>value</key>
+						<string>0</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>nextLevel</string>
+						<key>optimized</key>
+						<false/>
+						<key>type</key>
+						<integer>0</integer>
+						<key>value</key>
+						<string>0</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>isCutsceneNext</string>
+						<key>optimized</key>
+						<false/>
+						<key>type</key>
+						<integer>0</integer>
+						<key>value</key>
+						<string>0</string>
+					</dict>
+				</array>
 				<key>displayName</key>
 				<string>groundCol</string>
 				<key>memberVarAssignmentName</key>
@@ -490,50 +534,7 @@
 			</dict>
 		</array>
 		<key>customClass</key>
-		<string>Level</string>
-		<key>customProperties</key>
-		<array>
-			<dict>
-				<key>name</key>
-				<string>levelRotation</string>
-				<key>optimized</key>
-				<false/>
-				<key>type</key>
-				<integer>0</integer>
-				<key>value</key>
-				<string>0</string>
-			</dict>
-			<dict>
-				<key>name</key>
-				<string>numCakes</string>
-				<key>optimized</key>
-				<false/>
-				<key>type</key>
-				<integer>0</integer>
-				<key>value</key>
-				<string>0</string>
-			</dict>
-			<dict>
-				<key>name</key>
-				<string>nextLevel</string>
-				<key>optimized</key>
-				<false/>
-				<key>type</key>
-				<integer>0</integer>
-				<key>value</key>
-				<string>0</string>
-			</dict>
-			<dict>
-				<key>name</key>
-				<string>isCutsceneNext</string>
-				<key>optimized</key>
-				<false/>
-				<key>type</key>
-				<integer>0</integer>
-				<key>value</key>
-				<string>0</string>
-			</dict>
-		</array>
+		<string></string>
 		<key>displayName</key>
 		<string>CCNode</string>
 		<key>memberVarAssignmentName</key>

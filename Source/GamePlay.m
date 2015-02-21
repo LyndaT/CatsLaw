@@ -19,6 +19,7 @@ CGFloat gravitystrength = 2000;
     Cat *cat;
     
     BOOL isPaused;
+    BOOL isAtDoor;
     
     CCNode *pauseMenu;
     
@@ -39,6 +40,7 @@ CGFloat gravitystrength = 2000;
  */
 - (id)init {
     if (self = [super init]) {
+        self.userInteractionEnabled = TRUE; //activate touches
         motionManager = [[CMMotionManager alloc] init];        //initiates the MotionManager
         isPaused=NO;
     }
@@ -160,6 +162,24 @@ CGFloat gravitystrength = 2000;
     return TRUE;
 }
 
+/*
+ * Colliding with door
+ * just maintains isAtDoor
+ */
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(CCNode *)Door
+{
+    isAtDoor=YES;
+    return TRUE;
+}
+/*
+ * end colliding w/door
+ */
+-(BOOL)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(CCNode *)Door
+{
+    isAtDoor=NO;
+    return TRUE;
+}
+
 //-------------------menu stuff
 
 /*
@@ -219,10 +239,34 @@ CGFloat gravitystrength = 2000;
 //-------------------level loading stuff
 
 - (void)loadLevel {
-    currentLevel = (Level *)[CCBReader load:@"Levels/TestLevel"];
+    currentLevel = (Level *)[CCBReader load:@"Levels/Level1"];
     [levelNode addChild:currentLevel];
 }
 
+
+//-------------------touch stuff
+
+/*
+ * Handling tap/hold/clench using touches
+ */
+- (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
+{
+    if (isAtDoor){
+        
+    }
+    
+}
+- (void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    
+}
+- (void)touchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    
+}
+
+
+//------------------------ for accelerometer
 
 /*
  * onEnter and onExit call to start and stop the accelerometer on the phone
