@@ -7,7 +7,18 @@
 //
 
 #import "CCNode.h"
+#import "Door.h"
 
 @interface Level : CCNode
 
+- (void)incrementCakeCount;
+- (CGPoint)getCatStartPosition;
+- (float)getCatStartRotation;
+- (float)getLevelRotation;
+- (int)getNumberOfCakes;
+- (CGPoint)getDoorPosition;
+- (float)getDoorRotation;
+- (int)getNextLevel;
+- (BOOL)isCutsceneNext;
+    
 @end

@@ -26,11 +26,17 @@
     [animationManager runAnimationsForSequenceNamed:@"pulse"];
 }
 
-- (void)eat{
+- (void)gone{
+    self.visible=false;
+}
+
+- (BOOL)eat{
     if (!isGone && self.visible){
         [animationManager runAnimationsForSequenceNamed:@"eat"];
         isGone=YES;
-        self.visible=false;
+        return YES;
+    }else {
+        return NO;
     }
 }
 

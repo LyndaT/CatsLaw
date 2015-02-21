@@ -37,6 +37,7 @@
 }
 
 - (void)open{
-    [animationManager runAnimationsForSequenceNamed:@"open"];}
+    [animationManager runAnimationsForSequenceNamed:@"open"];
+}
 
 @end

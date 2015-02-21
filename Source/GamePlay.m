@@ -8,13 +8,15 @@
 
 #import "GamePlay.h"
 #import "Cat.h"
+#import "Cake.h"
+#import "Level.h"
 #import <CoreMotion/CoreMotion.h>
 
 int rotation = 0;
 CGFloat gravitystrength = 2000;
 
 @implementation GamePlay{
-    CCNode *currentLevel;
+    Level *currentLevel;
     Cat *cat;
     
     BOOL isPaused;
@@ -47,20 +49,22 @@ CGFloat gravitystrength = 2000;
  * Called when this file is loaded from CCB.
  */
 - (void)didLoadFromCCB {
-    currentLevel = [CCBReader load:@"Levels/TestLevel"];
+    [self loadLevel];
     cat = (Cat *)[CCBReader load:@"Sprites/Cat"];
     cat.scaleX=0.3;
     cat.scaleY=0.3;
     cat.position = ccp(200,200);
-
     
-    [levelNode addChild:currentLevel];
     [physNode addChild:cat];
     
     //loads pause menu and sets owner as gameplay so that the buttons on the menu work
     pauseMenu = [CCBReader load:@"Paused" owner:self];
     [menuNode addChild:pauseMenu];
     pauseMenu.visible=false;
+    
+    
+    physNode.collisionDelegate = self;
+    cat.physicsBody.collisionType = @"cat";
 }
 
 /*
@@ -141,9 +145,19 @@ CGFloat gravitystrength = 2000;
     }
 }
 
-- (void)moveCat: (CCTime)delta{
-    cat.position = ccp(cat.position.x+10*delta, cat.position.y);
-    CCLOG(@"cat moved");
+//-------------------collision stuff
+
+/*
+ * Colliding with cake
+ * called when cat is at cake
+ */
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat cake:(Cake *)Cake
+{
+    BOOL isEaten = [Cake eat];
+    if (isEaten){
+        [currentLevel incrementCakeCount];
+    }
+    return TRUE;
 }
 
 //-------------------menu stuff
@@ -199,6 +213,14 @@ CGFloat gravitystrength = 2000;
     }
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene];
+}
+
+
+//-------------------level loading stuff
+
+- (void)loadLevel {
+    currentLevel = (Level *)[CCBReader load:@"Levels/TestLevel"];
+    [levelNode addChild:currentLevel];
 }
 
 

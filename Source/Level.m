@@ -7,6 +7,7 @@
 //
 
 #import "Level.h"
+#import "Door.h"
 
 @implementation Level {
     CCNode *catStartNode;
@@ -17,10 +18,33 @@
     int nextLevel;
     BOOL isCutsceneNext;
     
+    //not from spritebuilder
+    int cakeCount;
+    Door* door;
+    
 }
 
 - (void)didLoadFromCCB {
+    door = (Door *)[CCBReader load:@"Sprites/Door"];
+    door.scaleX= 0.3;
+    door.scaleY = 0.3;
+    door.position = doorNode.position;
+    [self addChild:door];
+
+    cakeCount=0;
     
+    if (cakeCount == numCakes){
+        //basically if numcakes==0 the door is unlocked
+        [door unlock];
+    }
+}
+
+
+//increases cake count
+//if cake count == numcakes, unlocks door
+- (void)incrementCakeCount{
+    cakeCount++;
+    [door unlock];
 }
 
 /*

@@ -13,6 +13,6 @@
 @property (nonatomic, assign) BOOL isGone;
 
 - (void)pulse;
-- (void)eat;
+- (BOOL)eat;
 
 @end
