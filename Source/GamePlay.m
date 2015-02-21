@@ -7,6 +7,7 @@
 //
 
 #import "GamePlay.h"
+#import "Cat.h"
 #import <CoreMotion/CoreMotion.h>
 
 int rotation = 0;
@@ -14,7 +15,7 @@ CGFloat gravitystrength = 2000;
 
 @implementation GamePlay{
     CCNode *currentLevel;
-    CCNode *cat;
+    Cat *cat;
     
     BOOL isPaused;
     
@@ -47,7 +48,7 @@ CGFloat gravitystrength = 2000;
  */
 - (void)didLoadFromCCB {
     currentLevel = [CCBReader load:@"Levels/TestLevel"];
-    cat = [CCBReader load:@"Sprites/Cat"];
+    cat = (Cat *)[CCBReader load:@"Sprites/Cat"];
     cat.scaleX=0.3;
     cat.scaleY=0.3;
     cat.position = ccp(200,200);
@@ -70,7 +71,7 @@ CGFloat gravitystrength = 2000;
     CMAccelerometerData *accelerometerData = motionManager.accelerometerData;
     CMAcceleration acceleration = accelerometerData.acceleration;
     
-    [self moveCat:delta];
+    [cat moveCat:delta directionOfGravity:rotation];
 
     [self changeGravity:acceleration.x :acceleration.y];
 }

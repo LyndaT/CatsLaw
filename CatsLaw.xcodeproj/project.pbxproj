@@ -93,6 +93,7 @@
 		B77F1B4017B978D7009739AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3F17B978D7009739AE /* CoreGraphics.framework */; };
 		B77F1B4217B978D7009739AE /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B4117B978D7009739AE /* CoreText.framework */; };
 		B78A0B10198AF87200C63841 /* Published-Android in Resources */ = {isa = PBXBuildFile; fileRef = B78A0B0F198AF87200C63841 /* Published-Android */; };
+		C65730BB1A916DF8005E918F /* Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = C65730BA1A916DF8005E918F /* Cat.m */; };
 		F2B04B051A9044E200D0F740 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B04B041A9044E200D0F740 /* Globals.m */; };
 		F2E722BE1A86676E00C9B77A /* GamePlay.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E722BD1A86676E00C9B77A /* GamePlay.m */; };
 /* End PBXBuildFile section */
@@ -232,6 +233,8 @@
 		B77F1B4117B978D7009739AE /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		B78A0B0F198AF87200C63841 /* Published-Android */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Published-Android"; sourceTree = "<group>"; };
 		B7B3713D180358F1007369CC /* libObjectiveChipmunk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libObjectiveChipmunk.a; path = "../libs/cocos2d-iphone/external/Chipmunk/xcode/build/Debug-iphoneos/libObjectiveChipmunk.a"; sourceTree = "<group>"; };
+		C65730B91A916DF8005E918F /* Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cat.h; path = Source/Cat.h; sourceTree = "<group>"; };
+		C65730BA1A916DF8005E918F /* Cat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cat.m; path = Source/Cat.m; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
 		F2B04B031A9044E200D0F740 /* Globals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Globals.h; path = Source/Globals.h; sourceTree = "<group>"; };
 		F2B04B041A9044E200D0F740 /* Globals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Globals.m; path = Source/Globals.m; sourceTree = "<group>"; };
@@ -466,6 +469,8 @@
 		B737893C1807616C0076A88C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				C65730B91A916DF8005E918F /* Cat.h */,
+				C65730BA1A916DF8005E918F /* Cat.m */,
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				B7378992180767190076A88C /* MainScene.h */,
 				B7378993180767190076A88C /* MainScene.m */,
@@ -875,6 +880,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C65730BB1A916DF8005E918F /* Cat.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				F2E722BE1A86676E00C9B77A /* GamePlay.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
