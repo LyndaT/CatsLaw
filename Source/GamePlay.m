@@ -12,7 +12,6 @@
 #import "Level.h"
 #import <CoreMotion/CoreMotion.h>
 
-int rotation = 0;
 CGFloat gravitystrength = 2000;
 
 @implementation GamePlay{
@@ -28,6 +27,7 @@ CGFloat gravitystrength = 2000;
     CCNode *levelNode;
     CCNode *menuNode;
     
+    int rotation;
     
     //for accelerometer
     //Please only create one motion manager.
@@ -51,9 +51,9 @@ CGFloat gravitystrength = 2000;
 - (void)didLoadFromCCB {
     [self loadLevel];
     cat = (Cat *)[CCBReader load:@"Sprites/Cat"];
-    cat.scaleX=0.3;
-    cat.scaleY=0.3;
     cat.position = ccp(200,200);
+    
+    rotation = 0;
     
     [physNode addChild:cat];
     
@@ -95,7 +95,7 @@ CGFloat gravitystrength = 2000;
  */
 
 - (void)changeGravity:(CGFloat)xaccel :(CGFloat)yaccel {
-    //if (![self isCatNyooming]) {          //implement when there's a cat...
+    if (![cat isNyooming]) {          //implement when there's a cat...
         int prevRotation = rotation;
         if (xaccel < 0.5 && xaccel > -0.5 && yaccel < -0.5)
         {
@@ -119,7 +119,7 @@ CGFloat gravitystrength = 2000;
             //cat.physicsBody.velocity = ccp(0,0);
             CCLOG(@"gravity changed");
         }
-    //}
+    }
     
 }
 
