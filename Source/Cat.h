@@ -15,6 +15,8 @@
 - (void) moveCat: (CCTime) delta directionOfGravity: (int) orientation;
 - (void) tryToCling;
 - (void) endCling;
+- (void) startImmunity;
+- (void) endImmunity;
 - (BOOL) isNyooming;
 
 @end

@@ -129,20 +129,20 @@ CGFloat gravitystrength = 2000;
  * updateGravity takes in the rotation of the phone and updates the gravity in the physics
  * node.
  *
- * @rotation: the rotation of the phone
+ * @phoneRotation: the rotation of the phone
  */
-- (void)updateGravity:(int)rotation {
-    if (rotation == 270) {                                      //gravity right
+- (void)updateGravity:(int)phoneRotation {
+    if (phoneRotation == 270) {                                      //gravity right
         physNode.gravity= ccp(1*gravitystrength,0);
     }
-    else if (rotation == 180) {                                 //gravity up
+    else if (phoneRotation == 180) {                                 //gravity up
         physNode.gravity= ccp(0,1*gravitystrength);
     }
-    else if (rotation == 90) {                                  //gravity left
+    else if (phoneRotation == 90) {                                  //gravity left
         physNode.gravity= ccp(-1*gravitystrength,0);
     }
     else {                                                      //gravity down
-        rotation = 0;
+        phoneRotation = 0;
         physNode.gravity= ccp(0,-1*gravitystrength);
     }
 }
@@ -155,11 +155,16 @@ CGFloat gravitystrength = 2000;
  */
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat cake:(Cake *)Cake
 {
-    BOOL isEaten = [Cake eat];
-    if (isEaten){
-        [currentLevel incrementCakeCount];
+    if ([cat isNyooming]) {
+        
     }
-    return TRUE;
+    else {
+        BOOL isEaten = [Cake eat];
+        if (isEaten){
+        [currentLevel incrementCakeCount];
+        }
+        return TRUE;
+    }
 }
 
 /*
