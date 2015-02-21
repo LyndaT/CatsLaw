@@ -16,9 +16,14 @@ CGFloat gravitystrength = 2000;
     CCNode *currentLevel;
     CCNode *cat;
     
+    BOOL isPaused;
+    
+    CCNode *pauseMenu;
+    
     //from SpriteBuilder
     CCPhysicsNode *physNode;
     CCNode *levelNode;
+    CCNode *menuNode;
     
     
     //for accelerometer
@@ -32,6 +37,7 @@ CGFloat gravitystrength = 2000;
 - (id)init {
     if (self = [super init]) {
         motionManager = [[CMMotionManager alloc] init];        //initiates the MotionManager
+        isPaused=NO;
     }
     return self;
 }
@@ -49,6 +55,11 @@ CGFloat gravitystrength = 2000;
     
     [levelNode addChild:currentLevel];
     [physNode addChild:cat];
+    
+    //loads pause menu and sets owner as gameplay so that the buttons on the menu work
+    pauseMenu = [CCBReader load:@"Paused" owner:self];
+    [menuNode addChild:pauseMenu];
+    pauseMenu.visible=false;
 }
 
 /*
@@ -133,6 +144,62 @@ CGFloat gravitystrength = 2000;
     cat.position = ccp(cat.position.x+10*delta, cat.position.y);
     CCLOG(@"cat moved");
 }
+
+//-------------------menu stuff
+
+/*
+ * if !isPaused, pauses game, shows pause menu
+ * if isPaused, calls unpause
+ */
+- (void)pause {
+    if (!isPaused){
+        [[CCDirector sharedDirector] pause];
+//        AppController *app = (AppController*)[UIApplication sharedApplication].delegate;
+//        app.userPaused = YES;
+        isPaused=YES;
+        CCLOG(@"rotation: %i",rotation);
+        pauseMenu.rotation = rotation;
+        pauseMenu.visible=true;
+    }
+    else{
+        [self unpause];
+    }
+}
+
+/*
+ * right now, unpauses game and gets rid of pause menu
+ */
+- (void)unpause {
+//    AppController *app = (AppController*)[UIApplication sharedApplication].delegate;
+//    app.userPaused = NO;
+//    [_globals.audio playEffect:@"assets/music/button.mp3"];
+    isPaused=NO;
+    [[CCDirector sharedDirector] resume];
+    pauseMenu.visible=false;
+}
+
+/*
+ * reloads gameplay scene
+ */
+- (void)restart {
+    if (isPaused) {
+        [self unpause];
+    }
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"scenes/GamePlay"];
+    [[CCDirector sharedDirector] replaceScene:gameplayScene];
+}
+
+/*
+ * loads menu scene
+ */
+- (void)toMenu {
+    if (isPaused) {
+        [self unpause];
+    }
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
+    [[CCDirector sharedDirector] replaceScene:gameplayScene];
+}
+
 
 /*
  * onEnter and onExit call to start and stop the accelerometer on the phone
