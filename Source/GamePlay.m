@@ -11,10 +11,12 @@
 #import "Cake.h"
 #import "Level.h"
 #import <CoreMotion/CoreMotion.h>
+#import "Globals.h"
 
 CGFloat gravitystrength = 2000;
 
 @implementation GamePlay{
+    Globals *globals;
     Level *currentLevel;
     Cat *cat;
     
@@ -40,6 +42,7 @@ CGFloat gravitystrength = 2000;
  */
 - (id)init {
     if (self = [super init]) {
+        globals = [Globals globalManager];
         self.userInteractionEnabled = TRUE; //activate touches
         motionManager = [[CMMotionManager alloc] init];        //initiates the MotionManager
         isPaused=NO;
@@ -51,6 +54,7 @@ CGFloat gravitystrength = 2000;
  * Called when this file is loaded from CCB.
  */
 - (void)didLoadFromCCB {
+    [globals setLevel:1];
     [self loadLevel];
     cat = (Cat *)[CCBReader load:@"Sprites/Cat"];
     cat.position = ccp(200,200);
@@ -244,8 +248,24 @@ CGFloat gravitystrength = 2000;
 //-------------------level loading stuff
 
 - (void)loadLevel {
-    currentLevel = (Level *)[CCBReader load:@"Levels/Level1"];
+    currentLevel = (Level *)[CCBReader load:[globals getCurrentLevelName]];
+    CCLOG([globals getCurrentLevelName]);
     [levelNode addChild:currentLevel];
+//    cat.position = [currentLevel getCatStartPosition];
+}
+
+- (void)clearLevel{
+    [levelNode removeChild:currentLevel];
+}
+
+- (void)incrementLevel {
+    [globals setLevel:(globals.currentLevelNumber+1)];
+}
+
+- (void)toNextLevel {
+    [self incrementLevel];
+    [self clearLevel];
+    [self loadLevel];
 }
 
 
@@ -256,8 +276,10 @@ CGFloat gravitystrength = 2000;
  */
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
-    if (isAtDoor){
-        
+    if (isAtDoor && [currentLevel isDoorUnlocked]){
+        CCLOG(@"HEY");
+        //eventual [cat knock]; or whatev
+        [self toNextLevel];
     }
     
     else {

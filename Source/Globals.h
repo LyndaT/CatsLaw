@@ -22,6 +22,7 @@
 
 + (id)globalManager;
 - (void)setLevel:(int)levelNumber;
+- (NSString*)getCurrentLevelName;
 - (void)setMusicOn:(BOOL)setting;
 - (void)setSFXOn:(BOOL)setting;
 

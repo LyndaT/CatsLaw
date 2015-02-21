@@ -45,6 +45,10 @@
     currentLevelNumber = levelNumber;
 }
 
+- (NSString*)getCurrentLevelName {
+    return [NSString stringWithFormat:@"Levels/Level%i", currentLevelNumber];
+}
+
 - (void)setMusicOn:(BOOL)setting {
     isMusicOn = setting;
 }
