@@ -251,7 +251,7 @@ CGFloat gravitystrength = 2000;
     currentLevel = (Level *)[CCBReader load:[globals getCurrentLevelName]];
     CCLOG([globals getCurrentLevelName]);
     [levelNode addChild:currentLevel];
-//    cat.position = [currentLevel getCatStartPosition];
+    cat.position = [currentLevel getCatStartPosition];
 }
 
 - (void)clearLevel{
