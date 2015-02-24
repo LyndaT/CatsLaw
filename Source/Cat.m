@@ -13,6 +13,7 @@
 @implementation Cat {
     int speed;
     BOOL isClinging;
+    CCAnimationManager* animationManager;
 }
 
 @synthesize canCling;
@@ -29,6 +30,7 @@
  * Called when this file is loaded from CCB.
  */
 - (void)didLoadFromCCB {
+    animationManager = self.animationManager;
     self.scaleX = 0.3;
     self.scaleY = 0.3;
     canCling = YES;
@@ -47,6 +49,7 @@
     if (canCling) {
         isClinging = YES;
         //cling animation here
+        [self cling];
     }
 }
 
@@ -54,6 +57,7 @@
 - (void) endCling {
     isClinging = NO;
     //walk animation here
+    [self walk];
 }
 
 //A method to move the cat, requires an orientation to determine right way to move
@@ -77,5 +81,33 @@
         self.position = ccp(self.position.x, self.position.y + delta*speed);
     }
 }
+
+
+//------------------ animations
+
+- (void)blink {
+    [animationManager runAnimationsForSequenceNamed:@"hover"];
+}
+
+- (void)walk {
+    [animationManager runAnimationsForSequenceNamed:@"walk"];
+}
+
+- (void)cling {
+    [animationManager runAnimationsForSequenceNamed:@"cling"];
+}
+
+- (void)knock {
+    [animationManager runAnimationsForSequenceNamed:@"knock"];
+}
+
+- (void)stand {
+    [animationManager runAnimationsForSequenceNamed:@"stand"];
+}
+
+- (void)sit {
+    [animationManager runAnimationsForSequenceNamed:@"sit"];
+}
+
 
 @end

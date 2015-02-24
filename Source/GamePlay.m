@@ -287,13 +287,13 @@ CGFloat immuneTime = 3.0f;
 //Puts the cat in a temporary immune state
 //Should be called everytime the level is loaded (or reloaded)
 - (void) startCatImmunity {
+    [cat blink];
     isCatImmune = YES;
     physNode.gravity = ccp(0, 0);
     cat.rotation = [currentLevel getLevelRotation];
     cat.physicsBody.velocity = ccp(0, 0);
     cat.physicsBody.angularVelocity = 0;
     [self scheduleOnce:@selector(endCatImmunity) delay:immuneTime];
-    //insert cat blinking animation
     CCLOG(@"starting immune");
 }
 
@@ -303,14 +303,14 @@ CGFloat immuneTime = 3.0f;
     if (isCatImmune) {
         isCatImmune = NO;
         [self updateGravity:[currentLevel getLevelRotation]];
-        //insert cat walking animation
+        [cat walk];
         CCLOG(@"ending immune");
     }
 }
 
 - (void)loadLevel {
     currentLevel = (Level *)[CCBReader load:[globals getCurrentLevelName]];
-    CCLOG([globals getCurrentLevelName]);
+//    CCLOG([globals getCurrentLevelName]);
     [levelNode addChild:currentLevel];
     cat.position = [currentLevel getCatStartPosition];
     [self startCatImmunity];
@@ -343,7 +343,7 @@ CGFloat immuneTime = 3.0f;
     }
     else if (isAtDoor && [currentLevel isDoorUnlocked]){
         CCLOG(@"HEY");
-        //eventual [cat knock]; or whatev
+        [cat knock];
         [self toNextLevel];
     }
     

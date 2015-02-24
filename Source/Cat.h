@@ -17,4 +17,11 @@
 - (void) endCling;
 - (BOOL) isNyooming;
 
+- (void)blink;
+- (void)walk;
+- (void)cling;
+- (void)knock;
+- (void)stand;
+- (void)sit;
+
 @end
