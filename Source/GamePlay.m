@@ -197,6 +197,7 @@ CGFloat immuneTime = 3.0f;
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat cake:(Cake *)Cake
 {
     if ([cat isNyooming]) {
+        CCLOG(@"SMOOSH");
         [self gameOver];
     }
     else {
@@ -342,7 +343,7 @@ CGFloat immuneTime = 3.0f;
     if (isCatImmune) {
         [self endCatImmunity];
     }
-    if (isAtDoor && [currentLevel isDoorUnlocked]){
+    else if (isAtDoor && [currentLevel isDoorUnlocked]){
         CCLOG(@"HEY");
         //eventual [cat knock]; or whatev
         [self toNextLevel];

@@ -31,7 +31,7 @@
 - (void)didLoadFromCCB {
     self.scaleX = 0.3;
     self.scaleY = 0.3;
-    canCling = NO;
+    canCling = YES;
 }
 
 /*
@@ -60,6 +60,7 @@
 //Operates under assumption that orientation is always 0, 90, 180 or 270
 - (void) moveCat:(CCTime)delta directionOfGravity:(int)orientation {
     if (isClinging) {
+        CCLOG(@"tryin to cling");
         return;
     }
     self.rotation = orientation;
