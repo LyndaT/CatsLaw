@@ -12,6 +12,7 @@
 @implementation Level {
     CCNode *catStartNode;
     CCNode *doorNode;
+    Door* door;
     
     float levelRotation;
     int numCakes;
@@ -20,16 +21,15 @@
     
     //not from spritebuilder
     int cakeCount;
-    Door* door;
     
 }
 
 - (void)didLoadFromCCB {
-    door = (Door *)[CCBReader load:@"Sprites/Door"];
-    door.scaleX= 0.3;
-    door.scaleY = 0.3;
-    door.position = doorNode.position;
-    [self addChild:door];
+//    door = (Door *)[CCBReader load:@"Sprites/Door"];
+//    door.scaleX= 0.3;
+//    door.scaleY = 0.3;
+//    door.position = doorNode.position;
+//    [self addChild:door];
 
     cakeCount=0;
     
