@@ -12,19 +12,15 @@
 
 @implementation Cat {
     int speed;
-    float immuneTime;
-    BOOL isImmune;
-    BOOL canCling;
+    BOOL isClinging;
 }
 
-@synthesize isClinging;
+@synthesize canCling;
 
 - (id) init {
     if (self = [super init]) {
         speed = 30;
-        immuneTime = 3.0f;
-        isImmune = NO;
-        canCling = YES;
+        isClinging = NO;
     }
     return self;
 }
@@ -35,17 +31,7 @@
 - (void)didLoadFromCCB {
     self.scaleX = 0.3;
     self.scaleY = 0.3;
-    isClinging = NO;
-}
-
-- (void) startImmunity {
-    
-    //insert cat blinking animation
-}
-
-- (void) endImmunity {
-    
-    //insert cat walking animation
+    canCling = NO;
 }
 
 /*

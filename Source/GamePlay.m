@@ -14,6 +14,7 @@
 #import "Globals.h"
 
 CGFloat gravitystrength = 2000;
+CGFloat immuneTime = 3.0f;
 
 @implementation GamePlay{
     Globals *globals;
@@ -21,14 +22,18 @@ CGFloat gravitystrength = 2000;
     Cat *cat;
     
     BOOL isPaused;
+    BOOL isGameOver;
     BOOL isAtDoor;
+    BOOL isCatImmune;
     
     CCNode *pauseMenu;
+    CCNode *deadMenu;
     
     //from SpriteBuilder
     CCPhysicsNode *physNode;
     CCNode *levelNode;
     CCNode *menuNode;
+    CCButton *pauseButton;
     
     int rotation;
     
@@ -45,7 +50,9 @@ CGFloat gravitystrength = 2000;
         globals = [Globals globalManager];
         self.userInteractionEnabled = TRUE; //activate touches
         motionManager = [[CMMotionManager alloc] init];        //initiates the MotionManager
-        isPaused=NO;
+        isPaused = NO;
+        isGameOver = NO;
+        isCatImmune = YES;
     }
     return self;
 }
@@ -68,6 +75,9 @@ CGFloat gravitystrength = 2000;
     [menuNode addChild:pauseMenu];
     pauseMenu.visible=false;
     
+    deadMenu = [CCBReader load:@"Dead" owner:self];
+    [menuNode addChild:deadMenu];
+    deadMenu.visible = false;
     
     physNode.collisionDelegate = self;
     cat.physicsBody.collisionType = @"cat";
@@ -81,9 +91,11 @@ CGFloat gravitystrength = 2000;
     CMAccelerometerData *accelerometerData = motionManager.accelerometerData;
     CMAcceleration acceleration = accelerometerData.acceleration;
     
-    [cat moveCat:delta directionOfGravity:rotation];
+    if (!isCatImmune) {
+        [cat moveCat:delta directionOfGravity:rotation];
 
-    [self changeGravity:acceleration.x :acceleration.y];
+        [self changeGravity:acceleration.x :acceleration.y];
+    }
 }
 
 
@@ -151,6 +163,31 @@ CGFloat gravitystrength = 2000;
     }
 }
 
+
+//call when entering the game over state
+-(void)gameOver {
+    isGameOver = YES;
+    [[CCDirector sharedDirector] pause];
+    isPaused=YES;
+    CCLOG(@"rotation: %i",rotation);
+    deadMenu.rotation = rotation;
+    deadMenu.visible=true;
+    pauseButton.visible = NO;
+    pauseButton.enabled = NO;
+}
+
+//call when exiting game over state
+//assumes unpause is called first
+-(void)revive {
+    isGameOver = NO;
+    [[CCDirector sharedDirector] resume];
+    isPaused=NO;
+    [self loadLevel];
+    deadMenu.visible=false;
+    pauseButton.visible = YES;
+    pauseButton.enabled = YES;
+}
+
 //-------------------collision stuff
 
 /*
@@ -160,7 +197,7 @@ CGFloat gravitystrength = 2000;
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat cake:(Cake *)Cake
 {
     if ([cat isNyooming]) {
-        
+        [self gameOver];
     }
     else {
         BOOL isEaten = [Cake eat];
@@ -224,6 +261,7 @@ CGFloat gravitystrength = 2000;
 
 /*
  * reloads gameplay scene
+ * TODO: have it reload the level instead (or so I assume)
  */
 - (void)restart {
     if (isPaused) {
@@ -247,11 +285,36 @@ CGFloat gravitystrength = 2000;
 
 //-------------------level loading stuff
 
+//Puts the cat in a temporary immune state
+//Should be called everytime the level is loaded (or reloaded)
+- (void) startCatImmunity {
+    isCatImmune = YES;
+    physNode.gravity = ccp(0, 0);
+    cat.rotation = [currentLevel getLevelRotation];
+    cat.physicsBody.velocity = ccp(0, 0);
+    cat.physicsBody.angularVelocity = 0;
+    [self scheduleOnce:@selector(endCatImmunity) delay:immuneTime];
+    //insert cat blinking animation
+    CCLOG(@"starting immune");
+}
+
+//Ends the cat's immune state
+//Called automatically after a certain amount of time or after a tap
+- (void) endCatImmunity {
+    if (isCatImmune) {
+        isCatImmune = NO;
+        [self updateGravity:[currentLevel getLevelRotation]];
+        //insert cat walking animation
+        CCLOG(@"ending immune");
+    }
+}
+
 - (void)loadLevel {
     currentLevel = (Level *)[CCBReader load:[globals getCurrentLevelName]];
     CCLOG([globals getCurrentLevelName]);
     [levelNode addChild:currentLevel];
     cat.position = [currentLevel getCatStartPosition];
+    [self startCatImmunity];
 }
 
 - (void)clearLevel{
@@ -276,6 +339,9 @@ CGFloat gravitystrength = 2000;
  */
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
+    if (isCatImmune) {
+        [self endCatImmunity];
+    }
     if (isAtDoor && [currentLevel isDoorUnlocked]){
         CCLOG(@"HEY");
         //eventual [cat knock]; or whatev

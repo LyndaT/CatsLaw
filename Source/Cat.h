@@ -10,13 +10,11 @@
 
 @interface Cat : CCSprite
 
-@property (nonatomic, assign) BOOL isClinging;
+@property (nonatomic, assign) BOOL canCling;
 
 - (void) moveCat: (CCTime) delta directionOfGravity: (int) orientation;
 - (void) tryToCling;
 - (void) endCling;
-- (void) startImmunity;
-- (void) endImmunity;
 - (BOOL) isNyooming;
 
 @end
