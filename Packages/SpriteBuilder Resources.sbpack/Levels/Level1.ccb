@@ -169,8 +169,6 @@
 								<string>Sprites/Door.ccb</string>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -178,7 +176,7 @@
 				<key>displayName</key>
 				<string>objectNode</string>
 				<key>memberVarAssignmentName</key>
-				<string>doorNode</string>
+				<string>objectNode</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -243,6 +241,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>

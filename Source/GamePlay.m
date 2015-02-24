@@ -66,8 +66,6 @@ CGFloat immuneTime = 3.0f;
     
     rotation = 0;
     
-    [physNode addChild:cat];
-    
     //loads pause menu and sets owner as gameplay so that the buttons on the menu work
     pauseMenu = [CCBReader load:@"Paused" owner:self];
     [menuNode addChild:pauseMenu];
@@ -312,11 +310,12 @@ CGFloat immuneTime = 3.0f;
     currentLevel = (Level *)[CCBReader load:[globals getCurrentLevelName]];
 //    CCLOG([globals getCurrentLevelName]);
     [levelNode addChild:currentLevel];
-    cat.position = [currentLevel getCatStartPosition];
+    [currentLevel addCatToLevel:cat];
     [self startCatImmunity];
 }
 
 - (void)clearLevel{
+    [currentLevel removeCatFromLevel:cat];
     [levelNode removeChild:currentLevel];
 }
 

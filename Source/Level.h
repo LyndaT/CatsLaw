@@ -8,6 +8,7 @@
 
 #import "CCNode.h"
 #import "Door.h"
+#import "Cat.h"
 
 @interface Level : CCNode
 
@@ -15,6 +16,8 @@
 - (BOOL)isDoorUnlocked;
 - (CGPoint)getCatStartPosition;
 - (float)getCatStartRotation;
+- (void)addCatToLevel: (Cat*) cat;
+- (void)removeCatFromLevel: (Cat*) cat;
 - (float)getLevelRotation;
 - (int)getNumberOfCakes;
 - (CGPoint)getDoorPosition;

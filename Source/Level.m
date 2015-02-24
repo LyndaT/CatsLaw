@@ -8,10 +8,11 @@
 
 #import "Level.h"
 #import "Door.h"
+#import "Cat.h"
 
 @implementation Level {
     CCNode *catStartNode;
-    CCNode *doorNode;
+    CCNode *objectNode;
     Door* door;
     
     float levelRotation;
@@ -66,6 +67,21 @@
 }
 
 /*
+ * adds the cat to the spawn node
+ */
+- (void)addCatToLevel:(Cat*) cat {
+    [catStartNode addChild:cat];
+    cat.position = ccp(0, 0);
+}
+
+/*
+ * removes the cat from the spawn node
+ */
+- (void)removeCatFromLevel:(Cat*) cat {
+    [cat removeFromParentAndCleanup:YES];
+}
+
+/*
  * Returns a float that gives the rotation of the level
  */
 - (float)getLevelRotation {
@@ -83,14 +99,14 @@
  * Returns a CGPoint that gives the door position
  */
 - (CGPoint)getDoorPosition {
-    return doorNode.position;
+    return door.position;
 }
 
 /*
  * Returns a CGPoint that gives the door location
  */
 - (float)getDoorRotation {
-    return doorNode.rotation;
+    return door.rotation;
 }
 
 /*
