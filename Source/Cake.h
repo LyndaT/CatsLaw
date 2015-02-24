@@ -10,9 +10,7 @@
 
 @interface Cake : CCNode
 
-@property (nonatomic, assign) BOOL isGone;
-
 - (void)pulse;
-- (BOOL)eat;
+- (void)eat;
 
 @end

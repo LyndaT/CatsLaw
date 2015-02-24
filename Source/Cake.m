@@ -12,14 +12,11 @@
     CCAnimationManager* animationManager;
 }
 
-@synthesize isGone;
-
 - (void)didLoadFromCCB
 {
     animationManager = self.animationManager;
     self.physicsBody.collisionType = @"cake";
     self.physicsBody.sensor = TRUE; //so cat can overlap with it
-    isGone=NO;
 }
 
 - (void)pulse{
@@ -27,17 +24,11 @@
 }
 
 - (void)gone{
-    self.visible=false;
+    [self removeFromParentAndCleanup:YES];
 }
 
-- (BOOL)eat{
-    if (!isGone && self.visible){
-        [animationManager runAnimationsForSequenceNamed:@"eat"];
-        isGone=YES;
-        return YES;
-    }else {
-        return NO;
-    }
+- (void)eat{
+    [animationManager runAnimationsForSequenceNamed:@"eat"];
 }
 
 @end

@@ -201,12 +201,10 @@ CGFloat immuneTime = 3.0f;
         [self gameOver];
     }
     else {
-        BOOL isEaten = [Cake eat];
-        if (isEaten){
+        [Cake eat];
         [currentLevel incrementCakeCount];
-        }
-        return TRUE;
     }
+    return TRUE;
 }
 
 /*
