@@ -62,9 +62,7 @@ CGFloat immuneTime = 3.0f;
  */
 - (void)didLoadFromCCB {
     [globals setLevel:1];
-    [self loadLevel];
     cat = (Cat *)[CCBReader load:@"Sprites/Cat"];
-    cat.position = ccp(200,200);
     
     rotation = 0;
     
@@ -81,6 +79,8 @@ CGFloat immuneTime = 3.0f;
     
     physNode.collisionDelegate = self;
     cat.physicsBody.collisionType = @"cat";
+    
+    [self loadLevel];
 }
 
 /*
