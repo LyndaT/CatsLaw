@@ -20,7 +20,14 @@
 
 - (id)init {
     if (self = [super init]) {
-        highestLevel = 1; //TODO: get this data to persist
+        NSUInteger highest = [[NSUserDefaults standardUserDefaults] integerForKey:@"highestLevel"];
+        if (highest == nil || highest==1) {
+            CCLOG(@"new game");
+            [self setHighestLevel:1];
+        } else {
+//            CCLOG(@"saved game %i", highest);
+            highestLevel=highest;
+        }
         currentLevelNumber = 1;
         isMusicOn=YES;
         isSFXOn=YES;
@@ -43,6 +50,9 @@
 
 - (void)setLevel:(int)levelNumber {
     currentLevelNumber = levelNumber;
+    if (currentLevelNumber > highestLevel) {
+        [self setHighestLevel:currentLevelNumber];
+    }
 }
 
 - (NSString*)getCurrentLevelName {
@@ -55,6 +65,16 @@
 
 - (void)setSFXOn:(BOOL)setting {
     isSFXOn = setting;
+}
+
+- (void)setHighestLevel:(int)highest {
+    highestLevel = highest;
+    [[NSUserDefaults standardUserDefaults] setInteger:highestLevel forKey:@"highestLevel"];
+}
+
+- (NSInteger)getHighestLevel {
+    highestLevel=[[NSUserDefaults standardUserDefaults] integerForKey:@"highestLevel"];
+    return highestLevel;
 }
 
 @end

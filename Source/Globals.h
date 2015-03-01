@@ -25,6 +25,7 @@
 - (NSString*)getCurrentLevelName;
 - (void)setMusicOn:(BOOL)setting;
 - (void)setSFXOn:(BOOL)setting;
-
+- (void)setHighestLevel:(int)highestLevel;
+- (NSInteger)getHighestLevel;
 
 @end

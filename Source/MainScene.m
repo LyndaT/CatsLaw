@@ -19,6 +19,7 @@
     }else
     {
         isFirstTime=NO;
+        [globals setLevel:globals.highestLevel];
     }
     
     // play background sound
