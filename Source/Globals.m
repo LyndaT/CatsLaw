@@ -32,6 +32,8 @@
         isMusicOn=YES;
         isSFXOn=YES;
         audio = [OALSimpleAudio sharedInstance];
+        
+        totalLevels = 8;
     }
     return self;
 }
