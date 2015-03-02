@@ -115,8 +115,6 @@
 								<string>Sprites/Door.ccb</string>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -4166,7 +4164,7 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>0</string>
+				<string>6</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -4247,6 +4245,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
