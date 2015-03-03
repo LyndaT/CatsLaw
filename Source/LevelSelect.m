@@ -53,10 +53,10 @@
                 CCNode* level = [CCBReader load:@"sprites/emptyLevel"];
                 if (levelCount < globals.highestLevel-1) {
                     level = [CCBReader load:@"sprites/doneLevel"];
-                    [(LevelButton*)level setLevel:0];
+                    [(LevelButton*)level setLevel:levelCount];
                 }else if (levelCount < globals.highestLevel){
                     level = [CCBReader load:@"sprites/nextLevel"];
-                    [(LevelButton*)level setLevel:1];
+                    [(LevelButton*)level setLevel:levelCount];
                 }
                 level.position= ccp(65+110*j + (screenWidth*k),195-110*i);
                 

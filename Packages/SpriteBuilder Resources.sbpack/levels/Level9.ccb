@@ -4366,7 +4366,7 @@
 			</dict>
 			<dict>
 				<key>name</key>
-				<string>nextlevel</string>
+				<string>nextLevel</string>
 				<key>optimized</key>
 				<false/>
 				<key>type</key>
@@ -4453,6 +4453,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

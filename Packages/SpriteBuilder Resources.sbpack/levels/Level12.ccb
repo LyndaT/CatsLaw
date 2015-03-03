@@ -58,7 +58,7 @@
 						<key>displayName</key>
 						<string>Door</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>door</string>
 						<key>memberVarAssignmentType</key>
 						<integer>1</integer>
 						<key>properties</key>
@@ -115,6 +115,8 @@
 								<string>sprites/Door.ccb</string>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -4664,8 +4666,6 @@
 								<real>1</real>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -4766,7 +4766,7 @@
 			</dict>
 			<dict>
 				<key>name</key>
-				<string>nextlevel</string>
+				<string>nextLevel</string>
 				<key>optimized</key>
 				<false/>
 				<key>type</key>
