@@ -76,7 +76,8 @@
  */
 - (void)update:(CCTime)delta {
     if (isTouching) {
-        buttons.position = ccp(buttons.position.x-(deltaX/2), 0);
+        CCLOG(@"deltax %i", deltaX);
+        buttons.position = ccp(buttons.position.x-(deltaX/4), 0);
     }
 }
 
@@ -97,23 +98,25 @@
 - (void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event{
     CGPoint touchPos = [touch locationInNode:self];
     deltaX = startX - touchPos.x;
-    CCLOG(@"deltaX %i, ",deltaX);
 }
 
-- (void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+- (void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
+    CGPoint touchPos = [touch locationInNode:self];
+    deltaX = startX - touchPos.x;
     if (deltaX > screenWidth/3) {
         //snap to next page
-        CCLOG(@"next page %i", deltaX);
-        currentPage++;
+        if (currentPage<globals.totalLevels){
+            currentPage++;
+        }
     } else if (deltaX < -screenWidth/3) {
         //snap to prev page
-        CCLOG(@"previous page %i", deltaX);
-        currentPage--;
+        if (currentPage>0){
+            currentPage--;
+        }
     } else {
         //snap to current page
-        CCLOG(@"same page, %i", deltaX);
     }
-    
+    CCLOG(@"total change, %i, current pg %i", deltaX, currentPage);
     [buttons runAction:[CCActionMoveTo actionWithDuration:0.15f
                                                  position:ccp(screenWidth*currentPage,0)]];
     isTouching=NO;
