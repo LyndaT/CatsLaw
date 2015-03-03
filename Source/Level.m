@@ -65,6 +65,7 @@
  * adds the cat to the spawn node
  */
 - (void)addCatToLevel:(Cat*) cat {
+    [cat removeFromParentAndCleanup:YES];
     [catStartNode addChild:cat];
     cat.position = ccp(0, 0);
 }
