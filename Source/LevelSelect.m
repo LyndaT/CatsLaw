@@ -50,12 +50,12 @@
         for (int i=0; i<rows; i++) {
             for (int j=0; j<cols; j++) {
 
-                CCNode* level = [CCBReader load:@"Sprites/emptyLevel"];
+                CCNode* level = [CCBReader load:@"sprites/emptyLevel"];
                 if (levelCount < globals.highestLevel-1) {
-                    level = [CCBReader load:@"Sprites/doneLevel"];
+                    level = [CCBReader load:@"sprites/doneLevel"];
                     [(LevelButton*)level setLevel:0];
                 }else if (levelCount < globals.highestLevel){
-                    level = [CCBReader load:@"Sprites/nextLevel"];
+                    level = [CCBReader load:@"sprites/nextLevel"];
                     [(LevelButton*)level setLevel:1];
                 }
                 level.position= ccp(65+110*j + (screenWidth*k),195-110*i);
