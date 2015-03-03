@@ -104,7 +104,7 @@
 								<key>type</key>
 								<string>CCBFile</string>
 								<key>value</key>
-								<string>Sprites/Cake.ccb</string>
+								<string>sprites/Cake.ccb</string>
 							</dict>
 						</array>
 					</dict>
@@ -169,8 +169,6 @@
 								<string>sprites/Door.ccb</string>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -321,6 +319,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
