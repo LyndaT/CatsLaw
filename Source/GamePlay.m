@@ -62,7 +62,7 @@ CGFloat immuneTime = 3.0f;
  * Called when this file is loaded from CCB.
  */
 - (void)didLoadFromCCB {
-    cat = (Cat *)[CCBReader load:@"Sprites/Cat"];
+    cat = (Cat *)[CCBReader load:@"sprites/Cat"];
     
     rotation = 0;
     
