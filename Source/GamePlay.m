@@ -9,6 +9,7 @@
 #import "GamePlay.h"
 #import "Cat.h"
 #import "Cake.h"
+#import "Tile.h"
 #import "Level.h"
 #import <CoreMotion/CoreMotion.h>
 #import "Globals.h"
@@ -205,6 +206,16 @@ CGFloat immuneTime = 3.0f;
 }
 
 /*
+ * Colliding with tiles
+ * called when cat touches a new tile
+ */
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(Cat *)Cat tile:(Tile *)Tile
+{
+    [Tile callOnCollision:Cat gameplayHolder:self];
+    return TRUE;
+}
+
+/*
  * Colliding with door
  * just maintains isAtDoor
  */
@@ -257,7 +268,6 @@ CGFloat immuneTime = 3.0f;
 
 /*
  * reloads gameplay scene
- * TODO: have it reload the level instead (or so I assume)
  */
 - (void)restart {
     if (isPaused) {

@@ -10,6 +10,6 @@
 
 @interface GamePlay : CCNode
 
-
+-(void)gameOver;
 
 @end
