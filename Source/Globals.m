@@ -33,7 +33,7 @@
         isSFXOn=YES;
         audio = [OALSimpleAudio sharedInstance];
         
-        totalLevels = 8;
+        totalLevels = 13;
     }
     return self;
 }
