@@ -24,6 +24,8 @@
     int deltaX;
     BOOL isTouching;
     int currentPage;
+    BOOL isSwipeRight;
+    int lastTouchPos;
 }
 
 - (id)init {
@@ -35,6 +37,7 @@
         screenWidth=568;
         isTouching=NO;
         currentPage=0;
+        isSwipeRight=NO;
     }
     return self;
 }
@@ -76,8 +79,10 @@
  */
 - (void)update:(CCTime)delta {
     if (isTouching) {
-        CCLOG(@"deltax %i", deltaX);
+//        CCLOG(@"deltax %i", deltaX);
         buttons.position = ccp(buttons.position.x-(deltaX/4), 0);
+        isTouching=NO;
+        deltaX=0;
     }
 }
 
@@ -88,16 +93,31 @@
  */
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
-    isTouching=YES;
     CGPoint touchPos = [touch locationInNode:self];
     startX = touchPos.x;
+    lastTouchPos=startX;
     deltaX=0;
-    CCLOG(@"touch start");
+    CCLOG(@"touch start %i", startX);
 }
 
 - (void)touchMoved:(CCTouch *)touch withEvent:(CCTouchEvent *)event{
     CGPoint touchPos = [touch locationInNode:self];
-    deltaX = startX - touchPos.x;
+    CCLOG(@"old %f new %f", lastTouchPos,touchPos.x);
+    if (lastTouchPos != touchPos.x){
+        
+        //changed swipe direction
+        if (lastTouchPos < touchPos.x && isSwipeRight){
+            isSwipeRight=NO;
+            startX = touchPos.x;
+        }else if (lastTouchPos > touchPos.x && !isSwipeRight){
+            isSwipeRight=YES;
+            startX=touchPos.x;
+        }
+        
+        isTouching=YES;
+        deltaX = startX - touchPos.x;
+        lastTouchPos=touchPos.x;
+    }
 }
 
 - (void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
@@ -116,9 +136,8 @@
     } else {
         //snap to current page
     }
-    CCLOG(@"total change, %i, current pg %i", deltaX, currentPage);
     [buttons runAction:[CCActionMoveTo actionWithDuration:0.15f
-                                                 position:ccp(screenWidth*currentPage,0)]];
+                                                 position:ccp(-screenWidth*currentPage,0)]];
     isTouching=NO;
 }
 - (void)touchCancelled:(UITouch *)touch withEvent:(UIEvent *)event {
