@@ -39,4 +39,9 @@
     [[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:globals.currentSceneName]];
 }
 
+- (void)settings {
+    globals.currentSceneName = @"scenes/Settings";
+    [[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:globals.currentSceneName]];
+}
+
 @end
