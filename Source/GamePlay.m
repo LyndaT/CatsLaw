@@ -350,9 +350,15 @@ CGFloat immuneTime = 3.0f;
         [self endCatImmunity];
     }
     else if (isAtDoor && [currentLevel isDoorUnlocked]){
-        CCLOG(@"HEY");
-        [cat knock];
-        [self toNextLevel];
+        if ([self clampRotations:cat.rotation secondRotation:[currentLevel getDoorRotation]]) {
+            CCLOG(@"HEY");
+            [cat knock];
+            [self toNextLevel];
+        }
+        else {
+            CCLOG(@"cat orient: %f", cat.rotation);
+            CCLOG(@"door orient: %f", [currentLevel getDoorRotation]);
+        }
     }
     
     else {
@@ -384,6 +390,28 @@ CGFloat immuneTime = 3.0f;
     [super onExit];
     
     [motionManager stopAccelerometerUpdates];
+}
+
+//----------dumb helper methods
+
+/*
+ * you dumbasses be inconsistent about angles so now I have to sanitize the input
+ * I HOPE YOU'RE ALL HAPPY
+ */
+- (bool) clampRotations:(float)rot1 secondRotation:(float)rot2 {
+    while (rot1 < 0) {
+        rot1 = rot1 + 360;
+    }
+    while (rot1 >= 360) {
+        rot1 = rot1 - 360;
+    }
+    while (rot2 < 0) {
+        rot2 = rot2 + 360;
+    }
+    while (rot2 >= 360) {
+        rot2 = rot2 - 360;
+    }
+    return (rot1 == rot2);
 }
 
 
