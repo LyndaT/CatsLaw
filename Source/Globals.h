@@ -23,8 +23,8 @@
 + (id)globalManager;
 - (void)setLevel:(int)levelNumber;
 - (NSString*)getCurrentLevelName;
-- (void)setMusicOn:(BOOL)setting;
-- (void)setSFXOn:(BOOL)setting;
+- (void)setMusicOn:(BOOL)setting vol:(int)v;
+- (void)setSFXOn:(BOOL)setting vol:(int)v;
 - (void)setHighestLevel:(int)highestLevel;
 - (NSInteger)getHighestLevel;
 
