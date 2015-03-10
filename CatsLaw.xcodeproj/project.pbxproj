@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		526398851AACBB8B00DCDFD0 /* Tutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = 526398841AACBB8B00DCDFD0 /* Tutorial.m */; };
 		52789FE11A98F604005697A1 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 52789FE01A98F604005697A1 /* Level.m */; };
 		52EE595B1A90517200C7633B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EE595A1A90517200C7633B /* CoreMotion.framework */; };
 		5B12100C19748281004C1E1D /* BridgeKitV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B12100B19748281004C1E1D /* BridgeKitV3.framework */; };
@@ -180,6 +181,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		526398831AACBB8B00DCDFD0 /* Tutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tutorial.h; path = Source/Tutorial.h; sourceTree = "<group>"; };
+		526398841AACBB8B00DCDFD0 /* Tutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tutorial.m; path = Source/Tutorial.m; sourceTree = "<group>"; };
 		52789FDF1A98F604005697A1 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Level.h; path = Source/Level.h; sourceTree = "<group>"; };
 		52789FE01A98F604005697A1 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Level.m; path = Source/Level.m; sourceTree = "<group>"; };
 		52EE595A1A90517200C7633B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -502,6 +505,8 @@
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				F2E722BC1A86676E00C9B77A /* GamePlay.h */,
 				F2E722BD1A86676E00C9B77A /* GamePlay.m */,
+				526398831AACBB8B00DCDFD0 /* Tutorial.h */,
+				526398841AACBB8B00DCDFD0 /* Tutorial.m */,
 				F2B04B031A9044E200D0F740 /* Globals.h */,
 				F2B04B041A9044E200D0F740 /* Globals.m */,
 				C63A683E1AA6151A0076721F /* Tile.h */,
@@ -933,6 +938,7 @@
 				F24DC7FC1AA42FE50060D185 /* LevelButton.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				F2E722BE1A86676E00C9B77A /* GamePlay.m in Sources */,
+				526398851AACBB8B00DCDFD0 /* Tutorial.m in Sources */,
 				F2B5C6C91AA37EC700B1524D /* LevelSelect.m in Sources */,
 				F2953BA11AABA1F30064BFBE /* Settings.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,

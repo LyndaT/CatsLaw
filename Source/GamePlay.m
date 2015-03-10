@@ -13,6 +13,7 @@
 #import "Level.h"
 #import <CoreMotion/CoreMotion.h>
 #import "Globals.h"
+#import "Tutorial.h"
 
 CGFloat gravitystrength = 2000;
 CGFloat immuneTime = 3.0f;
@@ -21,6 +22,7 @@ CGFloat immuneTime = 3.0f;
     Globals *globals;
     Level *currentLevel;
     Cat *cat;
+    Tutorial *tutorial;
     
     BOOL isPaused;
     BOOL isGameOver;
@@ -231,6 +233,34 @@ CGFloat immuneTime = 3.0f;
 {
     isAtDoor=NO;
     return TRUE;
+}
+
+//-------------------tutorial stuff
+
+/*
+ * Colliding with the tutorial collider
+ * Loads the tutorial with respect to the level that it is on
+ */
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat tutorial:(CCNode *)Tutorial
+{
+    CCLOG(@"Eyy tutorial");
+    tutorial = [self getChildByName:@"tutorialNode" recursively:YES];
+    [tutorial runTutorial];
+    [tutorial removeChildByName:@"tutorialCollider" cleanup:YES];
+    [[CCDirector sharedDirector] pause];
+    CCButton *resumeGame = [self getChildByName:@"tutorialResumeButton" recursively:YES];
+    resumeGame.enabled = true;
+    resumeGame.visible = true;
+    isPaused = YES;
+    return TRUE;
+}
+
+/*
+ * Resumes the game from the tutorial state
+ */
+- (void) resumeFromTutorial {
+    CCLOG(@"resume from tutorial");
+    [self unpause];
 }
 
 //-------------------menu stuff
