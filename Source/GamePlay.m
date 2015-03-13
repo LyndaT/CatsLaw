@@ -186,6 +186,15 @@ CGFloat immuneTime = 3.0f;
     pauseButton.enabled = YES;
 }
 
+//plays the door open anim and then loads next level
+- (void)openDoor{
+    [cat knock];
+    [currentLevel openDoor];
+    
+    //call toNextLevel in one second
+    [self scheduleOnce:@selector(toNextLevel) delay:1.0f];
+}
+
 //-------------------collision stuff
 
 /*
@@ -219,17 +228,19 @@ CGFloat immuneTime = 3.0f;
  * Colliding with door
  * just maintains isAtDoor
  */
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(CCNode *)Door
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(Door *)Door
 {
     isAtDoor=YES;
+    [Door hover];
     return TRUE;
 }
 /*
  * end colliding w/door
  */
--(BOOL)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(CCNode *)Door
+-(BOOL)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(Door *)Door
 {
     isAtDoor=NO;
+    [Door unHover];
     return TRUE;
 }
 
@@ -333,6 +344,7 @@ CGFloat immuneTime = 3.0f;
 }
 
 - (void)toNextLevel {
+    [cat setIsKnocking:NO];
     [self incrementLevel];
     [self clearLevel];
     [self loadLevel];
@@ -351,9 +363,9 @@ CGFloat immuneTime = 3.0f;
     }
     else if (isAtDoor && [currentLevel isDoorUnlocked]){
         if ([self clampRotations:cat.rotation secondRotation:[currentLevel getDoorRotation]]) {
-            CCLOG(@"HEY");
-            [cat knock];
-            [self toNextLevel];
+            //if you're the right door orientation
+//            CCLOG(@"HEY");
+            [self openDoor];
         }
         else {
             CCLOG(@"cat orient: %f", cat.rotation);

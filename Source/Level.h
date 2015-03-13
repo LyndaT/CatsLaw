@@ -14,6 +14,7 @@
 
 - (void)incrementCakeCount;
 - (BOOL)isDoorUnlocked;
+- (void)openDoor;
 - (CGPoint)getCatStartPosition;
 - (float)getCatStartRotation;
 - (void)addCatToLevel: (Cat*) cat;

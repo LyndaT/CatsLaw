@@ -36,6 +36,14 @@
     [animationManager runAnimationsForSequenceNamed:@"hover"];
 }
 
+- (void)unHover{
+    if (isUnlocked){
+        [self unlock];
+    }else {
+        [self lock];
+    }
+}
+
 - (void)open{
     [animationManager runAnimationsForSequenceNamed:@"open"];
 }
