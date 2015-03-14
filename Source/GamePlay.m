@@ -30,6 +30,7 @@ CGFloat immuneTime = 3.0f;
     
     CCNode *pauseMenu;
     DeathScreen *deadMenu;
+    CCNode *nextLevelMenu;
     
     //from SpriteBuilder
     CCPhysicsNode *physNode;
@@ -75,6 +76,10 @@ CGFloat immuneTime = 3.0f;
     deadMenu = (DeathScreen *)[CCBReader load:@"Dead" owner:self];
     [menuNode addChild:deadMenu];
     deadMenu.visible = false;
+    
+    nextLevelMenu = [CCBReader load:@"NextLevel" owner:self];
+    [menuNode addChild:nextLevelMenu];
+    nextLevelMenu.visible=false;
     
     physNode.collisionDelegate = self;
     cat.physicsBody.collisionType = @"cat";
@@ -197,8 +202,8 @@ CGFloat immuneTime = 3.0f;
     [cat knock];
     [currentLevel openDoor];
     
-    //call toNextLevel in one second
-    [self scheduleOnce:@selector(toNextLevel) delay:1.0f];
+    //call showNextLevelMenu in one second
+    [self scheduleOnce:@selector(showNextLevelMenu) delay:1.0f];
 }
 
 //-------------------collision stuff
@@ -349,7 +354,17 @@ CGFloat immuneTime = 3.0f;
     [globals setLevel:(globals.currentLevelNumber+1)];
 }
 
+- (void)showNextLevelMenu {
+    nextLevelMenu.rotation = rotation;
+    nextLevelMenu.visible=true;
+    pauseButton.visible = NO;
+    pauseButton.enabled = NO;
+}
+
 - (void)toNextLevel {
+    nextLevelMenu.visible=false;
+    pauseButton.visible = YES;
+    pauseButton.enabled = YES;
     [cat setIsKnocking:NO];
     [self incrementLevel];
     [self clearLevel];
