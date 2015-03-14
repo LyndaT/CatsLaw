@@ -105,6 +105,7 @@
 		F2B04B051A9044E200D0F740 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B04B041A9044E200D0F740 /* Globals.m */; };
 		F2B5C6C91AA37EC700B1524D /* LevelSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B5C6C81AA37EC700B1524D /* LevelSelect.m */; };
 		F2E722BE1A86676E00C9B77A /* GamePlay.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E722BD1A86676E00C9B77A /* GamePlay.m */; };
+		F2EF85101AB4A5C70081E952 /* DeathScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = F2EF850F1AB4A5C70081E952 /* DeathScreen.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -267,6 +268,8 @@
 		F2B5C6C81AA37EC700B1524D /* LevelSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelSelect.m; path = Source/LevelSelect.m; sourceTree = "<group>"; };
 		F2E722BC1A86676E00C9B77A /* GamePlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GamePlay.h; path = Source/GamePlay.h; sourceTree = "<group>"; };
 		F2E722BD1A86676E00C9B77A /* GamePlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GamePlay.m; path = Source/GamePlay.m; sourceTree = "<group>"; };
+		F2EF850E1AB4A5C70081E952 /* DeathScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeathScreen.h; path = Source/DeathScreen.h; sourceTree = "<group>"; };
+		F2EF850F1AB4A5C70081E952 /* DeathScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeathScreen.m; path = Source/DeathScreen.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -505,6 +508,8 @@
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				F2E722BC1A86676E00C9B77A /* GamePlay.h */,
 				F2E722BD1A86676E00C9B77A /* GamePlay.m */,
+				F2EF850E1AB4A5C70081E952 /* DeathScreen.h */,
+				F2EF850F1AB4A5C70081E952 /* DeathScreen.m */,
 				F2B04B031A9044E200D0F740 /* Globals.h */,
 				F2B04B041A9044E200D0F740 /* Globals.m */,
 				C63A683E1AA6151A0076721F /* Tile.h */,
@@ -947,6 +952,7 @@
 				F2B04B051A9044E200D0F740 /* Globals.m in Sources */,
 				C63A68451AA61C9B0076721F /* Water.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
+				F2EF85101AB4A5C70081E952 /* DeathScreen.m in Sources */,
 				F2127E881A9914C40048124A /* Door.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

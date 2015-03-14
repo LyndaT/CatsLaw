@@ -13,6 +13,7 @@
 #import "Level.h"
 #import <CoreMotion/CoreMotion.h>
 #import "Globals.h"
+#import "DeathScreen.h"
 
 CGFloat gravitystrength = 2000;
 CGFloat immuneTime = 3.0f;
@@ -28,7 +29,7 @@ CGFloat immuneTime = 3.0f;
     BOOL isCatImmune;
     
     CCNode *pauseMenu;
-    CCNode *deadMenu;
+    DeathScreen *deadMenu;
     
     //from SpriteBuilder
     CCPhysicsNode *physNode;
@@ -71,7 +72,7 @@ CGFloat immuneTime = 3.0f;
     [menuNode addChild:pauseMenu];
     pauseMenu.visible=false;
     
-    deadMenu = [CCBReader load:@"Dead" owner:self];
+    deadMenu = (DeathScreen *)[CCBReader load:@"Dead" owner:self];
     [menuNode addChild:deadMenu];
     deadMenu.visible = false;
     
@@ -163,7 +164,12 @@ CGFloat immuneTime = 3.0f;
 
 
 //call when entering the game over state
--(void)gameOver {
+-(void)gameOver: (NSString *)method {
+    if ([method isEqualToString:@"cake"]){
+        [deadMenu cake];
+    }else if ([method isEqualToString:@"water"]){
+        [deadMenu water];
+    }
     isGameOver = YES;
     [[CCDirector sharedDirector] pause];
     isPaused=YES;
@@ -205,7 +211,7 @@ CGFloat immuneTime = 3.0f;
 {
     if ([cat isNyooming]) {
         CCLOG(@"SMOOSH");
-        [self gameOver];
+        [self gameOver: @"cake"];
     }
     else {
         [Cake eat];

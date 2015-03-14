@@ -14,7 +14,7 @@
 //called upon cat water collision
 //should put game in gameOver state
 - (void) callOnCollision:(Cat*)cat gameplayHolder:(GamePlay *)gameplay{
-    [gameplay gameOver];
+    [gameplay gameOver: @"water"];
 }
 
 
