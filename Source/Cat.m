@@ -13,6 +13,7 @@
 @implementation Cat {
     int speed;
     BOOL isClinging;
+    BOOL isKnocking;
     CCAnimationManager* animationManager;
 }
 
@@ -22,6 +23,7 @@
     if (self = [super init]) {
         speed = 30;
         isClinging = NO;
+        isKnocking = NO;
     }
     return self;
 }
@@ -55,16 +57,17 @@
 
 //Stop the cat from clinging
 - (void) endCling {
-    isClinging = NO;
-    //walk animation here
-    [self walk];
+    if (isClinging){
+        isClinging = NO;
+        [self walk];
+    }
 }
 
 //A method to move the cat, requires an orientation to determine right way to move
 //Operates under assumption that orientation is always 0, 90, 180 or 270
 - (void) moveCat:(CCTime)delta directionOfGravity:(int)orientation {
-    if (isClinging) {
-        CCLOG(@"tryin to cling");
+    if (isClinging || isKnocking) {
+        //CCLOG(@"tryin to cling");
         return;
     }
     self.rotation = orientation;
@@ -82,6 +85,9 @@
     }
 }
 
+- (void)setIsKnocking: (BOOL)set {
+    isKnocking = set;
+}
 
 //------------------ animations
 
@@ -98,6 +104,7 @@
 }
 
 - (void)knock {
+    isKnocking=YES;
     [animationManager runAnimationsForSequenceNamed:@"knock"];
 }
 

@@ -33,7 +33,17 @@
 }
 
 - (void)hover{
-    [animationManager runAnimationsForSequenceNamed:@"hover"];
+    if (isUnlocked){
+        [animationManager runAnimationsForSequenceNamed:@"hover"];
+    }
+}
+
+- (void)unHover{
+    if (isUnlocked){
+        [self unlock];
+    }else {
+        [self lock];
+    }
 }
 
 - (void)open{

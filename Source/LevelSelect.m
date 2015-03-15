@@ -26,6 +26,7 @@
     int currentPage;
     BOOL isSwipeRight;
     int lastTouchPos;
+    NSMutableArray* pageIndicator;
 }
 
 - (id)init {
@@ -38,13 +39,44 @@
         isTouching=NO;
         currentPage=0;
         isSwipeRight=NO;
+        pageIndicator = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 - (void)didLoadFromCCB {
     pages = ceil(globals.totalLevels / (rows * cols));
+    [self setPageIndicator];
     [self setButtons];
+}
+
+//places the dots at the bottom
+- (void)setPageIndicator {
+    int halfWidth = [CCDirector sharedDirector].viewSize.width/2;
+    int increment = 20; //between dots
+    int startingPoint = halfWidth - (pages * increment)/2;//where the first dot starts
+    for (int p=0; p<=pages; p++) {
+        CCNode* pageDot = [CCBReader load:@"sprites/emptyLevel"];
+        pageDot.scale = 0.075;
+        if (p == currentPage) {
+            pageDot.scale = 0.15;
+        }
+        pageDot.position = ccp(startingPoint + p*increment, 15);
+        [pageIndicator addObject:pageDot];
+        [self addChild:pageDot];
+    }
+}
+
+//indicates you're on currentPage
+//makes that dot larger
+- (void)indicatePage {
+    for (int p=0; p<=pages; p++) {
+        CCNode* currentDot = (CCNode *)[pageIndicator objectAtIndex:p];
+        currentDot.scale = 0.075;
+        if (p == currentPage) {
+            currentDot.scale = 0.15;
+        }
+    }
 }
 
 - (void)setButtons {
@@ -125,14 +157,16 @@
     deltaX = startX - touchPos.x;
     if (deltaX > screenWidth/3) {
         //snap to next page
-        if (currentPage<globals.totalLevels){
+        if (currentPage<pages){
             currentPage++;
         }
+        [self indicatePage];
     } else if (deltaX < -screenWidth/3) {
         //snap to prev page
         if (currentPage>0){
             currentPage--;
         }
+        [self indicatePage];
     } else {
         //snap to current page
     }

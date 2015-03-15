@@ -13,7 +13,11 @@
 #import "Level.h"
 #import <CoreMotion/CoreMotion.h>
 #import "Globals.h"
+<<<<<<< HEAD
 #import "Tutorial.h"
+=======
+#import "DeathScreen.h"
+>>>>>>> origin/master
 
 CGFloat gravitystrength = 2000;
 CGFloat immuneTime = 3.0f;
@@ -30,7 +34,8 @@ CGFloat immuneTime = 3.0f;
     BOOL isCatImmune;
     
     CCNode *pauseMenu;
-    CCNode *deadMenu;
+    DeathScreen *deadMenu;
+    CCNode *nextLevelMenu;
     
     //from SpriteBuilder
     CCPhysicsNode *physNode;
@@ -73,9 +78,13 @@ CGFloat immuneTime = 3.0f;
     [menuNode addChild:pauseMenu];
     pauseMenu.visible=false;
     
-    deadMenu = [CCBReader load:@"Dead" owner:self];
+    deadMenu = (DeathScreen *)[CCBReader load:@"Dead" owner:self];
     [menuNode addChild:deadMenu];
     deadMenu.visible = false;
+    
+    nextLevelMenu = [CCBReader load:@"NextLevel" owner:self];
+    [menuNode addChild:nextLevelMenu];
+    nextLevelMenu.visible=false;
     
     physNode.collisionDelegate = self;
     cat.physicsBody.collisionType = @"cat";
@@ -165,7 +174,12 @@ CGFloat immuneTime = 3.0f;
 
 
 //call when entering the game over state
--(void)gameOver {
+-(void)gameOver: (NSString *)method {
+    if ([method isEqualToString:@"cake"]){
+        [deadMenu cake];
+    }else if ([method isEqualToString:@"water"]){
+        [deadMenu water];
+    }
     isGameOver = YES;
     [[CCDirector sharedDirector] pause];
     isPaused=YES;
@@ -188,6 +202,15 @@ CGFloat immuneTime = 3.0f;
     pauseButton.enabled = YES;
 }
 
+//plays the door open anim and then loads next level
+- (void)openDoor{
+    [cat knock];
+    [currentLevel openDoor];
+    
+    //call showNextLevelMenu in one second
+    [self scheduleOnce:@selector(showNextLevelMenu) delay:1.0f];
+}
+
 //-------------------collision stuff
 
 /*
@@ -198,7 +221,7 @@ CGFloat immuneTime = 3.0f;
 {
     if ([cat isNyooming]) {
         CCLOG(@"SMOOSH");
-        [self gameOver];
+        [self gameOver: @"cake"];
     }
     else {
         [Cake eat];
@@ -221,17 +244,19 @@ CGFloat immuneTime = 3.0f;
  * Colliding with door
  * just maintains isAtDoor
  */
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(CCNode *)Door
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(Door *)Door
 {
     isAtDoor=YES;
+    [Door hover];
     return TRUE;
 }
 /*
  * end colliding w/door
  */
--(BOOL)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(CCNode *)Door
+-(BOOL)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(Door *)Door
 {
     isAtDoor=NO;
+    [Door unHover];
     return TRUE;
 }
 
@@ -362,7 +387,18 @@ CGFloat immuneTime = 3.0f;
     [globals setLevel:(globals.currentLevelNumber+1)];
 }
 
+- (void)showNextLevelMenu {
+    nextLevelMenu.rotation = rotation;
+    nextLevelMenu.visible=true;
+    pauseButton.visible = NO;
+    pauseButton.enabled = NO;
+}
+
 - (void)toNextLevel {
+    nextLevelMenu.visible=false;
+    pauseButton.visible = YES;
+    pauseButton.enabled = YES;
+    [cat setIsKnocking:NO];
     [self incrementLevel];
     [self clearLevel];
     [self loadLevel];
@@ -380,9 +416,15 @@ CGFloat immuneTime = 3.0f;
         [self endCatImmunity];
     }
     else if (isAtDoor && [currentLevel isDoorUnlocked]){
-        CCLOG(@"HEY");
-        [cat knock];
-        [self toNextLevel];
+        if ([self clampRotations:cat.rotation secondRotation:[currentLevel getDoorRotation]]) {
+            //if you're the right door orientation
+//            CCLOG(@"HEY");
+            [self openDoor];
+        }
+        else {
+            CCLOG(@"cat orient: %f", cat.rotation);
+            CCLOG(@"door orient: %f", [currentLevel getDoorRotation]);
+        }
     }
     
     else {
@@ -414,6 +456,28 @@ CGFloat immuneTime = 3.0f;
     [super onExit];
     
     [motionManager stopAccelerometerUpdates];
+}
+
+//----------dumb helper methods
+
+/*
+ * you dumbasses be inconsistent about angles so now I have to sanitize the input
+ * I HOPE YOU'RE ALL HAPPY
+ */
+- (bool) clampRotations:(float)rot1 secondRotation:(float)rot2 {
+    while (rot1 < 0) {
+        rot1 = rot1 + 360;
+    }
+    while (rot1 >= 360) {
+        rot1 = rot1 - 360;
+    }
+    while (rot2 < 0) {
+        rot2 = rot2 + 360;
+    }
+    while (rot2 >= 360) {
+        rot2 = rot2 - 360;
+    }
+    return (rot1 == rot2);
 }
 
 

@@ -16,6 +16,7 @@
 - (void) tryToCling;
 - (void) endCling;
 - (BOOL) isNyooming;
+- (void) setIsKnocking: (BOOL)set;
 
 - (void)blink;
 - (void)walk;

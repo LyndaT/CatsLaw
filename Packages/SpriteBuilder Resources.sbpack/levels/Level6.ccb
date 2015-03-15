@@ -104,7 +104,7 @@
 								<key>type</key>
 								<string>Degrees</string>
 								<key>value</key>
-								<real>-90</real>
+								<real>270</real>
 							</dict>
 							<dict>
 								<key>name</key>
@@ -115,6 +115,8 @@
 								<string>sprites/Door.ccb</string>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -2966,8 +2968,6 @@
 								<real>1</real>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -3226,7 +3226,7 @@
 				<key>type</key>
 				<integer>1</integer>
 				<key>value</key>
-				<string>90.000000</string>
+				<string>180.000000</string>
 			</dict>
 			<dict>
 				<key>name</key>

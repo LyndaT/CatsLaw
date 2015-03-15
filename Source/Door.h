@@ -15,6 +15,7 @@
 - (void)unlock;
 - (void)lock;
 - (void)hover;
+- (void)unHover;
 - (void)open;
 
 @end

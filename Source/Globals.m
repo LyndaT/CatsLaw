@@ -61,12 +61,14 @@
     return [NSString stringWithFormat:@"levels/Level%i", currentLevelNumber];
 }
 
-- (void)setMusicOn:(BOOL)setting {
+- (void)setMusicOn:(BOOL)setting vol:(int)v {
     isMusicOn = setting;
+    [audio setBgVolume:v];
 }
 
-- (void)setSFXOn:(BOOL)setting {
+- (void)setSFXOn:(BOOL)setting vol:(int)v{
     isSFXOn = setting;
+    [audio setEffectsVolume:v];
 }
 
 - (void)setHighestLevel:(int)highest {

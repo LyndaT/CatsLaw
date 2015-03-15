@@ -10,6 +10,6 @@
 
 @interface GamePlay : CCNode
 
--(void)gameOver;
+-(void)gameOver: (NSString *)method;
 
 @end
