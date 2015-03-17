@@ -193,6 +193,7 @@ CGFloat immuneTime = 3.0f;
     isGameOver = NO;
     [[CCDirector sharedDirector] resume];
     isPaused=NO;
+    [self clearLevel];
     [self loadLevel];
     deadMenu.visible=false;
     pauseButton.visible = YES;
@@ -387,12 +388,16 @@ CGFloat immuneTime = 3.0f;
 - (void)showNextLevelMenu {
     nextLevelMenu.rotation = rotation;
     nextLevelMenu.visible=true;
+    [[CCDirector sharedDirector] pause];
+    isPaused=YES;
     pauseButton.visible = NO;
     pauseButton.enabled = NO;
 }
 
 - (void)toNextLevel {
     nextLevelMenu.visible=false;
+    [[CCDirector sharedDirector] resume];
+    isPaused=NO;
     pauseButton.visible = YES;
     pauseButton.enabled = YES;
     [cat setIsKnocking:NO];
@@ -409,23 +414,25 @@ CGFloat immuneTime = 3.0f;
  */
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
-    if (isCatImmune) {
-        [self endCatImmunity];
-    }
-    else if (isAtDoor && [currentLevel isDoorUnlocked]){
-        if ([self clampRotations:cat.rotation secondRotation:[currentLevel getDoorRotation]]) {
-            //if you're the right door orientation
-//            CCLOG(@"HEY");
-            [self openDoor];
+    if (!isPaused){
+        if (isCatImmune) {
+            [self endCatImmunity];
         }
+        else if (isAtDoor && [currentLevel isDoorUnlocked]){
+            if ([self clampRotations:cat.rotation secondRotation:[currentLevel getDoorRotation]]) {
+                //if you're the right door orientation
+    //            CCLOG(@"HEY");
+                [self openDoor];
+            }
+            else {
+                CCLOG(@"cat orient: %f", cat.rotation);
+                CCLOG(@"door orient: %f", [currentLevel getDoorRotation]);
+            }
+        }
+        
         else {
-            CCLOG(@"cat orient: %f", cat.rotation);
-            CCLOG(@"door orient: %f", [currentLevel getDoorRotation]);
+            [cat tryToCling];
         }
-    }
-    
-    else {
-        [cat tryToCling];
     }
 }
 - (void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
