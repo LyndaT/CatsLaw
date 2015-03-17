@@ -15,6 +15,7 @@
     BOOL isClinging;
     BOOL isKnocking;
     CCAnimationManager* animationManager;
+    int direction; //either 1 or -1. 1 is it goes right, -1 is left
 }
 
 @synthesize canCling;
@@ -24,6 +25,7 @@
         speed = 30;
         isClinging = NO;
         isKnocking = NO;
+        direction = 1;
     }
     return self;
 }
@@ -72,21 +74,25 @@
     }
     self.rotation = orientation;
     if (orientation == 0) {
-        self.position = ccp(self.position.x + delta*speed, self.position.y);
+        self.position = ccp(self.position.x + direction*delta*speed, self.position.y);
     }
     else if (orientation == 90) {
-        self.position = ccp(self.position.x, self.position.y - delta*speed);
+        self.position = ccp(self.position.x, self.position.y - direction*delta*speed);
     }
     else if (orientation == 180) {
-        self.position = ccp(self.position.x - delta*speed, self.position.y);
+        self.position = ccp(self.position.x - direction*delta*speed, self.position.y);
     }
     else if (orientation == 270) {
-        self.position = ccp(self.position.x, self.position.y + delta*speed);
+        self.position = ccp(self.position.x, self.position.y + direction*delta*speed);
     }
 }
 
 - (void)setIsKnocking: (BOOL)set {
     isKnocking = set;
+}
+
+- (void)setDirection: (int)dir {
+    direction = dir;
 }
 
 //------------------ animations

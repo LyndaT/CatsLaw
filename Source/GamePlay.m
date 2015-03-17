@@ -13,11 +13,8 @@
 #import "Level.h"
 #import <CoreMotion/CoreMotion.h>
 #import "Globals.h"
-<<<<<<< HEAD
 #import "Tutorial.h"
-=======
 #import "DeathScreen.h"
->>>>>>> origin/master
 
 CGFloat gravitystrength = 2000;
 CGFloat immuneTime = 3.0f;

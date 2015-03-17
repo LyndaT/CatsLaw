@@ -17,6 +17,7 @@
 - (void) endCling;
 - (BOOL) isNyooming;
 - (void) setIsKnocking: (BOOL)set;
+- (void)setDirection: (int)dir;
 
 - (void)blink;
 - (void)walk;

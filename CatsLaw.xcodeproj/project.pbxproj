@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		526398851AACBB8B00DCDFD0 /* Tutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = 526398841AACBB8B00DCDFD0 /* Tutorial.m */; };
 		52789FE11A98F604005697A1 /* Level.m in Sources */ = {isa = PBXBuildFile; fileRef = 52789FE01A98F604005697A1 /* Level.m */; };
 		52EE595B1A90517200C7633B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EE595A1A90517200C7633B /* CoreMotion.framework */; };
 		5B12100C19748281004C1E1D /* BridgeKitV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B12100B19748281004C1E1D /* BridgeKitV3.framework */; };
@@ -100,11 +99,14 @@
 		C65730BB1A916DF8005E918F /* Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = C65730BA1A916DF8005E918F /* Cat.m */; };
 		F2127E841A9914BC0048124A /* Cake.m in Sources */ = {isa = PBXBuildFile; fileRef = F2127E831A9914BC0048124A /* Cake.m */; };
 		F2127E881A9914C40048124A /* Door.m in Sources */ = {isa = PBXBuildFile; fileRef = F2127E871A9914C40048124A /* Door.m */; };
+		F21ED9E41AACB66F0028BFDD /* Credits.m in Sources */ = {isa = PBXBuildFile; fileRef = F21ED9E31AACB66F0028BFDD /* Credits.m */; };
+		F23438661AB7D6B80093FF6D /* Grass.m in Sources */ = {isa = PBXBuildFile; fileRef = F23438651AB7D6B80093FF6D /* Grass.m */; };
 		F24DC7FC1AA42FE50060D185 /* LevelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F24DC7FB1AA42FE50060D185 /* LevelButton.m */; };
 		F2953BA11AABA1F30064BFBE /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = F2953BA01AABA1F30064BFBE /* Settings.m */; };
 		F2B04B051A9044E200D0F740 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B04B041A9044E200D0F740 /* Globals.m */; };
 		F2B5C6C91AA37EC700B1524D /* LevelSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B5C6C81AA37EC700B1524D /* LevelSelect.m */; };
 		F2E722BE1A86676E00C9B77A /* GamePlay.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E722BD1A86676E00C9B77A /* GamePlay.m */; };
+		F2EF85101AB4A5C70081E952 /* DeathScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = F2EF850F1AB4A5C70081E952 /* DeathScreen.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -181,8 +183,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		526398831AACBB8B00DCDFD0 /* Tutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tutorial.h; path = Source/Tutorial.h; sourceTree = "<group>"; };
-		526398841AACBB8B00DCDFD0 /* Tutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tutorial.m; path = Source/Tutorial.m; sourceTree = "<group>"; };
 		52789FDF1A98F604005697A1 /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Level.h; path = Source/Level.h; sourceTree = "<group>"; };
 		52789FE01A98F604005697A1 /* Level.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Level.m; path = Source/Level.m; sourceTree = "<group>"; };
 		52EE595A1A90517200C7633B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
@@ -257,6 +257,10 @@
 		F2127E831A9914BC0048124A /* Cake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cake.m; path = Source/Cake.m; sourceTree = "<group>"; };
 		F2127E861A9914C40048124A /* Door.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Door.h; path = Source/Door.h; sourceTree = "<group>"; };
 		F2127E871A9914C40048124A /* Door.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Door.m; path = Source/Door.m; sourceTree = "<group>"; };
+		F21ED9E21AACB66F0028BFDD /* Credits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Credits.h; path = Source/Credits.h; sourceTree = "<group>"; };
+		F21ED9E31AACB66F0028BFDD /* Credits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Credits.m; path = Source/Credits.m; sourceTree = "<group>"; };
+		F23438641AB7D6B80093FF6D /* Grass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Grass.h; path = Source/Grass.h; sourceTree = "<group>"; };
+		F23438651AB7D6B80093FF6D /* Grass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Grass.m; path = Source/Grass.m; sourceTree = "<group>"; };
 		F24DC7FA1AA42FE50060D185 /* LevelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelButton.h; path = Source/LevelButton.h; sourceTree = "<group>"; };
 		F24DC7FB1AA42FE50060D185 /* LevelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelButton.m; path = Source/LevelButton.m; sourceTree = "<group>"; };
 		F2953B9F1AABA1F30064BFBE /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = Source/Settings.h; sourceTree = "<group>"; };
@@ -267,6 +271,8 @@
 		F2B5C6C81AA37EC700B1524D /* LevelSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelSelect.m; path = Source/LevelSelect.m; sourceTree = "<group>"; };
 		F2E722BC1A86676E00C9B77A /* GamePlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GamePlay.h; path = Source/GamePlay.h; sourceTree = "<group>"; };
 		F2E722BD1A86676E00C9B77A /* GamePlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GamePlay.m; path = Source/GamePlay.m; sourceTree = "<group>"; };
+		F2EF850E1AB4A5C70081E952 /* DeathScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeathScreen.h; path = Source/DeathScreen.h; sourceTree = "<group>"; };
+		F2EF850F1AB4A5C70081E952 /* DeathScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeathScreen.m; path = Source/DeathScreen.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -505,8 +511,8 @@
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				F2E722BC1A86676E00C9B77A /* GamePlay.h */,
 				F2E722BD1A86676E00C9B77A /* GamePlay.m */,
-				526398831AACBB8B00DCDFD0 /* Tutorial.h */,
-				526398841AACBB8B00DCDFD0 /* Tutorial.m */,
+				F2EF850E1AB4A5C70081E952 /* DeathScreen.h */,
+				F2EF850F1AB4A5C70081E952 /* DeathScreen.m */,
 				F2B04B031A9044E200D0F740 /* Globals.h */,
 				F2B04B041A9044E200D0F740 /* Globals.m */,
 				C63A683E1AA6151A0076721F /* Tile.h */,
@@ -522,6 +528,8 @@
 				B7378993180767190076A88C /* MainScene.m */,
 				F2953B9F1AABA1F30064BFBE /* Settings.h */,
 				F2953BA01AABA1F30064BFBE /* Settings.m */,
+				F21ED9E21AACB66F0028BFDD /* Credits.h */,
+				F21ED9E31AACB66F0028BFDD /* Credits.m */,
 				D352B48019EC608A00829775 /* MetalShaders */,
 			);
 			name = Source;
@@ -624,6 +632,8 @@
 			children = (
 				C63A68431AA61C9B0076721F /* Water.h */,
 				C63A68441AA61C9B0076721F /* Water.m */,
+				F23438641AB7D6B80093FF6D /* Grass.h */,
+				F23438651AB7D6B80093FF6D /* Grass.m */,
 			);
 			name = TileTypes;
 			sourceTree = "<group>";
@@ -938,15 +948,17 @@
 				F24DC7FC1AA42FE50060D185 /* LevelButton.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				F2E722BE1A86676E00C9B77A /* GamePlay.m in Sources */,
-				526398851AACBB8B00DCDFD0 /* Tutorial.m in Sources */,
 				F2B5C6C91AA37EC700B1524D /* LevelSelect.m in Sources */,
 				F2953BA11AABA1F30064BFBE /* Settings.m in Sources */,
+				F21ED9E41AACB66F0028BFDD /* Credits.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				C63A68401AA6151A0076721F /* Tile.m in Sources */,
 				F2127E841A9914BC0048124A /* Cake.m in Sources */,
 				F2B04B051A9044E200D0F740 /* Globals.m in Sources */,
 				C63A68451AA61C9B0076721F /* Water.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
+				F2EF85101AB4A5C70081E952 /* DeathScreen.m in Sources */,
+				F23438661AB7D6B80093FF6D /* Grass.m in Sources */,
 				F2127E881A9914C40048124A /* Door.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
