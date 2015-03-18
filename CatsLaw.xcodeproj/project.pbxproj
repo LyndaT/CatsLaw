@@ -101,6 +101,7 @@
 		F2127E881A9914C40048124A /* Door.m in Sources */ = {isa = PBXBuildFile; fileRef = F2127E871A9914C40048124A /* Door.m */; };
 		F21ED9E41AACB66F0028BFDD /* Credits.m in Sources */ = {isa = PBXBuildFile; fileRef = F21ED9E31AACB66F0028BFDD /* Credits.m */; };
 		F23438661AB7D6B80093FF6D /* Grass.m in Sources */ = {isa = PBXBuildFile; fileRef = F23438651AB7D6B80093FF6D /* Grass.m */; };
+		F23CF7511AB9098100381F79 /* Tutorial.m in Sources */ = {isa = PBXBuildFile; fileRef = F23CF7501AB9098100381F79 /* Tutorial.m */; };
 		F24DC7FC1AA42FE50060D185 /* LevelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F24DC7FB1AA42FE50060D185 /* LevelButton.m */; };
 		F2953BA11AABA1F30064BFBE /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = F2953BA01AABA1F30064BFBE /* Settings.m */; };
 		F2B04B051A9044E200D0F740 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B04B041A9044E200D0F740 /* Globals.m */; };
@@ -261,6 +262,8 @@
 		F21ED9E31AACB66F0028BFDD /* Credits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Credits.m; path = Source/Credits.m; sourceTree = "<group>"; };
 		F23438641AB7D6B80093FF6D /* Grass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Grass.h; path = Source/Grass.h; sourceTree = "<group>"; };
 		F23438651AB7D6B80093FF6D /* Grass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Grass.m; path = Source/Grass.m; sourceTree = "<group>"; };
+		F23CF74F1AB9098100381F79 /* Tutorial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Tutorial.h; path = Source/Tutorial.h; sourceTree = "<group>"; };
+		F23CF7501AB9098100381F79 /* Tutorial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tutorial.m; path = Source/Tutorial.m; sourceTree = "<group>"; };
 		F24DC7FA1AA42FE50060D185 /* LevelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelButton.h; path = Source/LevelButton.h; sourceTree = "<group>"; };
 		F24DC7FB1AA42FE50060D185 /* LevelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelButton.m; path = Source/LevelButton.m; sourceTree = "<group>"; };
 		F2953B9F1AABA1F30064BFBE /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Settings.h; path = Source/Settings.h; sourceTree = "<group>"; };
@@ -511,6 +514,8 @@
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				F2E722BC1A86676E00C9B77A /* GamePlay.h */,
 				F2E722BD1A86676E00C9B77A /* GamePlay.m */,
+				F23CF74F1AB9098100381F79 /* Tutorial.h */,
+				F23CF7501AB9098100381F79 /* Tutorial.m */,
 				F2EF850E1AB4A5C70081E952 /* DeathScreen.h */,
 				F2EF850F1AB4A5C70081E952 /* DeathScreen.m */,
 				F2B04B031A9044E200D0F740 /* Globals.h */,
@@ -960,6 +965,7 @@
 				F2EF85101AB4A5C70081E952 /* DeathScreen.m in Sources */,
 				F23438661AB7D6B80093FF6D /* Grass.m in Sources */,
 				F2127E881A9914C40048124A /* Door.m in Sources */,
+				F23CF7511AB9098100381F79 /* Tutorial.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
