@@ -377,6 +377,7 @@ CGFloat immuneTime = 3.0f;
 }
 
 - (void)clearLevel{
+    [cat setDirection:1];
     [currentLevel removeCatFromLevel:cat];
     [levelNode removeChild:currentLevel];
 }
