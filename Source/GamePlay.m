@@ -13,6 +13,8 @@
 #import "Level.h"
 #import <CoreMotion/CoreMotion.h>
 #import "Globals.h"
+#import "Tutorial.h"
+#import "DeathScreen.h"
 
 CGFloat gravitystrength = 2000;
 CGFloat immuneTime = 3.0f;
@@ -21,6 +23,7 @@ CGFloat immuneTime = 3.0f;
     Globals *globals;
     Level *currentLevel;
     Cat *cat;
+    Tutorial *tutorial;
     
     BOOL isPaused;
     BOOL isGameOver;
@@ -28,7 +31,8 @@ CGFloat immuneTime = 3.0f;
     BOOL isCatImmune;
     
     CCNode *pauseMenu;
-    CCNode *deadMenu;
+    DeathScreen *deadMenu;
+    CCNode *nextLevelMenu;
     
     //from SpriteBuilder
     CCPhysicsNode *physNode;
@@ -71,9 +75,13 @@ CGFloat immuneTime = 3.0f;
     [menuNode addChild:pauseMenu];
     pauseMenu.visible=false;
     
-    deadMenu = [CCBReader load:@"Dead" owner:self];
+    deadMenu = (DeathScreen *)[CCBReader load:@"Dead" owner:self];
     [menuNode addChild:deadMenu];
     deadMenu.visible = false;
+    
+    nextLevelMenu = [CCBReader load:@"NextLevel" owner:self];
+    [menuNode addChild:nextLevelMenu];
+    nextLevelMenu.visible=false;
     
     physNode.collisionDelegate = self;
     cat.physicsBody.collisionType = @"cat";
@@ -84,15 +92,14 @@ CGFloat immuneTime = 3.0f;
 /*
  * Update function called once per frame.
  */
-- (void)update:(CCTime)delta {
+- (void)fixedUpdate:(CCTime)delta {
     
     CMAccelerometerData *accelerometerData = motionManager.accelerometerData;
     CMAcceleration acceleration = accelerometerData.acceleration;
     
     if (!isCatImmune) {
-        [cat moveCat:delta directionOfGravity:rotation];
-
         [self changeGravity:acceleration.x :acceleration.y];
+        [cat moveCat:rotation timeStep:delta];
     }
 }
 
@@ -146,24 +153,31 @@ CGFloat immuneTime = 3.0f;
  * @phoneRotation: the rotation of the phone
  */
 - (void)updateGravity:(int)phoneRotation {
-    if (phoneRotation == 270) {                                      //gravity right
-        physNode.gravity= ccp(1*gravitystrength,0);
-    }
-    else if (phoneRotation == 180) {                                 //gravity up
-        physNode.gravity= ccp(0,1*gravitystrength);
-    }
-    else if (phoneRotation == 90) {                                  //gravity left
-        physNode.gravity= ccp(-1*gravitystrength,0);
-    }
-    else {                                                      //gravity down
-        phoneRotation = 0;
-        physNode.gravity= ccp(0,-1*gravitystrength);
+    if (!cat.isClinging) {
+        if (phoneRotation == 270) {                                      //gravity right
+            physNode.gravity= ccp(1*gravitystrength,0);
+        }
+        else if (phoneRotation == 180) {                                 //gravity up
+            physNode.gravity= ccp(0,1*gravitystrength);
+        }
+        else if (phoneRotation == 90) {                                  //gravity left
+            physNode.gravity= ccp(-1*gravitystrength,0);
+        }
+        else {                                                      //gravity down
+            phoneRotation = 0;
+            physNode.gravity= ccp(0,-1*gravitystrength);
+        }
     }
 }
 
 
 //call when entering the game over state
--(void)gameOver {
+-(void)gameOver: (NSString *)method {
+    if ([method isEqualToString:@"cake"]){
+        [deadMenu cake];
+    }else if ([method isEqualToString:@"water"]){
+        [deadMenu water];
+    }
     isGameOver = YES;
     [[CCDirector sharedDirector] pause];
     isPaused=YES;
@@ -180,10 +194,20 @@ CGFloat immuneTime = 3.0f;
     isGameOver = NO;
     [[CCDirector sharedDirector] resume];
     isPaused=NO;
+    [self clearLevel];
     [self loadLevel];
     deadMenu.visible=false;
     pauseButton.visible = YES;
     pauseButton.enabled = YES;
+}
+
+//plays the door open anim and then loads next level
+- (void)openDoor{
+    [cat knock];
+    [currentLevel openDoor];
+    
+    //call showNextLevelMenu in one second
+    [self scheduleOnce:@selector(showNextLevelMenu) delay:1.0f];
 }
 
 //-------------------collision stuff
@@ -196,7 +220,7 @@ CGFloat immuneTime = 3.0f;
 {
     if ([cat isNyooming]) {
         CCLOG(@"SMOOSH");
-        [self gameOver];
+        [self gameOver: @"cake"];
     }
     else {
         [Cake eat];
@@ -216,21 +240,61 @@ CGFloat immuneTime = 3.0f;
 }
 
 /*
+ * End colliding with tiles
+ * called when cat leaves a tile
+ */
+-(BOOL)ccPhysicsCollisionEnd:(CCPhysicsCollisionPair *)pair cat:(Cat *)Cat tile:(Tile *)Tile
+{
+    [Tile callOnSeperation:Cat gameplayHolder:self];
+    return TRUE;
+}
+
+/*
  * Colliding with door
  * just maintains isAtDoor
  */
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(CCNode *)Door
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(Door *)Door
 {
     isAtDoor=YES;
+    [Door hover];
     return TRUE;
 }
 /*
  * end colliding w/door
  */
--(BOOL)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(CCNode *)Door
+-(BOOL)ccPhysicsCollisionSeparate:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat door:(Door *)Door
 {
     isAtDoor=NO;
+    [Door unHover];
     return TRUE;
+}
+
+//-------------------tutorial stuff
+
+/*
+ * Colliding with the tutorial collider
+ * Loads the tutorial with respect to the level that it is on
+ */
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat tutorial:(CCNode *)Tutorial
+{
+    CCLOG(@"Eyy tutorial");
+    tutorial = [self getChildByName:@"tutorialNode" recursively:YES];
+    [tutorial runTutorial];
+    [tutorial removeChildByName:@"tutorialCollider" cleanup:YES];
+    [[CCDirector sharedDirector] pause];
+    CCButton *resumeGame = [self getChildByName:@"tutorialResumeButton" recursively:YES];
+    resumeGame.enabled = true;
+    resumeGame.visible = true;
+    isPaused = YES;
+    return TRUE;
+}
+
+/*
+ * Resumes the game from the tutorial state
+ */
+- (void) resumeFromTutorial {
+    CCLOG(@"resume from tutorial");
+    [self unpause];
 }
 
 //-------------------menu stuff
@@ -324,6 +388,7 @@ CGFloat immuneTime = 3.0f;
 }
 
 - (void)clearLevel{
+    [cat setDirection:1];
     [currentLevel removeCatFromLevel:cat];
     [levelNode removeChild:currentLevel];
 }
@@ -332,7 +397,22 @@ CGFloat immuneTime = 3.0f;
     [globals setLevel:(globals.currentLevelNumber+1)];
 }
 
+- (void)showNextLevelMenu {
+    nextLevelMenu.rotation = rotation;
+    nextLevelMenu.visible=true;
+    [[CCDirector sharedDirector] pause];
+    isPaused=YES;
+    pauseButton.visible = NO;
+    pauseButton.enabled = NO;
+}
+
 - (void)toNextLevel {
+    nextLevelMenu.visible=false;
+    [[CCDirector sharedDirector] resume];
+    isPaused=NO;
+    pauseButton.visible = YES;
+    pauseButton.enabled = YES;
+    [cat setIsKnocking:NO];
     [self incrementLevel];
     [self clearLevel];
     [self loadLevel];
@@ -346,23 +426,26 @@ CGFloat immuneTime = 3.0f;
  */
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
-    if (isCatImmune) {
-        [self endCatImmunity];
-    }
-    else if (isAtDoor && [currentLevel isDoorUnlocked]){
-        if ([self clampRotations:cat.rotation secondRotation:[currentLevel getDoorRotation]]) {
-            CCLOG(@"HEY");
-            [cat knock];
-            [self toNextLevel];
+
+    if (!isPaused){
+        if (isCatImmune) {
+            [self endCatImmunity];
         }
+        else if (isAtDoor && [currentLevel isDoorUnlocked]){
+            if ([globals clampRotation:cat.rotation] == [globals clampRotation:[currentLevel getDoorRotation]]) {
+                //if you're the right door orientation
+    //            CCLOG(@"HEY");
+                [self openDoor];
+            }
+            else {
+                CCLOG(@"cat orient: %f", cat.rotation);
+                CCLOG(@"door orient: %f", [currentLevel getDoorRotation]);
+            }
+        }
+        
         else {
-            CCLOG(@"cat orient: %f", cat.rotation);
-            CCLOG(@"door orient: %f", [currentLevel getDoorRotation]);
+            [cat tryToCling];
         }
-    }
-    
-    else {
-        [cat tryToCling];
     }
 }
 - (void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
@@ -392,27 +475,7 @@ CGFloat immuneTime = 3.0f;
     [motionManager stopAccelerometerUpdates];
 }
 
-//----------dumb helper methods
 
-/*
- * you dumbasses be inconsistent about angles so now I have to sanitize the input
- * I HOPE YOU'RE ALL HAPPY
- */
-- (bool) clampRotations:(float)rot1 secondRotation:(float)rot2 {
-    while (rot1 < 0) {
-        rot1 = rot1 + 360;
-    }
-    while (rot1 >= 360) {
-        rot1 = rot1 - 360;
-    }
-    while (rot2 < 0) {
-        rot2 = rot2 + 360;
-    }
-    while (rot2 >= 360) {
-        rot2 = rot2 - 360;
-    }
-    return (rot1 == rot2);
-}
 
 
 

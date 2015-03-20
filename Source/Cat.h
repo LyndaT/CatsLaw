@@ -11,11 +11,16 @@
 @interface Cat : CCSprite
 
 @property (nonatomic, assign) BOOL canCling;
+@property (nonatomic, assign) BOOL isClinging;
+@property (nonatomic, assign) BOOL onGround;
+@property (nonatomic, assign) int catOrientation;//the cat's perspective of which way's down
 
-- (void) moveCat: (CCTime) delta directionOfGravity: (int) orientation;
+- (void) moveCat: (int) orientation timeStep: (CCTime) delta;
 - (void) tryToCling;
 - (void) endCling;
 - (BOOL) isNyooming;
+- (void) setIsKnocking: (BOOL)set;
+- (void)setDirection: (int)dir;
 
 - (void)blink;
 - (void)walk;

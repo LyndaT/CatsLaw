@@ -47,6 +47,11 @@
     return door.isUnlocked;
 }
 
+//plays door open animation
+- (void)openDoor{
+    [door open];
+}
+
 /*
  * Returns a CGPoint that gives the cat's starting position
  */

@@ -71,6 +71,7 @@
 
 - (void)resetData {
     [globals setHighestLevel:1];
+    [globals setLevel:1];
 }
 
 - (void)credits {
