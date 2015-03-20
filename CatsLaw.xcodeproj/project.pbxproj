@@ -96,6 +96,7 @@
 		B78A0B10198AF87200C63841 /* Published-Android in Resources */ = {isa = PBXBuildFile; fileRef = B78A0B0F198AF87200C63841 /* Published-Android */; };
 		C63A68401AA6151A0076721F /* Tile.m in Sources */ = {isa = PBXBuildFile; fileRef = C63A683F1AA6151A0076721F /* Tile.m */; };
 		C63A68451AA61C9B0076721F /* Water.m in Sources */ = {isa = PBXBuildFile; fileRef = C63A68441AA61C9B0076721F /* Water.m */; };
+		C656F5EF1AACC0AE008D3EEE /* Ground.m in Sources */ = {isa = PBXBuildFile; fileRef = C656F5EE1AACC0AE008D3EEE /* Ground.m */; };
 		C65730BB1A916DF8005E918F /* Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = C65730BA1A916DF8005E918F /* Cat.m */; };
 		F2127E841A9914BC0048124A /* Cake.m in Sources */ = {isa = PBXBuildFile; fileRef = F2127E831A9914BC0048124A /* Cake.m */; };
 		F2127E881A9914C40048124A /* Door.m in Sources */ = {isa = PBXBuildFile; fileRef = F2127E871A9914C40048124A /* Door.m */; };
@@ -251,6 +252,8 @@
 		C63A683F1AA6151A0076721F /* Tile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Tile.m; path = Source/Tile.m; sourceTree = "<group>"; };
 		C63A68431AA61C9B0076721F /* Water.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Water.h; path = Source/Water.h; sourceTree = "<group>"; };
 		C63A68441AA61C9B0076721F /* Water.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Water.m; path = Source/Water.m; sourceTree = "<group>"; };
+		C656F5ED1AACC0AE008D3EEE /* Ground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ground.h; path = Source/Platforms/Ground.h; sourceTree = "<group>"; };
+		C656F5EE1AACC0AE008D3EEE /* Ground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ground.m; path = Source/Platforms/Ground.m; sourceTree = "<group>"; };
 		C65730B91A916DF8005E918F /* Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cat.h; path = Source/Cat.h; sourceTree = "<group>"; };
 		C65730BA1A916DF8005E918F /* Cat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cat.m; path = Source/Cat.m; sourceTree = "<group>"; };
 		D352B48019EC608A00829775 /* MetalShaders */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MetalShaders; path = Source/MetalShaders; sourceTree = "<group>"; };
@@ -637,6 +640,8 @@
 			children = (
 				C63A68431AA61C9B0076721F /* Water.h */,
 				C63A68441AA61C9B0076721F /* Water.m */,
+				C656F5ED1AACC0AE008D3EEE /* Ground.h */,
+				C656F5EE1AACC0AE008D3EEE /* Ground.m */,
 				F23438641AB7D6B80093FF6D /* Grass.h */,
 				F23438651AB7D6B80093FF6D /* Grass.m */,
 			);
@@ -950,6 +955,7 @@
 			files = (
 				C65730BB1A916DF8005E918F /* Cat.m in Sources */,
 				52789FE11A98F604005697A1 /* Level.m in Sources */,
+				C656F5EF1AACC0AE008D3EEE /* Ground.m in Sources */,
 				F24DC7FC1AA42FE50060D185 /* LevelButton.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				F2E722BE1A86676E00C9B77A /* GamePlay.m in Sources */,

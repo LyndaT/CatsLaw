@@ -27,5 +27,6 @@
 - (void)setSFXOn:(BOOL)setting vol:(int)v;
 - (void)setHighestLevel:(int)highestLevel;
 - (NSInteger)getHighestLevel;
+- (float)clampRotation:(float)rot1;
 
 @end

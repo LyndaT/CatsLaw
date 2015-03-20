@@ -20,7 +20,8 @@
 
 - (id)init {
     if (self = [super init]) {
-        NSUInteger highest = [[NSUserDefaults standardUserDefaults] integerForKey:@"highestLevel"];
+        NSUInteger highest = 10;
+        //NSUInteger highest = [[NSUserDefaults standardUserDefaults] integerForKey:@"highestLevel"];
         if (highest == nil || highest==1) {
             CCLOG(@"new game");
             [self setHighestLevel:1];
@@ -79,6 +80,23 @@
 - (NSInteger)getHighestLevel {
     highestLevel=[[NSUserDefaults standardUserDefaults] integerForKey:@"highestLevel"];
     return highestLevel;
+}
+
+//----------dumb helper methods
+
+/*
+ * you dumbasses be inconsistent about angles so now I have to sanitize the input
+ * I HOPE YOU'RE ALL HAPPY
+ */
+- (float) clampRotation:(float)rot1 {
+    while (rot1 < 0) {
+        rot1 = rot1 + 360;
+    }
+    while (rot1 >= 360) {
+        rot1 = rot1 - 360;
+    }
+    
+    return rot1;
 }
 
 @end

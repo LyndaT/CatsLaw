@@ -92,15 +92,14 @@ CGFloat immuneTime = 3.0f;
 /*
  * Update function called once per frame.
  */
-- (void)update:(CCTime)delta {
+- (void)fixedUpdate:(CCTime)delta {
     
     CMAccelerometerData *accelerometerData = motionManager.accelerometerData;
     CMAcceleration acceleration = accelerometerData.acceleration;
     
     if (!isCatImmune) {
-        [cat moveCat:delta directionOfGravity:rotation];
-
         [self changeGravity:acceleration.x :acceleration.y];
+        [cat moveCat:rotation timeStep:delta];
     }
 }
 
@@ -154,18 +153,20 @@ CGFloat immuneTime = 3.0f;
  * @phoneRotation: the rotation of the phone
  */
 - (void)updateGravity:(int)phoneRotation {
-    if (phoneRotation == 270) {                                      //gravity right
-        physNode.gravity= ccp(1*gravitystrength,0);
-    }
-    else if (phoneRotation == 180) {                                 //gravity up
-        physNode.gravity= ccp(0,1*gravitystrength);
-    }
-    else if (phoneRotation == 90) {                                  //gravity left
-        physNode.gravity= ccp(-1*gravitystrength,0);
-    }
-    else {                                                      //gravity down
-        phoneRotation = 0;
-        physNode.gravity= ccp(0,-1*gravitystrength);
+    if (!cat.isClinging) {
+        if (phoneRotation == 270) {                                      //gravity right
+            physNode.gravity= ccp(1*gravitystrength,0);
+        }
+        else if (phoneRotation == 180) {                                 //gravity up
+            physNode.gravity= ccp(0,1*gravitystrength);
+        }
+        else if (phoneRotation == 90) {                                  //gravity left
+            physNode.gravity= ccp(-1*gravitystrength,0);
+        }
+        else {                                                      //gravity down
+            phoneRotation = 0;
+            physNode.gravity= ccp(0,-1*gravitystrength);
+        }
     }
 }
 
@@ -235,6 +236,16 @@ CGFloat immuneTime = 3.0f;
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(Cat *)Cat tile:(Tile *)Tile
 {
     [Tile callOnCollision:Cat gameplayHolder:self];
+    return TRUE;
+}
+
+/*
+ * End colliding with tiles
+ * called when cat leaves a tile
+ */
+-(BOOL)ccPhysicsCollisionEnd:(CCPhysicsCollisionPair *)pair cat:(Cat *)Cat tile:(Tile *)Tile
+{
+    [Tile callOnSeperation:Cat gameplayHolder:self];
     return TRUE;
 }
 
@@ -415,12 +426,13 @@ CGFloat immuneTime = 3.0f;
  */
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
+
     if (!isPaused){
         if (isCatImmune) {
             [self endCatImmunity];
         }
         else if (isAtDoor && [currentLevel isDoorUnlocked]){
-            if ([self clampRotations:cat.rotation secondRotation:[currentLevel getDoorRotation]]) {
+            if ([globals clampRotation:cat.rotation] == [globals clampRotation:[currentLevel getDoorRotation]]) {
                 //if you're the right door orientation
     //            CCLOG(@"HEY");
                 [self openDoor];
@@ -463,27 +475,7 @@ CGFloat immuneTime = 3.0f;
     [motionManager stopAccelerometerUpdates];
 }
 
-//----------dumb helper methods
 
-/*
- * you dumbasses be inconsistent about angles so now I have to sanitize the input
- * I HOPE YOU'RE ALL HAPPY
- */
-- (bool) clampRotations:(float)rot1 secondRotation:(float)rot2 {
-    while (rot1 < 0) {
-        rot1 = rot1 + 360;
-    }
-    while (rot1 >= 360) {
-        rot1 = rot1 - 360;
-    }
-    while (rot2 < 0) {
-        rot2 = rot2 + 360;
-    }
-    while (rot2 >= 360) {
-        rot2 = rot2 - 360;
-    }
-    return (rot1 == rot2);
-}
 
 
 
