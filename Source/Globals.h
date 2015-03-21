@@ -18,6 +18,7 @@
 @property (nonatomic, assign) OALSimpleAudio *audio;
 @property (nonatomic, assign) int totalLevels;
 @property (nonatomic, retain) NSString *currentSceneName;
+@property (nonatomic, assign) CGSize screenSize;
 
 
 + (id)globalManager;

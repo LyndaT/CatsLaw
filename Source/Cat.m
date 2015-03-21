@@ -16,6 +16,7 @@
     BOOL isKnocking;
     CCAnimationManager* animationManager;
     int direction; //either 1 or -1. 1 is it goes right, -1 is left
+    BOOL canMove; //used for pausing the cat but not the game
 }
 
 @synthesize canCling;
@@ -30,6 +31,7 @@
         speed = 30;
         isKnocking = NO;
         direction = 1;
+        canMove= YES;
     }
     return self;
 }
@@ -57,7 +59,7 @@
 
 //Tries to make the cat cling
 - (void) tryToCling {
-    if (canCling) {
+    if (canCling && canMove) {
         isClinging = YES;
         if (catOrientation == 0) {
             self.physicsBody.velocity = ccp(0, self.physicsBody.velocity.y);
@@ -90,8 +92,8 @@
 //Operates under assumption that orientation is always 0, 90, 180 or 270
 
 - (void) moveCat:(int)orientation timeStep:(CCTime)delta{
-    if (isKnocking) {
-        CCLOG(@"At door");
+    if (isKnocking || !canMove) {
+//        CCLOG(@"not moving");
         self.physicsBody.velocity = ccp(0,0);
         return;
         
@@ -131,7 +133,7 @@
     self.physicsBody.angularVelocity = desiredAngularVelocity;
     
     
-    CCLOG(@"rotation %f", self.rotation);
+//    CCLOG(@"rotation %f", self.rotation);
     //if (self.rotation != orientation) {
 //    CCLOG(@"onGround %d", onGround);
     //self.rotation = orientation;
@@ -146,6 +148,18 @@
     //[self.physicsBody applyTorque:torque];
     
     
+}
+
+//stops the cat from moving
+- (void)stopCat{
+    canMove = NO;
+    [self sit];
+}
+
+//lets the cat move again
+- (void)goCat{
+    canMove = YES;
+    [self walk];
 }
 
 - (void)setIsKnocking: (BOOL)set {
@@ -181,6 +195,10 @@
 
 - (void)sit {
     [animationManager runAnimationsForSequenceNamed:@"sit"];
+}
+
+- (void)lay {
+    [animationManager runAnimationsForSequenceNamed:@"lay"];
 }
 
 

@@ -7,9 +7,11 @@
 //
 
 #import "CCNode.h"
+#import "Cat.h"
+#import "GamePlay.h"
 
 @interface Tutorial : CCNode
 
-- (void)runTutorial;
+- (void)callOnCollision:(Cat*) cat gameplayHolder:(GamePlay*) gameplay;
 
 @end

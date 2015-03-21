@@ -17,6 +17,7 @@
 @synthesize audio;
 @synthesize totalLevels;
 @synthesize currentSceneName;
+@synthesize screenSize;
 
 - (id)init {
     if (self = [super init]) {
@@ -33,6 +34,7 @@
         isMusicOn=YES;
         isSFXOn=YES;
         audio = [OALSimpleAudio sharedInstance];
+        screenSize = [CCDirector sharedDirector].viewSize;
         
         totalLevels = 13;
     }

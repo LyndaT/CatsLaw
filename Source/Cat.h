@@ -20,7 +20,9 @@
 - (void) endCling;
 - (BOOL) isNyooming;
 - (void) setIsKnocking: (BOOL)set;
-- (void)setDirection: (int)dir;
+- (void) setDirection: (int)dir;
+- (void) stopCat;
+- (void) goCat;
 
 - (void)blink;
 - (void)walk;
@@ -28,5 +30,6 @@
 - (void)knock;
 - (void)stand;
 - (void)sit;
+- (void)lay;
 
 @end

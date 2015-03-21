@@ -273,28 +273,12 @@ CGFloat immuneTime = 3.0f;
 
 /*
  * Colliding with the tutorial collider
- * Loads the tutorial with respect to the level that it is on
  */
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(CCNode *)Cat tutorial:(CCNode *)Tutorial
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(Cat *)Cat tutorial:(Tutorial *)Tutorial
 {
-    CCLOG(@"Eyy tutorial");
-    tutorial = [self getChildByName:@"tutorialNode" recursively:YES];
-    [tutorial runTutorial];
-    [tutorial removeChildByName:@"tutorialCollider" cleanup:YES];
-    [[CCDirector sharedDirector] pause];
-    CCButton *resumeGame = [self getChildByName:@"tutorialResumeButton" recursively:YES];
-    resumeGame.enabled = true;
-    resumeGame.visible = true;
-    isPaused = YES;
+    CCLOG(@"tutorial triggered");
+    [Tutorial callOnCollision:Cat gameplayHolder:self];
     return TRUE;
-}
-
-/*
- * Resumes the game from the tutorial state
- */
-- (void) resumeFromTutorial {
-    CCLOG(@"resume from tutorial");
-    [self unpause];
 }
 
 //-------------------menu stuff

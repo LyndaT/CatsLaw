@@ -7,13 +7,28 @@
 //
 
 #import "Tutorial.h"
+#import "Globals.h"
+#import "Cat.h"
+#import "GamePlay.h"
 
 @implementation Tutorial {
     CCAnimationManager* animationManager;
+    Globals *globals;
+    GamePlay* game;
+    Cat* player;
     
     CCNode *tutorialAnim;
-    
     NSString *tutorialAnimString;
+    
+    BOOL hasPlayed; //so tutorial only plays once
+}
+
+- (id) init {
+    if (self = [super init]) {
+        globals = [Globals globalManager];
+        hasPlayed = NO;
+    }
+    return self;
 }
 
 - (void)didLoadFromCCB {
@@ -21,17 +36,31 @@
     self.physicsBody.collisionType = @"tutorial";
     self.physicsBody.sensor = TRUE; //so cat can overlap with it
     
-    
-    tutorialAnimString = [NSString stringWithFormat:@"assets/animations/tutorial/%@", tutorialAnimString];
-    tutorialAnim = [CCBReader load:tutorialAnimString owner: self];
-    [self addChild:tutorialAnim];
-    tutorialAnim.visible = false;
+    tutorialAnimString = [NSString stringWithFormat:@"tutorial/%@", tutorialAnimString];
+    tutorialAnim = [CCBReader load:tutorialAnimString owner:self];
+    tutorialAnim.position = ccp(globals.screenSize.width/2, globals.screenSize.height/2);
+}
+
+- (void) callOnCollision:(Cat*)cat gameplayHolder:(GamePlay *)gameplay{
+    CCLOG(@"TUTORIAL!!!");
+    if (!hasPlayed){
+        [cat stopCat];
+        player = cat;
+        game = gameplay;
+        [self runTutorial];
+    }
 }
 
 - (void)runTutorial {
-    
-    CCLOG(tutorialAnimString);
-    tutorialAnim.visible = true;
+    CCLOG(@"%@",tutorialAnimString);
+    hasPlayed = YES;
+    [game addChild:tutorialAnim];
+}
+
+- (void)close {
+    CCLOG(@"close tut");
+    [game removeChild:tutorialAnim];
+    [player goCat];
 }
 
 @end
