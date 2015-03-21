@@ -92,7 +92,9 @@
 - (void) moveCat:(int)orientation timeStep:(CCTime)delta{
     if (isKnocking) {
         CCLOG(@"At door");
+        self.physicsBody.velocity = ccp(0,0);
         return;
+        
     }
     if (!isClinging) {
         catOrientation = orientation;
@@ -131,7 +133,7 @@
     
     CCLOG(@"rotation %f", self.rotation);
     //if (self.rotation != orientation) {
-    CCLOG(@"onGround %d", onGround);
+//    CCLOG(@"onGround %d", onGround);
     //self.rotation = orientation;
     
     

@@ -432,9 +432,9 @@ CGFloat immuneTime = 3.0f;
             [self endCatImmunity];
         }
         else if (isAtDoor && [currentLevel isDoorUnlocked]){
-            if ([globals clampRotation:cat.rotation] == [globals clampRotation:[currentLevel getDoorRotation]]) {
+            if ([globals clampRotation:cat.catOrientation] == [globals clampRotation:[currentLevel getDoorRotation]]) {
                 //if you're the right door orientation
-    //            CCLOG(@"HEY");
+                CCLOG(@"opening the door");
                 [self openDoor];
             }
             else {
