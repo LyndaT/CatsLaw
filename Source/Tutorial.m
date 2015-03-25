@@ -21,6 +21,7 @@
     NSString *tutorialAnimString;
     
     BOOL hasPlayed; //so tutorial only plays once
+    BOOL shouldPause; //to differentiate between actual popups and just overlay text
 }
 
 - (id) init {
@@ -44,7 +45,9 @@
 - (void) callOnCollision:(Cat*)cat gameplayHolder:(GamePlay *)gameplay{
     CCLOG(@"TUTORIAL!!!");
     if (!hasPlayed){
-        [cat stopCat];
+        if (shouldPause){
+            [cat stopCat];
+        }
         player = cat;
         game = gameplay;
         [self runTutorial];
@@ -60,7 +63,37 @@
 - (void)close {
     CCLOG(@"close tut");
     [game removeChild:tutorialAnim];
-    [player goCat];
+    if (shouldPause){
+        [player goCat];
+    }
+}
+
+//opens the question mark bubble for players to tap
+- (void)openBubble {
+    if (shouldPause){
+        [player stopCat];
+    }
+}
+
+- (void)bubbleClick {
+    [self runTutorial];
+}
+
+//-----------------------------methods for player verification
+
+//door tut done when cat goes through door
+- (void)door {
+    [self close];
+}
+
+//turn done first time player changes gravity on that level
+- (void)turn {
+    
+}
+
+//cling done when player does a 180 WHILE clinging
+- (void)cling {
+    
 }
 
 @end

@@ -278,6 +278,7 @@ CGFloat immuneTime = 3.0f;
 {
     CCLOG(@"tutorial triggered");
     [Tutorial callOnCollision:Cat gameplayHolder:self];
+    tutorial = Tutorial;
     return TRUE;
 }
 
@@ -419,6 +420,11 @@ CGFloat immuneTime = 3.0f;
             if ([globals clampRotation:cat.catOrientation] == [globals clampRotation:[currentLevel getDoorRotation]]) {
                 //if you're the right door orientation
                 CCLOG(@"opening the door");
+                //for tutorial stuff
+                if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level1"]){
+                    [tutorial door];
+                }
+                
                 [self openDoor];
             }
             else {

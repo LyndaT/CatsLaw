@@ -14,4 +14,8 @@
 
 - (void)callOnCollision:(Cat*) cat gameplayHolder:(GamePlay*) gameplay;
 
+- (void)door;
+- (void)turn;
+- (void)cling;
+
 @end
