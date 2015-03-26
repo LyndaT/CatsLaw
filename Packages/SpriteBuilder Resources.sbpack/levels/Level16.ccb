@@ -256,14 +256,6 @@
 							<integer>0</integer>
 						</array>
 					</dict>
-					<dict>
-						<key>name</key>
-						<string>rotation</string>
-						<key>type</key>
-						<string>Degrees</string>
-						<key>value</key>
-						<real>180</real>
-					</dict>
 				</array>
 			</dict>
 			<dict>
@@ -3106,7 +3098,7 @@
 								<key>value</key>
 								<array>
 									<real>8.000030517578125</real>
-									<real>293.20916748046875</real>
+									<real>296</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -3278,7 +3270,7 @@
 								<key>value</key>
 								<array>
 									<real>-18.881969451904297</real>
-									<real>-36.790824890136719</real>
+									<real>-39</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -3621,7 +3613,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>502.42654418945312</real>
+									<real>503.42654418945312</real>
 									<real>105</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -3794,7 +3786,7 @@
 								<key>value</key>
 								<array>
 									<real>255</real>
-									<real>108.28175354003906</real>
+									<real>105</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -4309,7 +4301,7 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>0</string>
+				<string>17</string>
 			</dict>
 			<dict>
 				<key>name</key>
