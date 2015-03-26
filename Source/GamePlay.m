@@ -140,6 +140,9 @@ CGFloat immuneTime = 3.0f;
         [self updateGravity:rotation];
         if (prevRotation!= rotation) {
             //cat.physicsBody.velocity = ccp(0,0);
+            if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level2"]){
+                [tutorial turn];
+            }
             CCLOG(@"gravity changed");
         }
     }
@@ -414,9 +417,11 @@ CGFloat immuneTime = 3.0f;
 
     if (!isPaused){
         if (isCatImmune) {
+            //ending hover and getting cat to start at beginning of level
             [self endCatImmunity];
         }
         else if (isAtDoor && [currentLevel isDoorUnlocked]){
+            //trying to open the door
             if ([globals clampRotation:cat.catOrientation] == [globals clampRotation:[currentLevel getDoorRotation]]) {
                 //if you're the right door orientation
                 CCLOG(@"opening the door");
@@ -432,14 +437,20 @@ CGFloat immuneTime = 3.0f;
                 CCLOG(@"door orient: %f", [currentLevel getDoorRotation]);
             }
         }
-        
         else {
+            //try to cling
             [cat tryToCling];
         }
     }
 }
 - (void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
-    [cat endCling];
+    [cat endCling:rotation];
+    if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level4"]){
+        if ([cat didClingTutorial]){
+            CCLOG(@"good job you clung");
+            [tutorial cling];
+        }
+    }
 }
 - (void)touchCancelled:(UITouch *)touch withEvent:(UIEvent *)event {
     [self pause];

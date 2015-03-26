@@ -17,12 +17,13 @@
 
 - (void) moveCat: (int) orientation timeStep: (CCTime) delta;
 - (void) tryToCling;
-- (void) endCling;
+- (void) endCling:(int)orientation;
 - (BOOL) isNyooming;
 - (void) setIsKnocking: (BOOL)set;
 - (void) setDirection: (int)dir;
 - (void) stopCat;
 - (void) goCat;
+- (BOOL) didClingTutorial;
 
 - (void)blink;
 - (void)walk;

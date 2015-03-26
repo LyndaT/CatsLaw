@@ -17,6 +17,9 @@
     CCAnimationManager* animationManager;
     int direction; //either 1 or -1. 1 is it goes right, -1 is left
     BOOL canMove; //used for pausing the cat but not the game
+    
+    BOOL madeTurnWithCling; //for cling tutorial verification
+    int startOrientation; //for cling tutorial verification
 }
 
 @synthesize canCling;
@@ -32,6 +35,7 @@
         isKnocking = NO;
         direction = 1;
         canMove= YES;
+        madeTurnWithCling = NO;
     }
     return self;
 }
@@ -74,14 +78,23 @@
             self.physicsBody.velocity = ccp(self.physicsBody.velocity.x, 0);
             //self.position = ccp(self.position.x, self.position.y + delta*speed);
         }
-        //cling animation here
+        //tut stuff
+        startOrientation = catOrientation;
+        CCLOG(@"current orientation %i", startOrientation);
+        madeTurnWithCling = NO;
+        
+        //cling animation
         [self cling];
     }
 }
 
 //Stop the cat from clinging
-- (void) endCling {
+- (void) endCling:(int)orientation {
     if (isClinging){
+        CCLOG(@"start %i end %i",startOrientation,orientation);
+        if (orientation == startOrientation+180 || orientation == startOrientation-180){
+            madeTurnWithCling = YES;
+        }
         isClinging = NO;
         [self walk];
     }
@@ -168,6 +181,10 @@
 
 - (void)setDirection: (int)dir {
     direction = dir;
+}
+
+- (BOOL)didClingTutorial {
+    return madeTurnWithCling;
 }
 
 //------------------ animations

@@ -40,7 +40,9 @@
 //if cake count == numcakes, unlocks door
 - (void)incrementCakeCount{
     cakeCount++;
-    [door unlock];
+    if (cakeCount == numCakes){
+        [door unlock];
+    }
 }
 
 - (BOOL)isDoorUnlocked{
