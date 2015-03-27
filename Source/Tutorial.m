@@ -24,6 +24,7 @@
     BOOL hasPlayed; //so tutorial only plays once when you collide
     BOOL shouldPause; //to differentiate between actual popups and just overlay text
     BOOL isPlaying; //if the tutorial is currently playing
+    BOOL bubbleOpen;
     
     BOOL hasCompleted; //if player did what the tutorial wants them to. used for cling and turn
 }
@@ -34,6 +35,7 @@
         hasPlayed = NO;
         isPlaying = NO;
         hasCompleted = NO;
+        bubbleOpen = NO;
     }
     return self;
 }
@@ -92,6 +94,7 @@
     if (!hasCompleted){
         CCLOG(@"open tha bubbz");
         isPlaying = YES;
+        bubbleOpen = YES;
 //        [player stopCat];
         [game addChild:bubble];
     }
@@ -99,6 +102,10 @@
 
 - (void)bubbleClick {
     [game removeChild:bubble];
+    bubbleOpen = NO;
+    if (shouldPause){
+        [player stopCat];
+    }
     [self runTutorial];
 }
 
@@ -116,6 +123,10 @@
     if (!isPlaying){
         hasCompleted = YES;
     }
+    if (bubbleOpen){
+        [game removeChild:bubble];
+        bubbleOpen = NO;
+    }
 }
 
 //cling done when player does a 180 WHILE clinging
@@ -123,6 +134,10 @@
     CCLOG(@"cling done");
     if (!isPlaying){
         hasCompleted = YES;
+    }
+    if (bubbleOpen){
+        [game removeChild:bubble];
+        bubbleOpen = NO;
     }
 }
 
