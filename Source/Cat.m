@@ -108,6 +108,7 @@
     if (isKnocking || !canMove) {
 //        CCLOG(@"not moving");
         self.physicsBody.velocity = ccp(0,0);
+        self.physicsBody.angularVelocity = 0;
         return;
         
     }

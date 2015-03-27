@@ -38,6 +38,7 @@ CGFloat immuneTime = 3.0f;
     CCPhysicsNode *physNode;
     CCNode *levelNode;
     CCNode *menuNode;
+    CCNode *tutorialNode;
     CCButton *pauseButton;
     
     int rotation;
@@ -280,7 +281,7 @@ CGFloat immuneTime = 3.0f;
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair cat:(Cat *)Cat tutorial:(Tutorial *)Tutorial
 {
     CCLOG(@"tutorial triggered");
-    [Tutorial callOnCollision:Cat gameplayHolder:self];
+    [Tutorial callOnCollision:Cat gameplayHolder:self tutNode:tutorialNode];
     tutorial = Tutorial;
     return TRUE;
 }
@@ -300,6 +301,7 @@ CGFloat immuneTime = 3.0f;
         CCLOG(@"rotation: %i",rotation);
         pauseMenu.rotation = rotation;
         pauseMenu.visible=true;
+        tutorialNode.visible=NO;
     }
     else{
         [self unpause];
@@ -313,6 +315,7 @@ CGFloat immuneTime = 3.0f;
 //    AppController *app = (AppController*)[UIApplication sharedApplication].delegate;
 //    app.userPaused = NO;
 //    [_globals.audio playEffect:@"assets/music/button.mp3"];
+    tutorialNode.visible=YES;
     isPaused=NO;
     [[CCDirector sharedDirector] resume];
     pauseMenu.visible=false;

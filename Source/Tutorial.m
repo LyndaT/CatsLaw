@@ -14,12 +14,12 @@
 @implementation Tutorial {
     CCAnimationManager* animationManager;
     Globals *globals;
-    GamePlay* game;
-    Cat* player;
     
     CCNode *tutorialAnim;
     NSString *tutorialAnimString;
     CCNode *bubble;
+    CCNode* game;
+    Cat* player;
     
     BOOL hasPlayed; //so tutorial only plays once when you collide
     BOOL shouldPause; //to differentiate between actual popups and just overlay text
@@ -39,41 +39,46 @@
 }
 
 - (void)didLoadFromCCB {
-    animationManager = self.animationManager;
     self.physicsBody.collisionType = @"tutorial";
     self.physicsBody.sensor = TRUE; //so cat can overlap with it
     
     tutorialAnimString = [NSString stringWithFormat:@"tutorial/%@", tutorialAnimString];
     tutorialAnim = [CCBReader load:tutorialAnimString owner:self];
-    tutorialAnim.position = ccp(globals.screenSize.width/2, globals.screenSize.height/2);
+    animationManager = tutorialAnim.animationManager;
     
     bubble = [CCBReader load:@"tutorial/bubble" owner:self];
-    bubble.position = ccp(globals.screenSize.width/2, globals.screenSize.height/2);
+    bubble.scale = 0.75;
+    bubble.position = ccp(0, 0-globals.screenSize.height/4);
 }
 
-- (void) callOnCollision:(Cat*)cat gameplayHolder:(GamePlay *)gameplay{
+- (void) callOnCollision:(Cat*)cat gameplayHolder:(GamePlay *)gameplay tutNode:(CCNode *)tut{
     CCLOG(@"TUTORIAL!!!");
     if (!hasPlayed){
         if (shouldPause){
             [cat stopCat];
         }
         player = cat;
-        game = gameplay;
+        game = tut;
         [self runTutorial];
     }
 }
 
 - (void)runTutorial {
     CCLOG(@"%@",tutorialAnimString);
-    hasPlayed = YES;
+    if (!hasPlayed){
+        hasPlayed = YES;
+        [game addChild:tutorialAnim];
+    }else {
+        tutorialAnim.visible = YES;
+    }
     isPlaying = YES;
-    [game addChild:tutorialAnim];
+    [animationManager runAnimationsForSequenceNamed:@"Default Timeline"];
 }
 
 - (void)close {
     CCLOG(@"close tut");
     isPlaying = NO;
-    [game removeChild:tutorialAnim];
+    tutorialAnim.visible = NO;
     if (shouldPause){
         [player goCat];
         
@@ -87,10 +92,8 @@
     if (!hasCompleted){
         CCLOG(@"open tha bubbz");
         isPlaying = YES;
-        [player stopCat];
+//        [player stopCat];
         [game addChild:bubble];
-        //TODO: place bubble above player
-        //smth with if player orientation = blah, position = (x+dx, y+dy)
     }
 }
 

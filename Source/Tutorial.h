@@ -12,7 +12,7 @@
 
 @interface Tutorial : CCNode
 
-- (void)callOnCollision:(Cat*) cat gameplayHolder:(GamePlay*) gameplay;
+- (void)callOnCollision:(Cat*) cat gameplayHolder:(GamePlay*) gameplay tutNode:(CCNode *)tut;
 
 - (void)door;
 - (void)turn;
