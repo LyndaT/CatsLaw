@@ -432,6 +432,9 @@ CGFloat immuneTime = 3.0f;
                 if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level1"]){
                     [tutorial door];
                 }
+                if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level4"]){
+                    [tutorial cling];
+                }
                 
                 [self openDoor];
             }
