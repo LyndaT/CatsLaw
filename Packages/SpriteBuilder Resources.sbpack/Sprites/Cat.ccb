@@ -16,7 +16,7 @@
 	<key>currentResolution</key>
 	<integer>0</integer>
 	<key>currentSequenceId</key>
-	<integer>6</integer>
+	<integer>0</integer>
 	<key>docDimensionsType</key>
 	<integer>1</integer>
 	<key>fileType</key>
@@ -893,7 +893,7 @@
 			<key>allowsRotation</key>
 			<true/>
 			<key>bodyShape</key>
-			<integer>0</integer>
+			<integer>1</integer>
 			<key>collisionCategories</key>
 			<array/>
 			<key>collisionMask</key>
@@ -901,7 +901,7 @@
 			<key>collisionType</key>
 			<string>cat</string>
 			<key>cornerRadius</key>
-			<real>0.0</real>
+			<real>47.210968017578125</real>
 			<key>density</key>
 			<real>1</real>
 			<key>dynamic</key>
@@ -913,43 +913,12 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>-40.59765625</real>
-					<real>-54.878890991210938</real>
-				</array>
-				<array>
-					<real>-40.59765625</real>
-					<real>31.964859008789062</real>
-				</array>
-				<array>
-					<real>40.6484375</real>
-					<real>31.964859008789062</real>
-				</array>
-				<array>
-					<real>40.6484375</real>
-					<real>-54.878890991210938</real>
+					<real>-4.171844482421875</real>
+					<real>-7.492156982421875</real>
 				</array>
 			</array>
 			<key>polygons</key>
-			<array>
-				<array>
-					<array>
-						<real>40.6484375</real>
-						<real>-54.878890991210938</real>
-					</array>
-					<array>
-						<real>40.6484375</real>
-						<real>31.964859008789062</real>
-					</array>
-					<array>
-						<real>-40.59765625</real>
-						<real>31.964859008789062</real>
-					</array>
-					<array>
-						<real>-40.59765625</real>
-						<real>-54.878890991210938</real>
-					</array>
-				</array>
-			</array>
+			<array/>
 		</dict>
 		<key>properties</key>
 		<array>
@@ -1043,6 +1012,8 @@
 				<array/>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
