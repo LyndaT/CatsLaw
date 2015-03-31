@@ -107,6 +107,7 @@
 		F2953BA11AABA1F30064BFBE /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = F2953BA01AABA1F30064BFBE /* Settings.m */; };
 		F2B04B051A9044E200D0F740 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B04B041A9044E200D0F740 /* Globals.m */; };
 		F2B5C6C91AA37EC700B1524D /* LevelSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B5C6C81AA37EC700B1524D /* LevelSelect.m */; };
+		F2C155CA1ACA39B300D30B10 /* Trap.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C155C91ACA39B300D30B10 /* Trap.m */; };
 		F2E722BE1A86676E00C9B77A /* GamePlay.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E722BD1A86676E00C9B77A /* GamePlay.m */; };
 		F2EF85101AB4A5C70081E952 /* DeathScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = F2EF850F1AB4A5C70081E952 /* DeathScreen.m */; };
 /* End PBXBuildFile section */
@@ -275,6 +276,8 @@
 		F2B04B041A9044E200D0F740 /* Globals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Globals.m; path = Source/Globals.m; sourceTree = "<group>"; };
 		F2B5C6C71AA37EC700B1524D /* LevelSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LevelSelect.h; path = Source/LevelSelect.h; sourceTree = "<group>"; };
 		F2B5C6C81AA37EC700B1524D /* LevelSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelSelect.m; path = Source/LevelSelect.m; sourceTree = "<group>"; };
+		F2C155C81ACA39B300D30B10 /* Trap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Trap.h; path = Source/Trap.h; sourceTree = "<group>"; };
+		F2C155C91ACA39B300D30B10 /* Trap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Trap.m; path = Source/Trap.m; sourceTree = "<group>"; };
 		F2E722BC1A86676E00C9B77A /* GamePlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GamePlay.h; path = Source/GamePlay.h; sourceTree = "<group>"; };
 		F2E722BD1A86676E00C9B77A /* GamePlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GamePlay.m; path = Source/GamePlay.m; sourceTree = "<group>"; };
 		F2EF850E1AB4A5C70081E952 /* DeathScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeathScreen.h; path = Source/DeathScreen.h; sourceTree = "<group>"; };
@@ -644,6 +647,8 @@
 				C656F5EE1AACC0AE008D3EEE /* Ground.m */,
 				F23438641AB7D6B80093FF6D /* Grass.h */,
 				F23438651AB7D6B80093FF6D /* Grass.m */,
+				F2C155C81ACA39B300D30B10 /* Trap.h */,
+				F2C155C91ACA39B300D30B10 /* Trap.m */,
 			);
 			name = TileTypes;
 			sourceTree = "<group>";
@@ -953,6 +958,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2C155CA1ACA39B300D30B10 /* Trap.m in Sources */,
 				C65730BB1A916DF8005E918F /* Cat.m in Sources */,
 				52789FE11A98F604005697A1 /* Level.m in Sources */,
 				C656F5EF1AACC0AE008D3EEE /* Ground.m in Sources */,
