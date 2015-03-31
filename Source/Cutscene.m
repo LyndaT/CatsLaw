@@ -16,4 +16,10 @@
     BOOL isCutsceneNext;
 }
 
+- (void)next{
+    CCLOG(@"cutscene over");
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"scenes/GamePlay"];
+    [[CCDirector sharedDirector] replaceScene:gameplayScene];
+}
+
 @end

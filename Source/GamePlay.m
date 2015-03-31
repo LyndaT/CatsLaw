@@ -399,11 +399,16 @@ CGFloat immuneTime = 3.0f;
 }
 
 - (void)loadLevel {
-    currentLevel = (Level *)[CCBReader load:[globals getCurrentLevelName]];
-//    CCLOG([globals getCurrentLevelName]);
-    [levelNode addChild:currentLevel];
-    [currentLevel addCatToLevel:cat];
-    [self startCatImmunity];
+    if (!currentLevel.isCutsceneNext){
+        currentLevel = (Level *)[CCBReader load:[globals getCurrentLevelName]];
+        [levelNode addChild:currentLevel];
+        [currentLevel addCatToLevel:cat];
+        [self startCatImmunity];
+    }else {
+        NSString* cutName = [NSString stringWithFormat:@"cutscenes/cutscene%i", [currentLevel getNextLevel]];
+        CCScene *cutScene = [CCBReader loadAsScene:cutName];
+        [[CCDirector sharedDirector] replaceScene:cutScene];
+    }
 }
 
 - (void)clearLevel{
