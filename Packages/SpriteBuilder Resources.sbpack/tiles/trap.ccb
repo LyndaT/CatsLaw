@@ -110,7 +110,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>assets/tiles/storm_grate.png</string>
+							<string>assets/tiles/forest/trapDoor.png</string>
 						</array>
 					</dict>
 					<dict>
