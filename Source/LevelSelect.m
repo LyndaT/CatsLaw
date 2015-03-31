@@ -106,6 +106,11 @@
     }
 }
 
+- (void)toMenu {
+    globals.currentSceneName = @"MainScene";
+    [[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:globals.currentSceneName]];
+}
+
 /*
  * Update function called once per frame.
  */
