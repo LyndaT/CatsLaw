@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>101</integer>
+	<integer>107</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -78,7 +78,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>285</real>
+									<real>302</real>
 									<real>142</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -212,7 +212,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>335.27078247070312</real>
+							<real>233.27078247070312</real>
 							<real>246.5810546875</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -2053,7 +2053,131 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>283</real>
+									<real>227</real>
+									<real>93.000007629394531</real>
+									<integer>0</integer>
+									<integer>0</integer>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>scale</string>
+								<key>type</key>
+								<string>ScaleLock</string>
+								<key>value</key>
+								<array>
+									<real>0.80000001192092896</real>
+									<real>1</real>
+									<false/>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>ccbFile</string>
+								<key>type</key>
+								<string>CCBFile</string>
+								<key>value</key>
+								<string>tiles/forest/forestGroundTile.ccb</string>
+							</dict>
+						</array>
+					</dict>
+					<dict>
+						<key>UUID</key>
+						<integer>101</integer>
+						<key>baseClass</key>
+						<string>CCBFile</string>
+						<key>children</key>
+						<array/>
+						<key>customClass</key>
+						<string></string>
+						<key>displayName</key>
+						<string>forestGround</string>
+						<key>memberVarAssignmentName</key>
+						<string></string>
+						<key>memberVarAssignmentType</key>
+						<integer>1</integer>
+						<key>properties</key>
+						<array>
+							<dict>
+								<key>name</key>
+								<string>name</string>
+								<key>type</key>
+								<string>StringSimple</string>
+								<key>value</key>
+								<string></string>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>position</string>
+								<key>type</key>
+								<string>Position</string>
+								<key>value</key>
+								<array>
+									<real>295</real>
+									<real>93.000007629394531</real>
+									<integer>0</integer>
+									<integer>0</integer>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>scale</string>
+								<key>type</key>
+								<string>ScaleLock</string>
+								<key>value</key>
+								<array>
+									<real>0.80000001192092896</real>
+									<real>1</real>
+									<false/>
+									<integer>0</integer>
+								</array>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>ccbFile</string>
+								<key>type</key>
+								<string>CCBFile</string>
+								<key>value</key>
+								<string>tiles/forest/forestGroundTile.ccb</string>
+							</dict>
+						</array>
+					</dict>
+					<dict>
+						<key>UUID</key>
+						<integer>104</integer>
+						<key>baseClass</key>
+						<string>CCBFile</string>
+						<key>children</key>
+						<array/>
+						<key>customClass</key>
+						<string></string>
+						<key>displayName</key>
+						<string>forestGround</string>
+						<key>memberVarAssignmentName</key>
+						<string></string>
+						<key>memberVarAssignmentType</key>
+						<integer>1</integer>
+						<key>properties</key>
+						<array>
+							<dict>
+								<key>name</key>
+								<string>name</string>
+								<key>type</key>
+								<string>StringSimple</string>
+								<key>value</key>
+								<string></string>
+							</dict>
+							<dict>
+								<key>name</key>
+								<string>position</string>
+								<key>type</key>
+								<string>Position</string>
+								<key>value</key>
+								<array>
+									<real>363</real>
 									<real>93.000007629394531</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -2115,7 +2239,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>316</real>
+									<real>388</real>
 									<real>70.000015258789062</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -2185,7 +2309,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>251</real>
+									<real>200</real>
 									<real>67.000015258789062</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -2255,7 +2379,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>250</real>
+									<real>205</real>
 									<real>43.000015258789062</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -2317,8 +2441,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>323</real>
-									<real>32.000015258789062</real>
+									<real>392</real>
+									<real>34.506175994873047</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -2387,7 +2511,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>321.94000244140625</real>
+									<real>397</real>
 									<real>114.27743530273438</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -2449,7 +2573,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>244.11436462402344</real>
+									<real>190</real>
 									<real>112.33179473876953</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -3217,40 +3341,40 @@
 							<key>points</key>
 							<array>
 								<array>
-									<real>0.0</real>
-									<real>0.0</real>
+									<real>-51.618556976318359</real>
+									<real>0.34673681855201721</real>
 								</array>
 								<array>
-									<real>0.0</real>
-									<real>100</real>
+									<real>-51.618556976318359</real>
+									<real>97.842430114746094</real>
 								</array>
 								<array>
-									<real>100</real>
-									<real>100</real>
+									<real>175.19731140136719</real>
+									<real>97.842430114746094</real>
 								</array>
 								<array>
-									<real>100</real>
-									<real>0.0</real>
+									<real>174.89622497558594</real>
+									<real>0.34673681855201721</real>
 								</array>
 							</array>
 							<key>polygons</key>
 							<array>
 								<array>
 									<array>
-										<real>100</real>
-										<real>0.0</real>
+										<real>174.89622497558594</real>
+										<real>0.34673681855201721</real>
 									</array>
 									<array>
-										<real>100</real>
-										<real>100</real>
+										<real>175.19731140136719</real>
+										<real>97.842430114746094</real>
 									</array>
 									<array>
-										<real>0.0</real>
-										<real>100</real>
+										<real>-51.618556976318359</real>
+										<real>97.842430114746094</real>
 									</array>
 									<array>
-										<real>0.0</real>
-										<real>0.0</real>
+										<real>-51.618556976318359</real>
+										<real>0.34673681855201721</real>
 									</array>
 								</array>
 							</array>
@@ -3492,11 +3616,11 @@
 							<real>69.077140808105469</real>
 						</array>
 						<array>
-							<real>-75.592506408691406</real>
+							<real>-100.36594390869141</real>
 							<real>69.077140808105469</real>
 						</array>
 						<array>
-							<real>-75.592506408691406</real>
+							<real>-100.36594390869141</real>
 							<real>-18.520513534545898</real>
 						</array>
 						<array>
@@ -3528,11 +3652,11 @@
 								<real>-18.520513534545898</real>
 							</array>
 							<array>
-								<real>-75.592506408691406</real>
+								<real>-100.36594390869141</real>
 								<real>-18.520513534545898</real>
 							</array>
 							<array>
-								<real>-75.592506408691406</real>
+								<real>-100.36594390869141</real>
 								<real>69.077140808105469</real>
 							</array>
 						</array>
@@ -3546,7 +3670,7 @@
 								<real>118.6123046875</real>
 							</array>
 							<array>
-								<real>-75.592506408691406</real>
+								<real>-100.36594390869141</real>
 								<real>69.077140808105469</real>
 							</array>
 							<array>
@@ -3591,7 +3715,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>286.27078247070312</real>
+							<real>189.27078247070312</real>
 							<real>246.5810546875</real>
 							<integer>0</integer>
 							<integer>0</integer>

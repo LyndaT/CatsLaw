@@ -109,7 +109,8 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Cat always walks forward!</string>
+							<string>Cat always
+walks forward!</string>
 							<false/>
 						</array>
 					</dict>
