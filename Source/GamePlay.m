@@ -101,6 +101,10 @@ CGFloat immuneTime = 3.0f;
     if (!isCatImmune) {
         [self changeGravity:acceleration.x :acceleration.y];
         [cat moveCat:rotation timeStep:delta];
+        
+        if (isAtDoor){
+            [self tryDoor];
+        }
     }
 }
 
@@ -212,6 +216,30 @@ CGFloat immuneTime = 3.0f;
     
     //call showNextLevelMenu in one second
     [self scheduleOnce:@selector(showNextLevelMenu) delay:1.0f];
+}
+
+- (void)tryDoor{
+    if ([currentLevel isDoorUnlocked]){
+        //trying to open the door
+        if ([globals clampRotation:cat.catOrientation] == [globals clampRotation:[currentLevel getDoorRotation]]) {
+            //if you're the right door orientation
+            CCLOG(@"opening the door");
+            isAtDoor=NO;
+            //for tutorial stuff
+            if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level1"]){
+                [tutorial door];
+            }
+            if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level4"]){
+                [tutorial cling];
+            }
+            
+            [self openDoor];
+        }
+        else {
+            CCLOG(@"cat orient: %f", cat.rotation);
+            CCLOG(@"door orient: %f", [currentLevel getDoorRotation]);
+        }
+    }
 }
 
 //-------------------collision stuff
@@ -423,27 +451,28 @@ CGFloat immuneTime = 3.0f;
             //ending hover and getting cat to start at beginning of level
             [self endCatImmunity];
         }
-        else if (isAtDoor && [currentLevel isDoorUnlocked]){
-            //trying to open the door
-            if ([globals clampRotation:cat.catOrientation] == [globals clampRotation:[currentLevel getDoorRotation]]) {
-                //if you're the right door orientation
-                CCLOG(@"opening the door");
-                //for tutorial stuff
-                if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level1"]){
-                    [tutorial door];
-                }
-                if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level4"]){
-                    [tutorial cling];
-                }
-                
-                [self openDoor];
-            }
-            else {
-                CCLOG(@"cat orient: %f", cat.rotation);
-                CCLOG(@"door orient: %f", [currentLevel getDoorRotation]);
-            }
-        }
-        else {
+//        else if (isAtDoor && [currentLevel isDoorUnlocked]){
+//          IF AUTO-DOOR OPENING IS FINE, GET RID OF THIS COMMENT BLOCK.
+//            //trying to open the door
+//            if ([globals clampRotation:cat.catOrientation] == [globals clampRotation:[currentLevel getDoorRotation]]) {
+//                //if you're the right door orientation
+//                CCLOG(@"opening the door");
+//                //for tutorial stuff
+//                if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level1"]){
+//                    [tutorial door];
+//                }
+//                if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level4"]){
+//                    [tutorial cling];
+//                }
+//                
+//                [self openDoor];
+//            }
+//            else {
+//                CCLOG(@"cat orient: %f", cat.rotation);
+//                CCLOG(@"door orient: %f", [currentLevel getDoorRotation]);
+//            }
+//        }
+        else if (![cat getIsKnocking]){
             //try to cling
             [cat tryToCling];
         }

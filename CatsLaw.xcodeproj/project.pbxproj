@@ -108,6 +108,7 @@
 		F2B04B051A9044E200D0F740 /* Globals.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B04B041A9044E200D0F740 /* Globals.m */; };
 		F2B5C6C91AA37EC700B1524D /* LevelSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B5C6C81AA37EC700B1524D /* LevelSelect.m */; };
 		F2C155CA1ACA39B300D30B10 /* Trap.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C155C91ACA39B300D30B10 /* Trap.m */; };
+		F2C155CE1ACA466400D30B10 /* Cutscene.m in Sources */ = {isa = PBXBuildFile; fileRef = F2C155CD1ACA466400D30B10 /* Cutscene.m */; };
 		F2E722BE1A86676E00C9B77A /* GamePlay.m in Sources */ = {isa = PBXBuildFile; fileRef = F2E722BD1A86676E00C9B77A /* GamePlay.m */; };
 		F2EF85101AB4A5C70081E952 /* DeathScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = F2EF850F1AB4A5C70081E952 /* DeathScreen.m */; };
 /* End PBXBuildFile section */
@@ -278,6 +279,8 @@
 		F2B5C6C81AA37EC700B1524D /* LevelSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LevelSelect.m; path = Source/LevelSelect.m; sourceTree = "<group>"; };
 		F2C155C81ACA39B300D30B10 /* Trap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Trap.h; path = Source/Trap.h; sourceTree = "<group>"; };
 		F2C155C91ACA39B300D30B10 /* Trap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Trap.m; path = Source/Trap.m; sourceTree = "<group>"; };
+		F2C155CC1ACA466400D30B10 /* Cutscene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Cutscene.h; path = Source/Cutscene.h; sourceTree = "<group>"; };
+		F2C155CD1ACA466400D30B10 /* Cutscene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Cutscene.m; path = Source/Cutscene.m; sourceTree = "<group>"; };
 		F2E722BC1A86676E00C9B77A /* GamePlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GamePlay.h; path = Source/GamePlay.h; sourceTree = "<group>"; };
 		F2E722BD1A86676E00C9B77A /* GamePlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GamePlay.m; path = Source/GamePlay.m; sourceTree = "<group>"; };
 		F2EF850E1AB4A5C70081E952 /* DeathScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeathScreen.h; path = Source/DeathScreen.h; sourceTree = "<group>"; };
@@ -535,6 +538,8 @@
 				F24DC7FB1AA42FE50060D185 /* LevelButton.m */,
 				52789FDF1A98F604005697A1 /* Level.h */,
 				52789FE01A98F604005697A1 /* Level.m */,
+				F2C155CC1ACA466400D30B10 /* Cutscene.h */,
+				F2C155CD1ACA466400D30B10 /* Cutscene.m */,
 				B7378992180767190076A88C /* MainScene.h */,
 				B7378993180767190076A88C /* MainScene.m */,
 				F2953B9F1AABA1F30064BFBE /* Settings.h */,
@@ -977,6 +982,7 @@
 				F2EF85101AB4A5C70081E952 /* DeathScreen.m in Sources */,
 				F23438661AB7D6B80093FF6D /* Grass.m in Sources */,
 				F2127E881A9914C40048124A /* Door.m in Sources */,
+				F2C155CE1ACA466400D30B10 /* Cutscene.m in Sources */,
 				F23CF7511AB9098100381F79 /* Tutorial.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

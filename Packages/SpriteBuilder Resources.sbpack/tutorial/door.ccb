@@ -109,8 +109,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Tap the screen
-to open the door!</string>
+							<string>Cat always walks forward!</string>
 							<false/>
 						</array>
 					</dict>
@@ -318,8 +317,6 @@ to open the door!</string>
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

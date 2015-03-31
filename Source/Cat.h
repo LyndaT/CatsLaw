@@ -19,6 +19,7 @@
 - (void) tryToCling;
 - (void) endCling:(int)orientation;
 - (BOOL) isNyooming;
+- (BOOL) getIsKnocking;
 - (void) setIsKnocking: (BOOL)set;
 - (void) setDirection: (int)dir;
 - (void) stopCat;

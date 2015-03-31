@@ -61,6 +61,10 @@
     return (sqrt(pow(self.physicsBody.velocity.x,2) + pow(self.physicsBody.velocity.y,2)) > speed + 20);
 }
 
+- (BOOL)getIsKnocking {
+    return isKnocking;
+}
+
 //Tries to make the cat cling
 - (void) tryToCling {
     if (canCling && canMove) {
