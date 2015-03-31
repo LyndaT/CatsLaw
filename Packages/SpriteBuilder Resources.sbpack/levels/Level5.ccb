@@ -4371,7 +4371,7 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>6</string>
+				<string>1</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -4381,7 +4381,7 @@
 				<key>type</key>
 				<integer>2</integer>
 				<key>value</key>
-				<string>0</string>
+				<string>1</string>
 			</dict>
 		</array>
 		<key>displayName</key>
@@ -4452,6 +4452,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
