@@ -21,7 +21,7 @@
 
 - (id)init {
     if (self = [super init]) {
-        NSUInteger highest = 14;
+        NSUInteger highest = 15;
         //NSUInteger highest = [[NSUserDefaults standardUserDefaults] integerForKey:@"highestLevel"];
         if (highest == nil || highest==1) {
             CCLOG(@"new game");
@@ -36,7 +36,7 @@
         audio = [OALSimpleAudio sharedInstance];
         screenSize = [CCDirector sharedDirector].viewSize;
     
-        totalLevels = 14;
+        totalLevels = 15;
     }
     return self;
 }
