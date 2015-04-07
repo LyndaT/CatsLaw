@@ -628,16 +628,16 @@
 			<key>points</key>
 			<array>
 				<array>
-					<real>-15.726531982421875</real>
-					<real>-21.03515625</real>
+					<real>-14.078276634216309</real>
+					<real>-20.142059326171875</real>
 				</array>
 				<array>
-					<real>-17.156219482421875</real>
-					<real>6.82421875</real>
+					<real>-12.047554969787598</real>
+					<real>7.0262670516967773</real>
 				</array>
 				<array>
-					<real>20.582061767578125</real>
-					<real>6.65234375</real>
+					<real>19.282848358154297</real>
+					<real>6.5695481300354004</real>
 				</array>
 				<array>
 					<real>20.582061767578125</real>
@@ -652,16 +652,16 @@
 						<real>-20.6640625</real>
 					</array>
 					<array>
-						<real>20.582061767578125</real>
-						<real>6.65234375</real>
+						<real>19.282848358154297</real>
+						<real>6.5695481300354004</real>
 					</array>
 					<array>
-						<real>-17.156219482421875</real>
-						<real>6.82421875</real>
+						<real>-12.047554969787598</real>
+						<real>7.0262670516967773</real>
 					</array>
 					<array>
-						<real>-15.726531982421875</real>
-						<real>-21.03515625</real>
+						<real>-14.078276634216309</real>
+						<real>-20.142059326171875</real>
 					</array>
 				</array>
 			</array>
@@ -758,8 +758,6 @@
 				<array/>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

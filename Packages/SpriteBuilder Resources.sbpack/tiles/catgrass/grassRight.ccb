@@ -636,24 +636,24 @@
 					<real>9.7734375</real>
 				</array>
 				<array>
-					<real>14.996124267578125</real>
-					<real>11.17578125</real>
+					<real>13.305120468139648</real>
+					<real>11.252711296081543</real>
 				</array>
 				<array>
-					<real>15.312530517578125</real>
-					<real>-17.9453125</real>
+					<real>13.858864784240723</real>
+					<real>-17.742664337158203</real>
 				</array>
 			</array>
 			<key>polygons</key>
 			<array>
 				<array>
 					<array>
-						<real>15.312530517578125</real>
-						<real>-17.9453125</real>
+						<real>13.858864784240723</real>
+						<real>-17.742664337158203</real>
 					</array>
 					<array>
-						<real>14.996124267578125</real>
-						<real>11.17578125</real>
+						<real>13.305120468139648</real>
+						<real>11.252711296081543</real>
 					</array>
 					<array>
 						<real>-19.363250732421875</real>
