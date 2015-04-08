@@ -4229,7 +4229,7 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>18</string>
+				<string>23</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -4310,6 +4310,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

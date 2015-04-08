@@ -5798,7 +5798,7 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>19</string>
+				<string>24</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -5879,6 +5879,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

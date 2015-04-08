@@ -2214,8 +2214,6 @@
 								<string>tiles/forest/forestSideTile.ccb</string>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -2312,7 +2310,7 @@
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>15</string>
+				<string>18</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -2403,6 +2401,8 @@
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
