@@ -750,6 +750,7 @@
 						CreatedOnToolsVersion = 6.0.1;
 					};
 					B77F1B2D17B978D7009739AE = {
+						DevelopmentTeam = KGR79KNELP;
 						SystemCapabilities = {
 							com.apple.GameCenter = {
 								enabled = 0;
@@ -1369,7 +1370,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = CatsLaw;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "03a888a1-3feb-4b47-b39d-ef0d0db0a1dc";
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1403,7 +1404,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = CatsLaw;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "03a888a1-3feb-4b47-b39d-ef0d0db0a1dc";
 				SWIFT_OBJC_BRIDGING_HEADER = "Source/Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
