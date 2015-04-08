@@ -418,7 +418,7 @@ CGFloat immuneTime = 3.0f;
 }
 
 - (void)incrementLevel {
-    [globals setLevel:(globals.currentLevelNumber+1)];
+    [globals setLevel:[currentLevel getNextLevel]];
 }
 
 - (void)showNextLevelMenu {

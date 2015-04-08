@@ -2241,8 +2241,6 @@
 								<string>assets/animations/waterSparks.ccb</string>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -2565,7 +2563,7 @@ interesting...</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>15</string>
+				<string>20</string>
 			</dict>
 			<dict>
 				<key>name</key>
@@ -2646,6 +2644,8 @@ interesting...</string>
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
