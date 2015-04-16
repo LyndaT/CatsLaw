@@ -2666,7 +2666,7 @@ It's up to you to get it back!</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>value</key>
-				<string>0</string>
+				<string>6</string>
 			</dict>
 		</array>
 		<key>displayName</key>
@@ -2737,6 +2737,8 @@ It's up to you to get it back!</string>
 				</array>
 			</dict>
 		</array>
+		<key>selected</key>
+		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
