@@ -29,6 +29,7 @@ CGFloat immuneTime = 3.0f;
     BOOL isGameOver;
     BOOL isAtDoor;
     BOOL isCatImmune;
+    BOOL isClingTutorial;
     
     CCNode *pauseMenu;
     DeathScreen *deadMenu;
@@ -87,7 +88,7 @@ CGFloat immuneTime = 3.0f;
     physNode.collisionDelegate = self;
     cat.physicsBody.collisionType = @"cat";
     
-    [self loadLevel];
+    [self loadLevel: NO];
 }
 
 /*
@@ -98,8 +99,16 @@ CGFloat immuneTime = 3.0f;
     CMAccelerometerData *accelerometerData = motionManager.accelerometerData;
     CMAcceleration acceleration = accelerometerData.acceleration;
     
+    //for cling tutorial stuff
+    BOOL shouldRotate = YES;
+    if (isClingTutorial) {
+        shouldRotate = [tutorial shouldRotate];
+    }
+    
     if (!isCatImmune) {
-        [self changeGravity:acceleration.x :acceleration.y];
+        if (YES){//shouldRotate){
+            [self changeGravity:acceleration.x :acceleration.y];
+        }
         [cat moveCat:rotation timeStep:delta];
         
         if (isAtDoor){
@@ -203,7 +212,7 @@ CGFloat immuneTime = 3.0f;
     [[CCDirector sharedDirector] resume];
     isPaused=NO;
     [self clearLevel];
-    [self loadLevel];
+    [self loadLevel: YES];
     deadMenu.visible=false;
     pauseButton.visible = YES;
     pauseButton.enabled = YES;
@@ -398,9 +407,14 @@ CGFloat immuneTime = 3.0f;
     }
 }
 
-- (void)loadLevel {
-    if (!currentLevel.isCutsceneNext){
+//isReload used if the next level is a cutscene but you're just trying to reload the current level.
+- (void)loadLevel: (BOOL)isReload {
+    if (!currentLevel.isCutsceneNext || isReload){
         currentLevel = (Level *)[CCBReader load:[globals getCurrentLevelName]];
+        if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level4"]) {
+            //it's the cling tutorial
+            isClingTutorial = YES;
+        }
         [levelNode addChild:currentLevel];
         [currentLevel addCatToLevel:cat];
         [self startCatImmunity];
@@ -439,7 +453,7 @@ CGFloat immuneTime = 3.0f;
     [cat setIsKnocking:NO];
     [self incrementLevel];
     [self clearLevel];
-    [self loadLevel];
+    [self loadLevel: NO];
 }
 
 
@@ -456,30 +470,12 @@ CGFloat immuneTime = 3.0f;
             //ending hover and getting cat to start at beginning of level
             [self endCatImmunity];
         }
-//        else if (isAtDoor && [currentLevel isDoorUnlocked]){
-//          IF AUTO-DOOR OPENING IS FINE, GET RID OF THIS COMMENT BLOCK.
-//            //trying to open the door
-//            if ([globals clampRotation:cat.catOrientation] == [globals clampRotation:[currentLevel getDoorRotation]]) {
-//                //if you're the right door orientation
-//                CCLOG(@"opening the door");
-//                //for tutorial stuff
-//                if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level1"]){
-//                    [tutorial door];
-//                }
-//                if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level4"]){
-//                    [tutorial cling];
-//                }
-//                
-//                [self openDoor];
-//            }
-//            else {
-//                CCLOG(@"cat orient: %f", cat.rotation);
-//                CCLOG(@"door orient: %f", [currentLevel getDoorRotation]);
-//            }
-//        }
         else if (![cat getIsKnocking]){
             //try to cling
             [cat tryToCling];
+            if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level4"]){
+                [tutorial clingHold];
+            }
         }
     }
 }

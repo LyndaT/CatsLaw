@@ -15,7 +15,9 @@
 - (void)callOnCollision:(Cat*) cat gameplayHolder:(GamePlay*) gameplay tutNode:(CCNode *)tut;
 
 - (void)door;
+- (BOOL)shouldRotate;
 - (void)turn;
 - (void)cling;
+- (void)clingHold;
 
 @end

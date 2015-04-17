@@ -79,13 +79,16 @@
 
 - (void)close {
     CCLOG(@"close tut");
-    isPlaying = NO;
-    tutorialAnim.visible = NO;
-    if (shouldPause){
-        [player goCat];
-        
-        //shows questionmark bubble after 10 sec
-        [self scheduleOnce:@selector(openBubble) delay:10.0f];
+    if (isPlaying){
+        isPlaying = NO;
+        tutorialAnim.visible = NO;
+        [game removeChild:tutorialAnim];
+        if (shouldPause){
+            [player goCat];
+            
+            //shows questionmark bubble after 10 sec
+            //        [self scheduleOnce:@selector(openBubble) delay:10.0f];
+        }
     }
 }
 
@@ -117,12 +120,21 @@
     [self close];
 }
 
+//we want the cat to remain on the ground during part of the cling tutorial
+//so this is for that
+- (BOOL)shouldRotate {
+    if ([tutorialAnimString isEqualToString:@"clingHold"]){
+        return NO;
+    }else{
+        return YES;
+    }
+}
+
 //turn done first time player changes gravity on that level
 - (void)turn {
     CCLOG(@"turn done");
-    if (!isPlaying){
-        hasCompleted = YES;
-    }
+    [self close];
+    hasCompleted = YES;
     if (bubbleOpen){
         [game removeChild:bubble];
         bubbleOpen = NO;
@@ -132,12 +144,20 @@
 //cling done when player does a 180 WHILE clinging
 - (void)cling {
     CCLOG(@"cling done");
-    if (!isPlaying){
-        hasCompleted = YES;
-    }
+    [self close];
+    hasCompleted = YES;
     if (bubbleOpen){
         [game removeChild:bubble];
         bubbleOpen = NO;
+    }
+}
+
+- (void)clingHold {
+    CCLOG(@"cling hold");
+    if (isPlaying){
+        [game removeChild:tutorialAnim];
+        tutorialAnim = [CCBReader load:@"tutorial/clingTurn" owner:self];
+        [game addChild:tutorialAnim];
     }
 }
 
