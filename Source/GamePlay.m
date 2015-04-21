@@ -29,7 +29,7 @@ CGFloat immuneTime = 3.0f;
     BOOL isGameOver;
     BOOL isAtDoor;
     BOOL isCatImmune;
-    BOOL isClingTutorial;
+    BOOL isTutorial;
     
     CCNode *pauseMenu;
     DeathScreen *deadMenu;
@@ -101,15 +101,20 @@ CGFloat immuneTime = 3.0f;
     
     //for cling tutorial stuff
     BOOL shouldRotate = YES;
-    if (isClingTutorial) {
+    if (isTutorial) {
         shouldRotate = [tutorial shouldRotate];
     }
     
     if (!isCatImmune) {
-        if (YES){//shouldRotate){
+        if (shouldRotate){
             [self changeGravity:acceleration.x :acceleration.y];
+            [cat moveCat:rotation timeStep:delta];
+        }else{
+            if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level2"]){
+                [cat rotate:rotation];
+                [self changeGravity:acceleration.x :acceleration.y];
+            }
         }
-        [cat moveCat:rotation timeStep:delta];
         
         if (isAtDoor){
             [self tryDoor];
@@ -411,13 +416,20 @@ CGFloat immuneTime = 3.0f;
 - (void)loadLevel: (BOOL)isReload {
     if (!currentLevel.isCutsceneNext || isReload){
         currentLevel = (Level *)[CCBReader load:[globals getCurrentLevelName]];
-        if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level4"]) {
-            //it's the cling tutorial
-            isClingTutorial = YES;
+        if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level4"] ||
+            [[globals getCurrentLevelName] isEqualToString:@"levels/Level2"]) {
+            //it's the cling tutorial or turn tutorial
+            isTutorial = YES;
         }
         [levelNode addChild:currentLevel];
         [currentLevel addCatToLevel:cat];
-        [self startCatImmunity];
+        if (!isTutorial){
+            [self startCatImmunity];
+        }else{
+            isCatImmune=NO;
+            [self updateGravity:[currentLevel getLevelRotation]];
+            [cat walk];
+        }
     }else {
         NSString* cutName = [NSString stringWithFormat:@"cutscenes/cutscene%i", [currentLevel getNextLevel]];
         CCScene *cutScene = [CCBReader loadAsScene:cutName];

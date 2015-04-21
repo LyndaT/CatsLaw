@@ -3393,6 +3393,16 @@
 						<key>value</key>
 						<string>0</string>
 					</dict>
+					<dict>
+						<key>name</key>
+						<string>shouldRotate</string>
+						<key>optimized</key>
+						<false/>
+						<key>type</key>
+						<integer>2</integer>
+						<key>value</key>
+						<string>0</string>
+					</dict>
 				</array>
 				<key>displayName</key>
 				<string>tutorialNode</string>
@@ -3482,8 +3492,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>180.00003051757812</real>
-							<real>93</real>
+							<real>122</real>
+							<real>94</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>

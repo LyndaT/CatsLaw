@@ -257,8 +257,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -3569,6 +3567,16 @@
 					<dict>
 						<key>name</key>
 						<string>shouldPause</string>
+						<key>optimized</key>
+						<false/>
+						<key>type</key>
+						<integer>2</integer>
+						<key>value</key>
+						<string>0</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>shouldRotate</string>
 						<key>optimized</key>
 						<false/>
 						<key>type</key>

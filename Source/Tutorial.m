@@ -21,8 +21,11 @@
     CCNode* game;
     Cat* player;
     
-    BOOL hasPlayed; //so tutorial only plays once when you collide
+    //from spriteb
     BOOL shouldPause; //to differentiate between actual popups and just overlay text
+    BOOL shouldRotate; //for whether the cat should move during tut or not
+    
+    BOOL hasPlayed; //so tutorial only plays once when you collide
     BOOL isPlaying; //if the tutorial is currently playing
     BOOL bubbleOpen;
     
@@ -123,11 +126,16 @@
 //we want the cat to remain on the ground during part of the cling tutorial
 //so this is for that
 - (BOOL)shouldRotate {
-    if ([tutorialAnimString isEqualToString:@"clingHold"]){
-        return NO;
-    }else{
+//    if ([tutorialAnimString isEqualToString:@"clingHold"] ||
+//        [tutorialAnimString isEqualToString:@"turn"]){
+//        return NO;
+//    }else{
+//        return YES;
+//    }
+    if (hasCompleted){
         return YES;
     }
+    return shouldRotate;
 }
 
 //turn done first time player changes gravity on that level

@@ -132,23 +132,7 @@
             //self.position = ccp(self.position.x, self.position.y + delta*speed);
         }
     }
-    float currentAngle = self.rotation;
-    float futureAngle = [globals clampRotation:(currentAngle + self.physicsBody.angularVelocity/10.0)];
-    float rotationToGo = currentAngle-catOrientation;
-    float desiredAngularVelocity = 0;
-    if (rotationToGo > 180) {
-        rotationToGo = rotationToGo - 360;
-    }
-    else if (rotationToGo < -180) {
-        rotationToGo = rotationToGo + 360;
-    }
-    if (rotationToGo > 0) {
-        desiredAngularVelocity = rotationToGo*30.0/180.0;
-    }
-    else if (rotationToGo < 0) {
-        desiredAngularVelocity = rotationToGo*30.0/180;
-    }
-    self.physicsBody.angularVelocity = desiredAngularVelocity;
+    [self rotate:orientation];
     
     
 //    CCLOG(@"rotation %f", self.rotation);
@@ -166,6 +150,26 @@
     //[self.physicsBody applyTorque:torque];
     
     
+}
+
+- (void)rotate: (int)orientation{
+    float currentAngle = self.rotation;
+    float futureAngle = [globals clampRotation:(currentAngle + self.physicsBody.angularVelocity/10.0)];
+    float rotationToGo = currentAngle-catOrientation;
+    float desiredAngularVelocity = 0;
+    if (rotationToGo > 180) {
+        rotationToGo = rotationToGo - 360;
+    }
+    else if (rotationToGo < -180) {
+        rotationToGo = rotationToGo + 360;
+    }
+    if (rotationToGo > 0) {
+        desiredAngularVelocity = rotationToGo*30.0/180.0;
+    }
+    else if (rotationToGo < 0) {
+        desiredAngularVelocity = rotationToGo*30.0/180;
+    }
+    self.physicsBody.angularVelocity = desiredAngularVelocity;
 }
 
 //stops the cat from moving

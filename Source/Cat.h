@@ -16,6 +16,7 @@
 @property (nonatomic, assign) int catOrientation;//the cat's perspective of which way's down
 
 - (void) moveCat: (int) orientation timeStep: (CCTime) delta;
+- (void) rotate: (int) orientation;
 - (void) tryToCling;
 - (void) endCling:(int)orientation;
 - (BOOL) isNyooming;
