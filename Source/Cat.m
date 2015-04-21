@@ -209,6 +209,7 @@
 - (void)knock {
     isKnocking=YES;
     [animationManager runAnimationsForSequenceNamed:@"knock"];
+    [globals.audio playEffect:@"assets/music/knock.mp3"];
 }
 
 - (void)stand {

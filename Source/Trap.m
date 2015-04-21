@@ -9,8 +9,10 @@
 #import "Trap.h"
 #import "GamePlay.h"
 #import "Cat.h"
+#import "Globals.h"
 
 @implementation Trap{
+    Globals *globals;
 }
 
 - (void)didLoadFromCCB
@@ -23,6 +25,7 @@
 - (void) callOnCollision:(Cat*)cat gameplayHolder:(GamePlay *)gameplay{
     if ([cat isNyooming]){
         self.physicsBody.sensor = TRUE;
+        //[globals.audio playEffect:@"assets/music/falltrap.mp3"];
     }else {
         self.physicsBody.sensor = FALSE;
     }
