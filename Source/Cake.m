@@ -7,8 +7,10 @@
 //
 
 #import "Cake.h"
+#import "Globals.h"
 
 @implementation Cake{
+    Globals *globals;
     CCAnimationManager* animationManager;
 }
 
@@ -28,6 +30,7 @@
 }
 
 - (void)eat{
+    //[globals.audio playEffect:@"assets/music/cakeget.mp3"];
     [animationManager runAnimationsForSequenceNamed:@"eat"];
 }
 

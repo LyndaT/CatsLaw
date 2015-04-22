@@ -195,8 +195,10 @@ CGFloat immuneTime = 3.0f;
 //call when entering the game over state
 -(void)gameOver: (NSString *)method {
     if ([method isEqualToString:@"cake"]){
+        //[globals.audio playEffect:@"assets/music/cakesmoosh.mp3"];
         [deadMenu cake];
     }else if ([method isEqualToString:@"water"]){
+        //[globals.audio playEffect:@"assets/music/water.mp3"];
         [deadMenu water];
     }
     isGameOver = YES;
