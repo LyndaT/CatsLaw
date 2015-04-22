@@ -109,7 +109,12 @@ CGFloat immuneTime = 3.0f;
         if (shouldRotate){
             [cat moveCat:rotation timeStep:delta];
         }else{
-            [cat rotate:rotation];
+            if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level4"]){
+                [cat rotate:180];
+            }
+            if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level2"]){
+                [cat rotate:rotation];
+            }
         }
         [self changeGravity:acceleration.x :acceleration.y :shouldRotate];
         
@@ -430,10 +435,6 @@ CGFloat immuneTime = 3.0f;
             isCatImmune=NO;
             [self updateGravity:[currentLevel getLevelRotation]];
             [cat walk];
-            if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level4"]){
-                [cat rotate:180];
-                CCLOG(@"cat rot %i",[cat catOrientation]);
-            }
         }
         CCLOG(@"rotation at start %i",rotation);
     }else {
