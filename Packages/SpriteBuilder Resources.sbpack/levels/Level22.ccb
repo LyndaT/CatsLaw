@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>143</integer>
+	<integer>144</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -2804,7 +2804,7 @@
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
-						<string></string>
+						<string>Ground</string>
 						<key>displayName</key>
 						<string>groundCol</string>
 						<key>memberVarAssignmentName</key>
@@ -2824,7 +2824,7 @@
 							<key>collisionMask</key>
 							<array/>
 							<key>collisionType</key>
-							<string></string>
+							<string>tile</string>
 							<key>cornerRadius</key>
 							<real>0.0</real>
 							<key>density</key>
@@ -2967,6 +2967,8 @@
 								<real>1</real>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -2976,7 +2978,7 @@
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
-						<string></string>
+						<string>Ground</string>
 						<key>displayName</key>
 						<string>groundCol</string>
 						<key>memberVarAssignmentName</key>
@@ -2996,7 +2998,7 @@
 							<key>collisionMask</key>
 							<array/>
 							<key>collisionType</key>
-							<string></string>
+							<string>tile</string>
 							<key>cornerRadius</key>
 							<real>0.0</real>
 							<key>density</key>
@@ -3148,7 +3150,7 @@
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
-						<string></string>
+						<string>Ground</string>
 						<key>displayName</key>
 						<string>groundCol</string>
 						<key>memberVarAssignmentName</key>
@@ -3168,7 +3170,7 @@
 							<key>collisionMask</key>
 							<array/>
 							<key>collisionType</key>
-							<string></string>
+							<string>tile</string>
 							<key>cornerRadius</key>
 							<real>0.0</real>
 							<key>density</key>
@@ -3320,7 +3322,7 @@
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
-						<string></string>
+						<string>Ground</string>
 						<key>displayName</key>
 						<string>groundCol</string>
 						<key>memberVarAssignmentName</key>
@@ -3340,7 +3342,7 @@
 							<key>collisionMask</key>
 							<array/>
 							<key>collisionType</key>
-							<string></string>
+							<string>tile</string>
 							<key>cornerRadius</key>
 							<real>0.0</real>
 							<key>density</key>
@@ -3486,13 +3488,13 @@
 					</dict>
 					<dict>
 						<key>UUID</key>
-						<integer>86</integer>
+						<integer>143</integer>
 						<key>baseClass</key>
 						<string>CCNodeColor</string>
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
-						<string></string>
+						<string>Ground</string>
 						<key>displayName</key>
 						<string>groundCol</string>
 						<key>memberVarAssignmentName</key>
@@ -3512,7 +3514,7 @@
 							<key>collisionMask</key>
 							<array/>
 							<key>collisionType</key>
-							<string></string>
+							<string>tile</string>
 							<key>cornerRadius</key>
 							<real>0.0</real>
 							<key>density</key>
@@ -3589,8 +3591,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>22.000030517578125</real>
-									<real>276</real>
+									<real>5</real>
+									<real>275</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -3627,8 +3629,8 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>4.3847827911376953</real>
-									<real>0.72570258378982544</real>
+									<real>5.116645336151123</real>
+									<real>0.9025227427482605</real>
 									<false/>
 									<integer>0</integer>
 								</array>
@@ -4310,8 +4312,6 @@
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

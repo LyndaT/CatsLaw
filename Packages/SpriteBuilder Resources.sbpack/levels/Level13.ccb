@@ -2745,7 +2745,7 @@
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
-						<string></string>
+						<string>Ground</string>
 						<key>displayName</key>
 						<string>groundCol</string>
 						<key>memberVarAssignmentName</key>
@@ -2765,7 +2765,7 @@
 							<key>collisionMask</key>
 							<array/>
 							<key>collisionType</key>
-							<string></string>
+							<string>tile</string>
 							<key>cornerRadius</key>
 							<real>0.0</real>
 							<key>density</key>
@@ -2908,6 +2908,8 @@
 								<real>1</real>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
@@ -2917,7 +2919,7 @@
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
-						<string></string>
+						<string>Ground</string>
 						<key>displayName</key>
 						<string>groundCol</string>
 						<key>memberVarAssignmentName</key>
@@ -2937,7 +2939,7 @@
 							<key>collisionMask</key>
 							<array/>
 							<key>collisionType</key>
-							<string></string>
+							<string>tile</string>
 							<key>cornerRadius</key>
 							<real>0.0</real>
 							<key>density</key>
@@ -3089,7 +3091,7 @@
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
-						<string></string>
+						<string>Ground</string>
 						<key>displayName</key>
 						<string>groundCol</string>
 						<key>memberVarAssignmentName</key>
@@ -3109,7 +3111,7 @@
 							<key>collisionMask</key>
 							<array/>
 							<key>collisionType</key>
-							<string></string>
+							<string>tile</string>
 							<key>cornerRadius</key>
 							<real>0.0</real>
 							<key>density</key>
@@ -3261,7 +3263,7 @@
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
-						<string></string>
+						<string>Ground</string>
 						<key>displayName</key>
 						<string>groundCol</string>
 						<key>memberVarAssignmentName</key>
@@ -3281,7 +3283,7 @@
 							<key>collisionMask</key>
 							<array/>
 							<key>collisionType</key>
-							<string></string>
+							<string>tile</string>
 							<key>cornerRadius</key>
 							<real>0.0</real>
 							<key>density</key>
@@ -3433,7 +3435,7 @@
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
-						<string></string>
+						<string>Ground</string>
 						<key>displayName</key>
 						<string>groundCol</string>
 						<key>memberVarAssignmentName</key>
@@ -3453,7 +3455,7 @@
 							<key>collisionMask</key>
 							<array/>
 							<key>collisionType</key>
-							<string></string>
+							<string>tile</string>
 							<key>cornerRadius</key>
 							<real>0.0</real>
 							<key>density</key>
@@ -3605,7 +3607,7 @@
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
-						<string></string>
+						<string>Ground</string>
 						<key>displayName</key>
 						<string>groundCol</string>
 						<key>memberVarAssignmentName</key>
@@ -3625,7 +3627,7 @@
 							<key>collisionMask</key>
 							<array/>
 							<key>collisionType</key>
-							<string></string>
+							<string>tile</string>
 							<key>cornerRadius</key>
 							<real>0.0</real>
 							<key>density</key>
@@ -3777,7 +3779,7 @@
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
-						<string></string>
+						<string>Ground</string>
 						<key>displayName</key>
 						<string>groundCol</string>
 						<key>memberVarAssignmentName</key>
@@ -3797,7 +3799,7 @@
 							<key>collisionMask</key>
 							<array/>
 							<key>collisionType</key>
-							<string></string>
+							<string>tile</string>
 							<key>cornerRadius</key>
 							<real>0.0</real>
 							<key>density</key>
@@ -4182,8 +4184,6 @@
 								<string>assets/animations/waterSparks.ccb</string>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 					<dict>
 						<key>UUID</key>
