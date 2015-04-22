@@ -126,12 +126,6 @@
 //we want the cat to remain on the ground during part of the cling tutorial
 //so this is for that
 - (BOOL)shouldRotate {
-//    if ([tutorialAnimString isEqualToString:@"clingHold"] ||
-//        [tutorialAnimString isEqualToString:@"turn"]){
-//        return NO;
-//    }else{
-//        return YES;
-//    }
     if (hasCompleted){
         return YES;
     }

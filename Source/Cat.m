@@ -153,6 +153,7 @@
 }
 
 - (void)rotate: (int)orientation{
+    catOrientation = orientation;
     float currentAngle = self.rotation;
     float futureAngle = [globals clampRotation:(currentAngle + self.physicsBody.angularVelocity/10.0)];
     float rotationToGo = currentAngle-catOrientation;

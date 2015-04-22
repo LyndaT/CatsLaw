@@ -107,14 +107,11 @@ CGFloat immuneTime = 3.0f;
     
     if (!isCatImmune) {
         if (shouldRotate){
-            [self changeGravity:acceleration.x :acceleration.y];
             [cat moveCat:rotation timeStep:delta];
         }else{
-            if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level2"]){
-                [cat rotate:rotation];
-                [self changeGravity:acceleration.x :acceleration.y];
-            }
+            [cat rotate:rotation];
         }
+        [self changeGravity:acceleration.x :acceleration.y :shouldRotate];
         
         if (isAtDoor){
             [self tryDoor];
@@ -136,7 +133,7 @@ CGFloat immuneTime = 3.0f;
  * gravityup: accel.x < -0.5 && -0.5 < accel.y <0.5
  */
 
-- (void)changeGravity:(CGFloat)xaccel :(CGFloat)yaccel {
+- (void)changeGravity:(CGFloat)xaccel :(CGFloat)yaccel :(BOOL)shouldRotate{
     if (![cat isNyooming]) {          //implement when there's a cat...
         int prevRotation = rotation;
         if (xaccel < 0.5 && xaccel > -0.5 && yaccel < -0.5)
@@ -156,13 +153,15 @@ CGFloat immuneTime = 3.0f;
             rotation = 180;
         }
     
-        [self updateGravity:rotation];
+        if (shouldRotate){
+            [self updateGravity:rotation];
+        }
         if (prevRotation!= rotation) {
             //cat.physicsBody.velocity = ccp(0,0);
             if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level2"]){
                 [tutorial turn];
             }
-            CCLOG(@"gravity changed");
+//            CCLOG(@"gravity changed");
         }
     }
     
@@ -429,7 +428,12 @@ CGFloat immuneTime = 3.0f;
             isCatImmune=NO;
             [self updateGravity:[currentLevel getLevelRotation]];
             [cat walk];
+            if ([[globals getCurrentLevelName] isEqualToString:@"levels/Level4"]){
+                [cat rotate:180];
+                CCLOG(@"cat rot %i",[cat catOrientation]);
+            }
         }
+        CCLOG(@"rotation at start %i",rotation);
     }else {
         NSString* cutName = [NSString stringWithFormat:@"cutscenes/cutscene%i", [currentLevel getNextLevel]];
         CCScene *cutScene = [CCBReader loadAsScene:cutName];
