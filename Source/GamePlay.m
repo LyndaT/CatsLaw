@@ -34,6 +34,8 @@ CGFloat immuneTime = 3.0f;
     CCNode *pauseMenu;
     DeathScreen *deadMenu;
     CCNode *nextLevelMenu;
+    CCLabelTTF *pauseLabel;
+    CCLabelTTF *levelLabel;
     
     //from SpriteBuilder
     CCPhysicsNode *physNode;
@@ -349,6 +351,7 @@ CGFloat immuneTime = 3.0f;
         CCLOG(@"rotation: %i",rotation);
         pauseMenu.rotation = rotation;
         pauseMenu.visible=true;
+        pauseLabel.string=[NSString stringWithFormat:@"Paused\nLevel %i", globals.currentLevelNumber];
         tutorialNode.visible=NO;
     }
     else{
@@ -457,6 +460,7 @@ CGFloat immuneTime = 3.0f;
 - (void)showNextLevelMenu {
     nextLevelMenu.rotation = rotation;
     nextLevelMenu.visible=true;
+    levelLabel.string=[NSString stringWithFormat:@"Level %i\nComplete!", globals.currentLevelNumber];
     [[CCDirector sharedDirector] pause];
     isPaused=YES;
     pauseButton.visible = NO;

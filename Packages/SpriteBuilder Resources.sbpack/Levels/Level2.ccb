@@ -2224,49 +2224,6 @@
 						<array/>
 						<key>customClass</key>
 						<string>Ground</string>
-						<key>customProperties</key>
-						<array>
-							<dict>
-								<key>name</key>
-								<string>levelRotation</string>
-								<key>optimized</key>
-								<false/>
-								<key>type</key>
-								<integer>0</integer>
-								<key>value</key>
-								<string>0</string>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>numCakes</string>
-								<key>optimized</key>
-								<false/>
-								<key>type</key>
-								<integer>0</integer>
-								<key>value</key>
-								<string>0</string>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>nextLevel</string>
-								<key>optimized</key>
-								<false/>
-								<key>type</key>
-								<integer>0</integer>
-								<key>value</key>
-								<string>0</string>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>isCutsceneNext</string>
-								<key>optimized</key>
-								<false/>
-								<key>type</key>
-								<integer>0</integer>
-								<key>value</key>
-								<string>0</string>
-							</dict>
-						</array>
 						<key>displayName</key>
 						<string>groundCol</string>
 						<key>memberVarAssignmentName</key>
@@ -2441,49 +2398,6 @@
 						<array/>
 						<key>customClass</key>
 						<string>Ground</string>
-						<key>customProperties</key>
-						<array>
-							<dict>
-								<key>name</key>
-								<string>levelRotation</string>
-								<key>optimized</key>
-								<false/>
-								<key>type</key>
-								<integer>0</integer>
-								<key>value</key>
-								<string>0</string>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>numCakes</string>
-								<key>optimized</key>
-								<false/>
-								<key>type</key>
-								<integer>0</integer>
-								<key>value</key>
-								<string>0</string>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>nextLevel</string>
-								<key>optimized</key>
-								<false/>
-								<key>type</key>
-								<integer>0</integer>
-								<key>value</key>
-								<string>0</string>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>isCutsceneNext</string>
-								<key>optimized</key>
-								<false/>
-								<key>type</key>
-								<integer>0</integer>
-								<key>value</key>
-								<string>0</string>
-							</dict>
-						</array>
 						<key>displayName</key>
 						<string>groundCol</string>
 						<key>memberVarAssignmentName</key>
@@ -2656,49 +2570,6 @@
 						<array/>
 						<key>customClass</key>
 						<string>Ground</string>
-						<key>customProperties</key>
-						<array>
-							<dict>
-								<key>name</key>
-								<string>levelRotation</string>
-								<key>optimized</key>
-								<false/>
-								<key>type</key>
-								<integer>0</integer>
-								<key>value</key>
-								<string>0</string>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>numCakes</string>
-								<key>optimized</key>
-								<false/>
-								<key>type</key>
-								<integer>0</integer>
-								<key>value</key>
-								<string>0</string>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>nextLevel</string>
-								<key>optimized</key>
-								<false/>
-								<key>type</key>
-								<integer>0</integer>
-								<key>value</key>
-								<string>0</string>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>isCutsceneNext</string>
-								<key>optimized</key>
-								<false/>
-								<key>type</key>
-								<integer>0</integer>
-								<key>value</key>
-								<string>0</string>
-							</dict>
-						</array>
 						<key>displayName</key>
 						<string>groundCol</string>
 						<key>memberVarAssignmentName</key>
@@ -2871,49 +2742,6 @@
 						<array/>
 						<key>customClass</key>
 						<string>Ground</string>
-						<key>customProperties</key>
-						<array>
-							<dict>
-								<key>name</key>
-								<string>levelRotation</string>
-								<key>optimized</key>
-								<false/>
-								<key>type</key>
-								<integer>0</integer>
-								<key>value</key>
-								<string>0</string>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>numCakes</string>
-								<key>optimized</key>
-								<false/>
-								<key>type</key>
-								<integer>0</integer>
-								<key>value</key>
-								<string>0</string>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>nextLevel</string>
-								<key>optimized</key>
-								<false/>
-								<key>type</key>
-								<integer>0</integer>
-								<key>value</key>
-								<string>0</string>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>isCutsceneNext</string>
-								<key>optimized</key>
-								<false/>
-								<key>type</key>
-								<integer>0</integer>
-								<key>value</key>
-								<string>0</string>
-							</dict>
-						</array>
 						<key>displayName</key>
 						<string>groundCol</string>
 						<key>memberVarAssignmentName</key>
@@ -3086,49 +2914,6 @@
 						<array/>
 						<key>customClass</key>
 						<string>Ground</string>
-						<key>customProperties</key>
-						<array>
-							<dict>
-								<key>name</key>
-								<string>levelRotation</string>
-								<key>optimized</key>
-								<false/>
-								<key>type</key>
-								<integer>0</integer>
-								<key>value</key>
-								<string>0</string>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>numCakes</string>
-								<key>optimized</key>
-								<false/>
-								<key>type</key>
-								<integer>0</integer>
-								<key>value</key>
-								<string>0</string>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>nextLevel</string>
-								<key>optimized</key>
-								<false/>
-								<key>type</key>
-								<integer>0</integer>
-								<key>value</key>
-								<string>0</string>
-							</dict>
-							<dict>
-								<key>name</key>
-								<string>isCutsceneNext</string>
-								<key>optimized</key>
-								<false/>
-								<key>type</key>
-								<integer>0</integer>
-								<key>value</key>
-								<string>0</string>
-							</dict>
-						</array>
 						<key>displayName</key>
 						<string>groundCol</string>
 						<key>memberVarAssignmentName</key>

@@ -706,7 +706,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>assets/buttons/next.png</string>
+									<string>assets/buttons/retry.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -717,7 +717,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>assets/buttons/next.png</string>
+									<string>assets/buttons/retry.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -741,7 +741,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>assets/buttons/next.png</string>
+									<string>assets/buttons/retry.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -760,7 +760,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>assets/buttons/next.png</string>
+									<string>assets/buttons/retry.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -995,9 +995,9 @@
 				<key>displayName</key>
 				<string>CCLabelTTF</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>pauseLabel</string>
 				<key>memberVarAssignmentType</key>
-				<integer>1</integer>
+				<integer>2</integer>
 				<key>properties</key>
 				<array>
 					<dict>
@@ -1203,6 +1203,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
