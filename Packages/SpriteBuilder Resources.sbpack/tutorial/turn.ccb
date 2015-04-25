@@ -232,8 +232,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>138.19998168945312</real>
-							<real>246</real>
+							<real>150.19998168945312</real>
+							<real>208</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -270,8 +270,9 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Turn the phone
-to change gravity!</string>
+							<string>Turn 
+the phone to 
+change gravity!</string>
 							<false/>
 						</array>
 					</dict>
@@ -290,7 +291,7 @@ to change gravity!</string>
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>20</real>
+							<real>28</real>
 							<integer>0</integer>
 						</array>
 					</dict>

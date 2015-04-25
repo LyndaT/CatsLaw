@@ -170,8 +170,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.75</real>
-							<real>0.30000001192092896</real>
+							<real>0.71126759052276611</real>
+							<real>0.31875008344650269</real>
 							<integer>0</integer>
 							<integer>2</integer>
 							<integer>2</integer>
@@ -216,7 +216,8 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Turn while holding!</string>
+							<string>Turn upside-down
+while holding!</string>
 							<false/>
 						</array>
 					</dict>
@@ -235,7 +236,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>20</real>
+							<real>28</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -494,8 +495,6 @@
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
@@ -551,7 +550,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>0.0</real>
+			<real>4</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
