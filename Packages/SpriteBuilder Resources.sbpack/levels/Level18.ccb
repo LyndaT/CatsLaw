@@ -430,8 +430,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>381</real>
-							<real>277</real>
+							<real>148</real>
+							<real>209</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -4454,7 +4454,7 @@
 				<key>type</key>
 				<integer>1</integer>
 				<key>value</key>
-				<string>270.000000</string>
+				<string>90.000000</string>
 			</dict>
 			<dict>
 				<key>name</key>
